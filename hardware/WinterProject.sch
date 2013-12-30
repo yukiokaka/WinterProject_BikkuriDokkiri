@@ -1684,6 +1684,12 @@ grid 7.5 mm, outline 3.2 x 10.3 mm</description>
 <wire x1="0" y1="2.54" x2="-1.27" y2="0.635" width="0.254" layer="94"/>
 <text x="-2.54" y="0" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 </symbol>
+<symbol name="VCCEXT">
+<pin name="VCCEXT" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+<wire x1="1.27" y1="0.635" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-1.27" y2="0.635" width="0.254" layer="94"/>
+<text x="-2.54" y="0" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="VCC" prefix="P+">
@@ -1716,6 +1722,18 @@ grid 7.5 mm, outline 3.2 x 10.3 mm</description>
 <description>5V</description>
 <gates>
 <gate name="1" symbol="+5V" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VCCEXT">
+<gates>
+<gate name="G$1" symbol="VCCEXT" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -3054,6 +3072,10 @@ Pin assignment differs from TAR5S*</description>
 <part name="SUPPLY14" library="Supply_Robotech" deviceset="GND" device=""/>
 <part name="SUPPLY15" library="Supply_Robotech" deviceset="GND" device=""/>
 <part name="SUPPLY16" library="Supply_Robotech" deviceset="GND" device=""/>
+<part name="U$5" library="Supply_Robotech" deviceset="+5V" device=""/>
+<part name="SUPPLY17" library="Supply_Robotech" deviceset="GND" device=""/>
+<part name="SUPPLY18" library="Supply_Robotech" deviceset="GND" device=""/>
+<part name="U$6" library="Supply_Robotech" deviceset="VCCEXT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3145,6 +3167,12 @@ Pin assignment differs from TAR5S*</description>
 <instance part="SUPPLY14" gate="GND" x="50.8" y="134.62"/>
 <instance part="SUPPLY15" gate="GND" x="109.22" y="152.4"/>
 <instance part="SUPPLY16" gate="GND" x="109.22" y="134.62"/>
+<instance part="CON2" gate="_PWR" x="-88.9" y="76.2"/>
+<instance part="U$5" gate="1" x="-88.9" y="83.82"/>
+<instance part="SUPPLY17" gate="GND" x="-88.9" y="66.04"/>
+<instance part="CON1" gate="_PWR" x="-96.52" y="111.76"/>
+<instance part="SUPPLY18" gate="GND" x="-96.52" y="101.6"/>
+<instance part="U$6" gate="G$1" x="-96.52" y="119.38"/>
 </instances>
 <busses>
 </busses>
@@ -3360,6 +3388,14 @@ Pin assignment differs from TAR5S*</description>
 <label x="104.14" y="139.7" size="1.778" layer="95"/>
 <wire x1="109.22" y1="137.16" x2="109.22" y2="139.7" width="0.1524" layer="91"/>
 <junction x="109.22" y="137.16"/>
+</segment>
+<segment>
+<pinref part="CON2" gate="_PWR" pin="GND"/>
+<pinref part="SUPPLY17" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="CON1" gate="_PWR" pin="GND"/>
+<pinref part="SUPPLY18" gate="GND" pin="GND"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -3838,6 +3874,10 @@ Pin assignment differs from TAR5S*</description>
 <label x="50.8" y="147.32" size="1.778" layer="95"/>
 <pinref part="U$4" gate="1" pin="+5V"/>
 </segment>
+<segment>
+<pinref part="CON2" gate="_PWR" pin="VCC"/>
+<pinref part="U$5" gate="1" pin="+5V"/>
+</segment>
 </net>
 <net name="N$23" class="0">
 <segment>
@@ -3858,6 +3898,12 @@ Pin assignment differs from TAR5S*</description>
 <pinref part="U1" gate="G$1" pin="PIO2_3/RI/MOSI1"/>
 <wire x1="33.02" y1="116.84" x2="43.18" y2="116.84" width="0.1524" layer="91"/>
 <label x="38.1" y="116.84" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="VCCEXT" class="0">
+<segment>
+<pinref part="CON1" gate="_PWR" pin="VCC"/>
+<pinref part="U$6" gate="G$1" pin="VCCEXT"/>
 </segment>
 </net>
 </nets>
