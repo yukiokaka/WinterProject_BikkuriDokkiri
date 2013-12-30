@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="6.5.0">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="16X16DOTMATRIX_MODULE">
+<pad name="J2OIA" x="53.34" y="0" drill="0.8" shape="square" rot="R180"/>
+<pad name="J2OIB" x="53.34" y="-2.54" drill="0.8" rot="R180"/>
+<pad name="J2OIC" x="53.34" y="-5.08" drill="0.8" rot="R180"/>
+<pad name="J2OID" x="53.34" y="-7.62" drill="0.8" rot="R180"/>
+<pad name="J2OIE" x="53.34" y="-10.16" drill="0.8" rot="R180"/>
+<pad name="J2VCC" x="50.8" y="0" drill="0.8" rot="R180"/>
+<pad name="J2RCK" x="50.8" y="-2.54" drill="0.8" rot="R180"/>
+<pad name="J2SCK" x="50.8" y="-5.08" drill="0.8" rot="R180"/>
+<pad name="J2SER" x="50.8" y="-7.62" drill="0.8" rot="R180"/>
+<pad name="J2GND" x="50.8" y="-10.16" drill="0.8" rot="R180"/>
+<pad name="J1OIA" x="2.54" y="0" drill="0.8" shape="square" rot="R180"/>
+<pad name="J1OIB" x="2.54" y="-2.54" drill="0.8" rot="R180"/>
+<pad name="J1OIC" x="2.54" y="-5.08" drill="0.8" rot="R180"/>
+<pad name="J1OID" x="2.54" y="-7.62" drill="0.8" rot="R180"/>
+<pad name="J1OIE" x="2.54" y="-10.16" drill="0.8" rot="R180"/>
+<pad name="J1VCC" x="0" y="0" drill="0.8" rot="R180"/>
+<pad name="J1RCK" x="0" y="-2.54" drill="0.8" rot="R180"/>
+<pad name="J1SCK" x="0" y="-5.08" drill="0.8" rot="R180"/>
+<pad name="J1SER" x="0" y="-7.62" drill="0.8" rot="R180"/>
+<pad name="J1GND" x="0" y="-10.16" drill="0.8" rot="R180"/>
+<wire x1="69" y1="14" x2="69" y2="-56" width="0.127" layer="21"/>
+<wire x1="69" y1="-56" x2="-15" y2="-56" width="0.127" layer="21"/>
+<wire x1="-15" y1="-56" x2="-15" y2="14" width="0.127" layer="21"/>
+<wire x1="-15" y1="14" x2="69" y2="14" width="0.127" layer="21"/>
+<circle x="64" y="9" radius="5" width="0.127" layer="21"/>
+<hole x="64" y="9" drill="3.5"/>
+<circle x="64" y="-51" radius="5" width="0.127" layer="21"/>
+<circle x="-10" y="-51" radius="5" width="0.127" layer="21"/>
+<circle x="-10" y="9" radius="5" width="0.127" layer="21"/>
+<hole x="64" y="-51" drill="3.5"/>
+<hole x="-10" y="-51" drill="3.5"/>
+<hole x="-10" y="9" drill="3.5"/>
+<wire x1="54.61" y1="1.27" x2="49.53" y2="1.27" width="0.127" layer="21"/>
+<wire x1="49.53" y1="1.27" x2="49.53" y2="-11.43" width="0.127" layer="21"/>
+<wire x1="49.53" y1="-11.43" x2="54.61" y2="-11.43" width="0.127" layer="21"/>
+<wire x1="54.61" y1="-11.43" x2="54.61" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-11.43" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-11.43" x2="3.81" y2="-11.43" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-11.43" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<text x="53.34" y="-12.7" size="1.27" layer="21" rot="R180">J2</text>
+<text x="2.54" y="-12.7" size="1.27" layer="21" rot="R180">J1</text>
+</package>
+</packages>
+<symbols>
+<symbol name="16X16DOTMAXRIX_MODULE">
+<wire x1="5.08" y1="15.24" x2="27.94" y2="15.24" width="0.254" layer="94"/>
+<wire x1="27.94" y1="15.24" x2="27.94" y2="0" width="0.254" layer="94"/>
+<wire x1="27.94" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="5.08" y2="15.24" width="0.254" layer="94"/>
+<pin name="VCC" x="0" y="12.7" length="middle"/>
+<pin name="RCK" x="0" y="10.16" length="middle"/>
+<pin name="SCK" x="0" y="7.62" length="middle"/>
+<pin name="SER" x="0" y="5.08" length="middle"/>
+<pin name="GND" x="0" y="2.54" length="middle"/>
+<pin name="OIE" x="33.02" y="2.54" length="middle" rot="R180"/>
+<pin name="OID" x="33.02" y="5.08" length="middle" rot="R180"/>
+<pin name="OIC" x="33.02" y="7.62" length="middle" rot="R180"/>
+<pin name="OIB" x="33.02" y="10.16" length="middle" rot="R180"/>
+<pin name="OIA" x="33.02" y="12.7" length="middle" rot="R180"/>
+<text x="5.08" y="15.24" size="1.27" layer="95">&gt;NAME</text>
+<text x="5.08" y="17.78" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="16X16DOTMATRIX_MODULE">
+<gates>
+<gate name="G$1" symbol="16X16DOTMAXRIX_MODULE" x="0" y="22.86"/>
+<gate name="G$2" symbol="16X16DOTMAXRIX_MODULE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="16X16DOTMATRIX_MODULE">
+<connects>
+<connect gate="G$1" pin="GND" pad="J1GND"/>
+<connect gate="G$1" pin="OIA" pad="J1OIA"/>
+<connect gate="G$1" pin="OIB" pad="J1OIB"/>
+<connect gate="G$1" pin="OIC" pad="J1OIC"/>
+<connect gate="G$1" pin="OID" pad="J1OID"/>
+<connect gate="G$1" pin="OIE" pad="J1OIE"/>
+<connect gate="G$1" pin="RCK" pad="J1RCK"/>
+<connect gate="G$1" pin="SCK" pad="J1SCK"/>
+<connect gate="G$1" pin="SER" pad="J1SER"/>
+<connect gate="G$1" pin="VCC" pad="J1VCC"/>
+<connect gate="G$2" pin="GND" pad="J2GND"/>
+<connect gate="G$2" pin="OIA" pad="J2OIA"/>
+<connect gate="G$2" pin="OIB" pad="J2OIB"/>
+<connect gate="G$2" pin="OIC" pad="J2OIC"/>
+<connect gate="G$2" pin="OID" pad="J2OID"/>
+<connect gate="G$2" pin="OIE" pad="J2OIE"/>
+<connect gate="G$2" pin="RCK" pad="J2RCK"/>
+<connect gate="G$2" pin="SCK" pad="J2SCK"/>
+<connect gate="G$2" pin="SER" pad="J2SER"/>
+<connect gate="G$2" pin="VCC" pad="J2VCC"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>
