@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -561,7 +561,7 @@ NS Package M08A</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="formitaminimum">
+<designrules>
 <description language="ja">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Design Rules must be satisfied for Mita Laboratry cutting machine</description>
@@ -747,9 +747,9 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <element name="D5" library="Diode_Robotech" package="LED5_OFFSET" value="TLN105B" x="17.05" y="65.8"/>
 <element name="R12" library="Passive_Robotech" package="2012-R" value="2R2" x="23.43" y="65.82" rot="MR0"/>
 <element name="D8" library="Diode_Robotech" package="LED5_OFFSET" value="TLN105B" x="63.25" y="3.8" rot="R180"/>
-<element name="R13" library="Passive_Robotech" package="2012-R" value="2R2" x="61.376" y="12.848" rot="MR270"/>
+<element name="R13" library="Passive_Robotech" package="2012-R" value="2R2" x="61.376" y="36.978" rot="MR270"/>
 <element name="D11" library="Diode_Robotech" package="LED5_OFFSET" value="TLN105B" x="5.54" y="16.59" rot="R90"/>
-<element name="R14" library="Passive_Robotech" package="2012-R" value="2R2" x="4.78" y="23.32" rot="R270"/>
+<element name="R14" library="Passive_Robotech" package="2012-R" value="2R2" x="39.164" y="22.56" rot="MR0"/>
 <element name="CON2" library="Connector_Robotech" package="IL-G-04-S" value="UART-S" x="49.65" y="65.18" rot="MR0"/>
 <element name="X1" library="Passive_Robotech" package="HC49/S" value="" x="53.91" y="41.13" rot="R90"/>
 <element name="R5" library="Passive_Robotech" package="2012-R" value="1k" x="74.7" y="43.67" rot="MR0"/>
@@ -820,8 +820,6 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 </polygon>
 <wire x1="17.386" y1="2.794" x2="17.386" y2="4.994" width="0.254" layer="16"/>
 <wire x1="17.386" y1="4.994" x2="16.794" y2="5.586" width="0.254" layer="16"/>
-<wire x1="81.62" y1="15.352" x2="78.16" y2="15.352" width="0.254" layer="16"/>
-<wire x1="78.16" y1="15.352" x2="78.052" y2="15.244" width="0.254" layer="16"/>
 <wire x1="4.678" y1="54.02" x2="2.342" y2="54.02" width="0.254" layer="16"/>
 <wire x1="2.342" y1="54.02" x2="2.106" y2="53.784" width="0.254" layer="16"/>
 <wire x1="12.216" y1="38.1" x2="9.374" y2="38.1" width="0.4064" layer="1"/>
@@ -833,32 +831,18 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="68.072" y1="66.398" x2="68.072" y2="62.738" width="0.254" layer="16"/>
 <wire x1="68.072" y1="62.738" x2="66.394" y2="61.06" width="0.254" layer="16"/>
 <wire x1="66.394" y1="61.06" x2="66.07" y2="61.06" width="0.254" layer="16"/>
-<wire x1="25.654" y1="29.21" x2="26.664" y2="28.2" width="0.254" layer="1"/>
 <wire x1="26.664" y1="28.2" x2="26.993" y2="27.692" width="0.254" layer="1"/>
 <wire x1="35" y1="29.492" x2="35.024" y2="30" width="0.254" layer="1"/>
 <wire x1="54.293" y1="26" x2="54.293" y2="25.908" width="0.254" layer="1"/>
 <wire x1="54.293" y1="25.908" x2="54.293" y2="6.192" width="0.254" layer="1"/>
 <wire x1="26.993" y1="27.692" x2="26.993" y2="6.192" width="0.254" layer="1"/>
-<wire x1="17.54" y1="48.38" x2="17.54" y2="45.84" width="0.3048" layer="16"/>
-<wire x1="17.54" y1="45.84" x2="15" y2="45.84" width="0.3048" layer="16"/>
 <wire x1="68.34" y1="48.38" x2="68.34" y2="45.84" width="0.254" layer="16"/>
 <wire x1="68.34" y1="45.84" x2="65.8" y2="45.84" width="0.254" layer="16"/>
-<wire x1="75" y1="33.81" x2="73.956" y2="32.766" width="0.254" layer="16"/>
-<wire x1="73.956" y1="32.766" x2="69.85" y2="32.766" width="0.254" layer="16"/>
-<wire x1="69.85" y1="32.766" x2="68.834" y2="31.75" width="0.254" layer="16"/>
-<wire x1="68.834" y1="31.75" x2="68.834" y2="16.764" width="0.254" layer="16"/>
-<wire x1="68.834" y1="16.764" x2="72.136" y2="13.462" width="0.254" layer="16"/>
-<wire x1="72.136" y1="13.462" x2="76.708" y2="13.462" width="0.254" layer="16"/>
-<wire x1="76.708" y1="13.462" x2="78.052" y2="14.806" width="0.254" layer="16"/>
-<wire x1="78.052" y1="14.806" x2="78.052" y2="15.244" width="0.254" layer="16"/>
-<wire x1="58.9046" y1="44" x2="58.9046" y2="37" width="0.254" layer="16"/>
 <wire x1="26.993" y1="6.192" x2="26.897" y2="6.604" width="0.254" layer="1"/>
 <wire x1="26.897" y1="6.604" x2="18.796" y2="6.604" width="0.254" layer="1"/>
 <via x="18.796" y="6.604" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="18.796" y1="6.604" x2="17.778" y2="5.586" width="0.254" layer="16"/>
 <wire x1="17.778" y1="5.586" x2="16.794" y2="5.586" width="0.254" layer="16"/>
-<wire x1="42.19" y1="43.21" x2="50.068" y2="43.21" width="0.254" layer="16"/>
-<wire x1="50.068" y1="43.21" x2="52.578" y2="45.72" width="0.254" layer="16"/>
 <wire x1="52.578" y1="45.72" x2="57.404" y2="45.72" width="0.254" layer="16"/>
 <wire x1="57.404" y1="45.72" x2="58.9046" y2="44.2194" width="0.254" layer="16"/>
 <wire x1="58.9046" y1="44.2194" x2="58.9046" y2="44" width="0.254" layer="16"/>
@@ -869,34 +853,24 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="0.508" y1="57.658" x2="1.016" y2="58.166" width="0.254" layer="16"/>
 <wire x1="1.016" y1="58.166" x2="8.636" y2="58.166" width="0.3048" layer="16"/>
 <wire x1="8.636" y1="58.166" x2="11.684" y2="55.118" width="0.3048" layer="16"/>
-<wire x1="11.684" y1="55.118" x2="11.684" y2="47.498" width="0.3048" layer="16"/>
-<wire x1="11.684" y1="47.498" x2="13.342" y2="45.84" width="0.3048" layer="16"/>
-<wire x1="13.342" y1="45.84" x2="15" y2="45.84" width="0.3048" layer="16"/>
-<wire x1="58.9046" y1="37" x2="59.69" y2="36.2146" width="0.254" layer="16"/>
-<wire x1="59.69" y1="36.2146" x2="59.69" y2="34.798" width="0.254" layer="16"/>
-<via x="59.69" y="34.798" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="61.722" y1="32.766" x2="69.85" y2="32.766" width="0.254" layer="1"/>
-<via x="69.85" y="32.766" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="11.684" y1="55.118" x2="11.684" y2="46.736" width="0.3048" layer="16"/>
 <wire x1="68.34" y1="48.38" x2="70.238" y2="46.482" width="0.254" layer="16"/>
-<wire x1="70.238" y1="46.482" x2="78.74" y2="46.482" width="0.254" layer="16"/>
-<wire x1="78.74" y1="46.482" x2="79.502" y2="45.72" width="0.254" layer="16"/>
-<wire x1="79.502" y1="45.72" x2="80.772" y2="45.72" width="0.254" layer="16"/>
+<wire x1="70.238" y1="46.482" x2="71.374" y2="46.482" width="0.254" layer="16"/>
+<wire x1="71.374" y1="46.482" x2="72.136" y2="45.72" width="0.254" layer="16"/>
+<wire x1="72.136" y1="45.72" x2="80.772" y2="45.72" width="0.254" layer="16"/>
 <wire x1="80.772" y1="45.72" x2="81.534" y2="46.482" width="0.254" layer="16"/>
 <wire x1="81.534" y1="46.482" x2="81.534" y2="52.324" width="0.254" layer="16"/>
 <wire x1="81.534" y1="52.324" x2="80.01" y2="53.848" width="0.254" layer="16"/>
 <wire x1="80.01" y1="53.848" x2="78.994" y2="53.848" width="0.254" layer="16"/>
-<wire x1="78.994" y1="53.848" x2="70.612" y2="62.23" width="0.254" layer="16"/>
+<wire x1="78.994" y1="53.848" x2="74.93" y2="57.912" width="0.254" layer="16"/>
+<wire x1="74.93" y1="57.912" x2="70.612" y2="62.23" width="0.254" layer="16"/>
 <wire x1="70.612" y1="62.23" x2="70.612" y2="68.834" width="0.254" layer="16"/>
 <wire x1="69.85" y1="69.596" x2="67.31" y2="69.596" width="0.254" layer="16"/>
 <wire x1="67.31" y1="69.596" x2="66.67" y2="68.956" width="0.254" layer="16"/>
 <wire x1="66.67" y1="68.956" x2="66.67" y2="67.8" width="0.254" layer="16"/>
 <wire x1="69.85" y1="69.596" x2="70.612" y2="68.834" width="0.254" layer="16"/>
-<wire x1="25.654" y1="29.21" x2="12.446" y2="29.21" width="0.254" layer="1"/>
-<wire x1="12.446" y1="29.21" x2="8.7946" y2="32.8614" width="0.254" layer="1"/>
-<wire x1="8.7946" y1="32.8614" x2="8.7946" y2="33.02" width="0.254" layer="1"/>
 <via x="14.986" y="43.434" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="18.034" y1="41.148" x2="18.034" y2="36.83" width="0.3048" layer="1"/>
-<wire x1="18.034" y1="36.83" x2="16.256" y2="35.052" width="0.3048" layer="1"/>
+<wire x1="17.526" y1="36.322" x2="16.256" y2="35.052" width="0.3048" layer="1"/>
 <wire x1="16.256" y1="35.052" x2="13.97" y2="35.052" width="0.3048" layer="1"/>
 <wire x1="13.97" y1="35.052" x2="12.216" y2="36.806" width="0.3048" layer="1"/>
 <wire x1="12.216" y1="36.806" x2="12.216" y2="38.1" width="0.3048" layer="1"/>
@@ -904,18 +878,10 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="59.69" y1="69.596" x2="15.494" y2="69.596" width="0.254" layer="16"/>
 <wire x1="15.494" y1="69.596" x2="11.684" y2="65.786" width="0.254" layer="16"/>
 <wire x1="11.684" y1="65.786" x2="11.684" y2="55.118" width="0.254" layer="16"/>
-<wire x1="59.69" y1="34.798" x2="61.722" y2="32.766" width="0.254" layer="1"/>
-<wire x1="71.374" y1="27.432" x2="72.136" y2="28.194" width="0.254" layer="1"/>
-<wire x1="72.136" y1="28.194" x2="72.136" y2="31.75" width="0.254" layer="1"/>
-<wire x1="72.136" y1="31.75" x2="71.12" y2="32.766" width="0.254" layer="1"/>
-<wire x1="71.12" y1="32.766" x2="69.85" y2="32.766" width="0.254" layer="1"/>
 <wire x1="45.84" y1="65.18" x2="47.97" y2="67.31" width="0.254" layer="16"/>
-<wire x1="47.97" y1="67.31" x2="57.404" y2="67.31" width="0.254" layer="16"/>
+<wire x1="47.97" y1="67.31" x2="52.832" y2="67.31" width="0.254" layer="16"/>
+<wire x1="52.832" y1="67.31" x2="57.404" y2="67.31" width="0.254" layer="16"/>
 <wire x1="57.404" y1="67.31" x2="59.69" y2="69.596" width="0.254" layer="16"/>
-<wire x1="14.986" y1="43.434" x2="15.748" y2="43.434" width="0.3048" layer="1"/>
-<wire x1="15.748" y1="43.434" x2="18.034" y2="41.148" width="0.3048" layer="1"/>
-<wire x1="14.986" y1="43.434" x2="14.986" y2="45.826" width="0.3048" layer="16"/>
-<wire x1="14.986" y1="45.826" x2="15" y2="45.84" width="0.3048" layer="16"/>
 <wire x1="37.14" y1="56.48" x2="45.84" y2="65.18" width="0.3048" layer="16"/>
 <wire x1="37.14" y1="46.76" x2="37.14" y2="56.48" width="0.3048" layer="16"/>
 <contactref element="CON2" pad="1"/>
@@ -929,6 +895,46 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="42.5" y1="28.626" x2="43.434" y2="27.692" width="0.3048" layer="1"/>
 <wire x1="35" y1="29.492" x2="35" y2="28.506" width="0.3048" layer="1"/>
 <wire x1="35" y1="28.506" x2="35.814" y2="27.692" width="0.3048" layer="1"/>
+<wire x1="42.19" y1="43.21" x2="40.864" y2="43.21" width="0.254" layer="16"/>
+<wire x1="40.864" y1="43.21" x2="40.132" y2="43.942" width="0.254" layer="16"/>
+<wire x1="40.132" y1="43.942" x2="40.132" y2="44.704" width="0.254" layer="16"/>
+<wire x1="40.132" y1="44.704" x2="41.402" y2="45.974" width="0.254" layer="16"/>
+<wire x1="41.402" y1="45.974" x2="41.402" y2="52.324" width="0.254" layer="16"/>
+<wire x1="41.402" y1="52.324" x2="52.07" y2="62.992" width="0.254" layer="16"/>
+<wire x1="52.07" y1="62.992" x2="52.07" y2="66.548" width="0.254" layer="16"/>
+<wire x1="52.07" y1="66.548" x2="52.832" y2="67.31" width="0.254" layer="16"/>
+<wire x1="50.068" y1="43.21" x2="42.19" y2="43.21" width="0.254" layer="16"/>
+<wire x1="50.068" y1="43.21" x2="52.578" y2="45.72" width="0.254" layer="16"/>
+<wire x1="58.9046" y1="44" x2="58.9046" y2="37" width="0.254" layer="16"/>
+<wire x1="15" y1="45.84" x2="15" y2="43.448" width="0.3048" layer="16"/>
+<wire x1="15" y1="43.448" x2="14.986" y2="43.434" width="0.254" layer="16"/>
+<wire x1="11.684" y1="46.736" x2="14.986" y2="43.434" width="0.3048" layer="16"/>
+<wire x1="17.54" y1="48.38" x2="16.898" y2="48.38" width="0.254" layer="16"/>
+<wire x1="16.898" y1="48.38" x2="15.748" y2="49.53" width="0.254" layer="16"/>
+<wire x1="15.748" y1="49.53" x2="14.478" y2="49.53" width="0.254" layer="16"/>
+<wire x1="14.478" y1="49.53" x2="13.716" y2="48.768" width="0.254" layer="16"/>
+<wire x1="13.716" y1="48.768" x2="13.716" y2="48.006" width="0.254" layer="16"/>
+<wire x1="13.716" y1="48.006" x2="14.224" y2="47.498" width="0.254" layer="16"/>
+<via x="17.526" y="43.434" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="17.526" y1="36.322" x2="17.526" y2="39.624" width="0.3048" layer="1"/>
+<wire x1="17.526" y1="39.624" x2="17.526" y2="43.434" width="0.3048" layer="1"/>
+<wire x1="14.986" y1="43.434" x2="14.986" y2="42.164" width="0.3048" layer="1"/>
+<wire x1="14.986" y1="42.164" x2="17.526" y2="39.624" width="0.3048" layer="1"/>
+<wire x1="17.54" y1="45.84" x2="17.54" y2="43.448" width="0.254" layer="16"/>
+<wire x1="17.54" y1="43.448" x2="17.526" y2="43.434" width="0.254" layer="16"/>
+<wire x1="14.224" y1="47.498" x2="15.882" y2="47.498" width="0.254" layer="16"/>
+<wire x1="15.882" y1="47.498" x2="17.54" y2="45.84" width="0.254" layer="16"/>
+<wire x1="81.62" y1="15.352" x2="83.312" y2="17.044" width="0.254" layer="16"/>
+<wire x1="83.312" y1="17.044" x2="83.312" y2="54.61" width="0.254" layer="16"/>
+<wire x1="83.312" y1="54.61" x2="80.01" y2="57.912" width="0.254" layer="16"/>
+<wire x1="80.01" y1="57.912" x2="74.93" y2="57.912" width="0.254" layer="16"/>
+<wire x1="81.62" y1="15.352" x2="78.16" y2="15.352" width="0.254" layer="16"/>
+<wire x1="78.16" y1="15.352" x2="78.052" y2="15.244" width="0.254" layer="16"/>
+<wire x1="8.7946" y1="33.02" x2="8.7946" y2="16.6054" width="0.254" layer="1"/>
+<wire x1="8.7946" y1="16.6054" x2="18.796" y2="6.604" width="0.254" layer="1"/>
+<wire x1="75" y1="33.81" x2="66.266" y2="33.81" width="0.254" layer="16"/>
+<wire x1="66.266" y1="33.81" x2="63.076" y2="37" width="0.254" layer="16"/>
+<wire x1="63.076" y1="37" x2="58.9046" y2="37" width="0.254" layer="16"/>
 </signal>
 <signal name="VCC">
 <contactref element="R1" pad="2"/>
@@ -955,42 +961,28 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="40.132" y1="38.152" x2="40.14" y2="38.16" width="0.3048" layer="16"/>
 <wire x1="13.8124" y1="10.826" x2="10.034" y2="10.826" width="0.254" layer="16"/>
 <wire x1="10.034" y1="10.826" x2="5.54" y2="15.32" width="0.254" layer="16"/>
-<wire x1="76.532" y1="19.8756" x2="72.9616" y2="19.8756" width="0.254" layer="16"/>
-<wire x1="72.9616" y1="19.8756" x2="72.898" y2="19.812" width="0.254" layer="16"/>
-<via x="72.898" y="19.812" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="72.898" y1="19.812" x2="72.898" y2="6.604" width="0.254" layer="1"/>
-<wire x1="72.898" y1="6.604" x2="70.104" y2="3.81" width="0.254" layer="1"/>
-<wire x1="70.104" y1="3.81" x2="65.018" y2="3.81" width="0.254" layer="1"/>
-<wire x1="65.018" y1="3.81" x2="64.52" y2="3.8" width="0.254" layer="1"/>
-<wire x1="73.6524" y1="43.67" x2="73.6524" y2="44.4424" width="0.254" layer="16"/>
-<wire x1="73.6524" y1="44.4424" x2="75.184" y2="45.974" width="0.254" layer="16"/>
-<wire x1="75.184" y1="45.974" x2="78.486" y2="45.974" width="0.254" layer="16"/>
-<wire x1="78.486" y1="45.974" x2="82.042" y2="42.418" width="0.254" layer="16"/>
-<wire x1="82.042" y1="42.418" x2="82.042" y2="32.512" width="0.254" layer="16"/>
-<wire x1="82.042" y1="32.512" x2="82.042" y2="26.924" width="0.254" layer="16"/>
-<wire x1="82.042" y1="26.924" x2="82.042" y2="23.368" width="0.254" layer="16"/>
-<wire x1="82.042" y1="23.368" x2="78.486" y2="19.812" width="0.254" layer="16"/>
-<wire x1="78.486" y1="19.812" x2="76.454" y2="19.812" width="0.254" layer="16"/>
+<wire x1="73.6524" y1="43.67" x2="73.6524" y2="44.4424" width="0.3048" layer="16"/>
+<wire x1="73.6524" y1="44.4424" x2="74.168" y2="44.958" width="0.3048" layer="16"/>
+<wire x1="74.168" y1="44.958" x2="79.502" y2="44.958" width="0.3048" layer="16"/>
+<wire x1="79.502" y1="44.958" x2="82.042" y2="42.418" width="0.3048" layer="16"/>
+<wire x1="82.042" y1="42.418" x2="82.042" y2="32.512" width="0.3048" layer="16"/>
+<wire x1="82.042" y1="32.512" x2="82.042" y2="29.7477" width="0.3048" layer="16"/>
+<wire x1="82.042" y1="29.464" x2="82.042" y2="26.924" width="0.3048" layer="16"/>
+<wire x1="82.042" y1="26.924" x2="82.042" y2="23.368" width="0.3048" layer="16"/>
+<wire x1="82.042" y1="23.368" x2="78.486" y2="19.812" width="0.3048" layer="16"/>
+<wire x1="78.486" y1="19.812" x2="76.454" y2="19.812" width="0.3048" layer="16"/>
 <wire x1="76.454" y1="19.812" x2="76.2" y2="19.558" width="0.254" layer="16"/>
 <wire x1="76.2" y1="19.558" x2="76.2144" y2="19.558" width="0.254" layer="16"/>
 <wire x1="76.2144" y1="19.558" x2="76.532" y2="19.8756" width="0.254" layer="16"/>
-<wire x1="80.3057" y1="31.484" x2="80.3057" y2="28.4063" width="0.254" layer="16"/>
-<wire x1="80.3057" y1="28.4063" x2="80.518" y2="28.194" width="0.254" layer="16"/>
-<wire x1="80.518" y1="28.194" x2="80.518" y2="28.5297" width="0.254" layer="16"/>
-<wire x1="80.518" y1="28.5297" x2="80.2857" y2="28.762" width="0.254" layer="16"/>
-<wire x1="80.2857" y1="28.762" x2="80.2857" y2="28.6803" width="0.254" layer="16"/>
-<wire x1="80.2857" y1="28.6803" x2="82.042" y2="26.924" width="0.254" layer="16"/>
-<wire x1="73.5724" y1="37.67" x2="73.5724" y2="36.6636" width="0.254" layer="16"/>
-<wire x1="73.5724" y1="36.6636" x2="74.168" y2="36.068" width="0.254" layer="16"/>
-<wire x1="74.168" y1="36.068" x2="76.708" y2="36.068" width="0.254" layer="16"/>
-<wire x1="76.708" y1="36.068" x2="78.74" y2="34.036" width="0.254" layer="16"/>
-<wire x1="78.74" y1="34.036" x2="80.518" y2="34.036" width="0.254" layer="16"/>
-<wire x1="80.518" y1="34.036" x2="82.042" y2="32.512" width="0.254" layer="16"/>
-<wire x1="5.54" y1="15.32" x2="3.73" y2="17.098" width="0.254" layer="16"/>
+<wire x1="73.5724" y1="37.67" x2="73.5724" y2="36.6636" width="0.3048" layer="16"/>
+<wire x1="73.5724" y1="36.6636" x2="74.168" y2="36.068" width="0.3048" layer="16"/>
+<wire x1="74.168" y1="36.068" x2="76.708" y2="36.068" width="0.3048" layer="16"/>
+<wire x1="76.708" y1="36.068" x2="78.74" y2="34.036" width="0.3048" layer="16"/>
+<wire x1="78.74" y1="34.036" x2="80.518" y2="34.036" width="0.3048" layer="16"/>
+<wire x1="80.518" y1="34.036" x2="82.042" y2="32.512" width="0.3048" layer="16"/>
 <wire x1="6.032" y1="49.3564" x2="6.032" y2="48.45" width="0.254" layer="16"/>
 <wire x1="6.032" y1="48.45" x2="2.286" y2="44.704" width="0.254" layer="16"/>
-<wire x1="2.286" y1="44.704" x2="2.286" y2="18.542" width="0.254" layer="16"/>
-<wire x1="2.286" y1="18.542" x2="3.73" y2="17.098" width="0.254" layer="16"/>
+<wire x1="2.286" y1="44.704" x2="2.286" y2="17.272" width="0.254" layer="16"/>
 <via x="6.35" y="45.72" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="40.14" y1="38.16" x2="40.14" y2="40.378" width="0.254" layer="16"/>
 <wire x1="40.14" y1="40.378" x2="40.14" y2="40.902" width="0.254" layer="16"/>
@@ -1001,18 +993,15 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="32.004" y1="45.974" x2="34.544" y2="45.974" width="0.254" layer="16"/>
 <wire x1="34.544" y1="45.974" x2="38.608" y2="41.91" width="0.254" layer="16"/>
 <wire x1="38.608" y1="41.91" x2="40.14" y2="40.378" width="0.254" layer="16"/>
-<wire x1="79.54" y1="55.06" x2="82.042" y2="52.558" width="0.254" layer="16"/>
-<wire x1="82.042" y1="52.558" x2="82.042" y2="42.418" width="0.254" layer="16"/>
+<wire x1="79.54" y1="55.06" x2="82.042" y2="52.558" width="0.3048" layer="16"/>
+<wire x1="82.042" y1="52.558" x2="82.042" y2="42.418" width="0.3048" layer="16"/>
 <via x="15.748" y="61.976" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="62.85" y1="61.6424" x2="62.5054" y2="61.987" width="0.254" layer="16"/>
 <wire x1="62.5054" y1="61.987" x2="60.59" y2="61.987" width="0.254" layer="16"/>
 <via x="60.59" y="61.987" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="38.64" y1="46.76" x2="38.64" y2="41.942" width="0.254" layer="16"/>
 <wire x1="38.64" y1="41.942" x2="38.608" y2="41.91" width="0.254" layer="16"/>
-<wire x1="40.132" y1="38.152" x2="40.132" y2="36.83" width="0.3048" layer="16"/>
-<wire x1="40.132" y1="36.83" x2="40.894" y2="36.068" width="0.3048" layer="16"/>
-<wire x1="40.894" y1="36.068" x2="40.894" y2="33.528" width="0.3048" layer="16"/>
-<wire x1="40.894" y1="33.528" x2="40.132" y2="32.766" width="0.3048" layer="16"/>
+<wire x1="40.132" y1="38.152" x2="40.132" y2="31.115" width="0.3048" layer="16"/>
 <wire x1="7.108" y1="45.466" x2="6.858" y2="45.466" width="0.3048" layer="1"/>
 <wire x1="6.858" y1="45.466" x2="6.604" y2="45.466" width="0.3048" layer="1"/>
 <wire x1="6.35" y1="45.72" x2="6.35" y2="49.0384" width="0.3048" layer="16"/>
@@ -1080,9 +1069,9 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="15.621" y1="65.786" x2="15.766" y2="65.786" width="0.8128" layer="1"/>
 <wire x1="15.766" y1="65.786" x2="15.78" y2="65.8" width="0.8128" layer="1"/>
 <wire x1="15.216" y1="39.648" x2="12.573" y2="42.291" width="0.3048" layer="1"/>
-<wire x1="12.573" y1="42.291" x2="11.684" y2="42.291" width="0.3048" layer="1"/>
-<wire x1="11.684" y1="42.291" x2="11.303" y2="42.672" width="0.3048" layer="1"/>
-<wire x1="11.303" y1="42.672" x2="11.303" y2="44.831" width="0.3048" layer="1"/>
+<wire x1="12.573" y1="42.291" x2="11.684" y2="43.307" width="0.3048" layer="1"/>
+<wire x1="11.684" y1="43.307" x2="11.303" y2="43.688" width="0.3048" layer="1"/>
+<wire x1="11.303" y1="43.688" x2="11.303" y2="44.831" width="0.3048" layer="1"/>
 <wire x1="11.303" y1="44.831" x2="10.668" y2="45.466" width="0.3048" layer="1"/>
 <wire x1="9.906" y1="45.466" x2="9.525" y2="45.466" width="0.3048" layer="1"/>
 <wire x1="9.525" y1="45.466" x2="8.636" y2="46.355" width="0.3048" layer="1"/>
@@ -1123,9 +1112,18 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="63.776" y1="58.801" x2="60.59" y2="61.987" width="0.8128" layer="1"/>
 <wire x1="60.59" y1="61.987" x2="60.59" y2="62.219" width="0.8128" layer="1"/>
 <wire x1="60.59" y1="62.219" x2="59.563" y2="63.246" width="0.8128" layer="1"/>
-<wire x1="40.132" y1="32.766" x2="40.132" y2="31.115" width="0.3048" layer="16"/>
 <wire x1="40" y1="29.492" x2="40" y2="30.983" width="0.3048" layer="1"/>
 <wire x1="40" y1="30.983" x2="40.132" y2="31.115" width="0.3048" layer="1"/>
+<wire x1="2.286" y1="17.272" x2="4.238" y2="15.32" width="0.254" layer="16"/>
+<wire x1="4.238" y1="15.32" x2="5.54" y2="15.32" width="0.254" layer="16"/>
+<wire x1="74.2316" y1="19.8756" x2="76.532" y2="19.8756" width="0.3048" layer="16"/>
+<wire x1="64.52" y1="3.8" x2="72.39" y2="11.67" width="0.3048" layer="16"/>
+<wire x1="72.39" y1="11.67" x2="72.39" y2="18.034" width="0.3048" layer="16"/>
+<wire x1="72.39" y1="18.034" x2="74.2316" y2="19.8756" width="0.3048" layer="16"/>
+<wire x1="80.3057" y1="31.484" x2="80.2857" y2="31.464" width="0.3048" layer="16"/>
+<wire x1="80.2857" y1="31.464" x2="80.2857" y2="28.762" width="0.3048" layer="16"/>
+<wire x1="80.3057" y1="31.484" x2="82.042" y2="29.7477" width="0.3048" layer="16"/>
+<wire x1="82.042" y1="29.7477" x2="82.042" y2="29.464" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="C1" pad="1"/>
@@ -1180,17 +1178,13 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="78.0177" y1="41.4" x2="75.7477" y2="43.67" width="0.3048" layer="16"/>
 <wire x1="43.448" y1="44.21" x2="42.19" y2="44.21" width="0.3048" layer="16"/>
 <wire x1="43.448" y1="44.21" x2="44.45" y2="45.212" width="0.3048" layer="16"/>
-<wire x1="44.45" y1="45.212" x2="44.45" y2="45.72" width="0.3048" layer="16"/>
-<wire x1="44.45" y1="45.72" x2="43.434" y2="46.736" width="0.3048" layer="16"/>
-<wire x1="43.434" y1="46.736" x2="43.434" y2="50.546" width="0.3048" layer="16"/>
-<wire x1="43.434" y1="50.546" x2="45.212" y2="52.324" width="0.3048" layer="16"/>
+<wire x1="44.45" y1="45.212" x2="44.45" y2="51.054" width="0.3048" layer="16"/>
+<wire x1="44.45" y1="51.054" x2="45.72" y2="52.324" width="0.3048" layer="16"/>
 <wire x1="62.23" y1="42.926" x2="62.23" y2="47.752" width="0.3048" layer="16"/>
 <wire x1="62.23" y1="47.752" x2="60.452" y2="49.53" width="0.3048" layer="16"/>
 <wire x1="60.452" y1="49.53" x2="53.086" y2="49.53" width="0.3048" layer="16"/>
-<wire x1="53.086" y1="49.53" x2="52.578" y2="50.038" width="0.3048" layer="16"/>
-<wire x1="52.578" y1="50.038" x2="52.578" y2="51.816" width="0.3048" layer="16"/>
-<wire x1="52.578" y1="51.816" x2="52.07" y2="52.324" width="0.3048" layer="16"/>
-<wire x1="52.07" y1="52.324" x2="45.212" y2="52.324" width="0.3048" layer="16"/>
+<wire x1="53.086" y1="49.53" x2="50.292" y2="52.324" width="0.3048" layer="16"/>
+<wire x1="50.292" y1="52.324" x2="45.72" y2="52.324" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$10">
 <contactref element="R6" pad="1"/>
@@ -1205,17 +1199,13 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="43.688" y1="43.688" x2="42.212" y2="43.688" width="0.3048" layer="16"/>
 <wire x1="42.212" y1="43.688" x2="42.19" y2="43.71" width="0.3048" layer="16"/>
 <wire x1="43.688" y1="43.688" x2="45.212" y2="45.212" width="0.3048" layer="16"/>
-<wire x1="45.212" y1="45.212" x2="45.212" y2="45.974" width="0.3048" layer="16"/>
-<wire x1="45.212" y1="45.974" x2="43.942" y2="47.244" width="0.3048" layer="16"/>
-<wire x1="43.942" y1="47.244" x2="43.942" y2="50.038" width="0.3048" layer="16"/>
-<wire x1="61.468" y1="42.164" x2="61.468" y2="47.498" width="0.3048" layer="16"/>
-<wire x1="61.468" y1="47.498" x2="60.198" y2="48.768" width="0.3048" layer="16"/>
-<wire x1="60.198" y1="48.768" x2="52.578" y2="48.768" width="0.3048" layer="16"/>
-<wire x1="52.578" y1="48.768" x2="52.07" y2="49.276" width="0.3048" layer="16"/>
-<wire x1="52.07" y1="49.276" x2="52.07" y2="50.8" width="0.3048" layer="16"/>
-<wire x1="52.07" y1="50.8" x2="51.308" y2="51.562" width="0.3048" layer="16"/>
-<wire x1="51.308" y1="51.562" x2="45.466" y2="51.562" width="0.3048" layer="16"/>
-<wire x1="45.466" y1="51.562" x2="43.942" y2="50.038" width="0.3048" layer="16"/>
+<wire x1="45.212" y1="45.212" x2="45.212" y2="50.546" width="0.3048" layer="16"/>
+<wire x1="61.468" y1="42.164" x2="61.468" y2="47.244" width="0.3048" layer="16"/>
+<wire x1="61.468" y1="47.244" x2="59.944" y2="48.768" width="0.3048" layer="16"/>
+<wire x1="59.944" y1="48.768" x2="52.578" y2="48.768" width="0.3048" layer="16"/>
+<wire x1="52.578" y1="48.768" x2="49.784" y2="51.562" width="0.3048" layer="16"/>
+<wire x1="49.784" y1="51.562" x2="46.228" y2="51.562" width="0.3048" layer="16"/>
+<wire x1="46.228" y1="51.562" x2="45.212" y2="50.546" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$5">
 <contactref element="X1" pad="2"/>
@@ -1231,18 +1221,16 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <signal name="N$7">
 <contactref element="U1" pad="47"/>
 <contactref element="CON2" pad="3"/>
-<wire x1="40.14" y1="46.76" x2="40.14" y2="50.3" width="0.3048" layer="16"/>
-<wire x1="40.14" y1="50.3" x2="43.561" y2="53.721" width="0.3048" layer="16"/>
-<wire x1="43.561" y1="53.721" x2="44.196" y2="54.356" width="0.3048" layer="16"/>
-<wire x1="50.92" y1="65.18" x2="50.92" y2="61.08" width="0.3048" layer="16"/>
-<wire x1="50.92" y1="61.08" x2="44.196" y2="54.356" width="0.3048" layer="16"/>
+<wire x1="40.14" y1="46.76" x2="40.14" y2="52.332" width="0.3048" layer="16"/>
+<wire x1="50.92" y1="65.18" x2="50.92" y2="63.112" width="0.3048" layer="16"/>
+<wire x1="50.92" y1="63.112" x2="40.14" y2="52.332" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$8">
 <contactref element="U1" pad="46"/>
 <contactref element="CON2" pad="2"/>
-<wire x1="39.64" y1="46.76" x2="39.64" y2="51.07" width="0.3048" layer="16"/>
-<wire x1="39.64" y1="51.07" x2="48.514" y2="59.944" width="0.3048" layer="16"/>
-<wire x1="48.514" y1="59.944" x2="48.514" y2="65.046" width="0.3048" layer="16"/>
+<wire x1="39.64" y1="46.76" x2="39.64" y2="53.102" width="0.3048" layer="16"/>
+<wire x1="39.64" y1="53.102" x2="48.514" y2="61.976" width="0.3048" layer="16"/>
+<wire x1="48.514" y1="61.976" x2="48.514" y2="65.046" width="0.3048" layer="16"/>
 <wire x1="48.514" y1="65.046" x2="48.38" y2="65.18" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$6">
@@ -1269,18 +1257,22 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <contactref element="U1" pad="15"/>
 <contactref element="CON1" pad="3"/>
 <contactref element="R7" pad="2"/>
-<via x="70.104" y="30.988" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="70.104" y1="30.988" x2="74.718" y2="30.988" width="0.254" layer="16"/>
-<wire x1="74.718" y1="30.988" x2="75" y2="31.27" width="0.254" layer="16"/>
 <wire x1="78.2104" y1="31.484" x2="75.214" y2="31.484" width="0.254" layer="16"/>
 <wire x1="75.214" y1="31.484" x2="75" y2="31.27" width="0.254" layer="16"/>
-<wire x1="70.104" y1="30.988" x2="68.58" y2="30.988" width="0.3048" layer="1"/>
-<wire x1="68.58" y1="30.988" x2="67.818" y2="31.75" width="0.3048" layer="1"/>
-<wire x1="67.818" y1="31.75" x2="52.07" y2="31.75" width="0.3048" layer="1"/>
-<wire x1="52.07" y1="31.75" x2="48.768" y2="35.052" width="0.3048" layer="1"/>
-<wire x1="48.768" y1="35.052" x2="39.624" y2="35.052" width="0.3048" layer="1"/>
-<via x="39.624" y="35.052" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="39.624" y1="35.052" x2="39.64" y2="38.16" width="0.3048" layer="16"/>
+<wire x1="39.64" y1="38.16" x2="39.64" y2="35.576" width="0.254" layer="16"/>
+<wire x1="39.64" y1="35.576" x2="39.116" y2="35.052" width="0.254" layer="16"/>
+<wire x1="39.116" y1="35.052" x2="39.116" y2="7.874" width="0.254" layer="16"/>
+<wire x1="39.116" y1="7.874" x2="44.45" y2="2.54" width="0.254" layer="16"/>
+<wire x1="44.45" y1="2.54" x2="62.484" y2="2.54" width="0.254" layer="16"/>
+<wire x1="62.484" y1="2.54" x2="63.246" y2="3.302" width="0.254" layer="16"/>
+<wire x1="63.246" y1="3.302" x2="63.246" y2="11.176" width="0.254" layer="16"/>
+<wire x1="63.246" y1="11.176" x2="66.04" y2="13.97" width="0.254" layer="16"/>
+<wire x1="66.04" y1="13.97" x2="68.326" y2="16.51" width="0.254" layer="16"/>
+<wire x1="68.326" y1="16.51" x2="74.676" y2="22.86" width="0.254" layer="16"/>
+<wire x1="74.676" y1="22.86" x2="76.454" y2="22.86" width="0.254" layer="16"/>
+<wire x1="76.454" y1="22.86" x2="79.248" y2="25.654" width="0.254" layer="16"/>
+<wire x1="79.248" y1="25.654" x2="79.248" y2="30.4464" width="0.254" layer="16"/>
+<wire x1="79.248" y1="30.4464" x2="78.2104" y2="31.484" width="0.254" layer="16"/>
 </signal>
 <signal name="J1RCK">
 <contactref element="U$1" pad="J1RCK"/>
@@ -1297,42 +1289,30 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <signal name="J1SER">
 <contactref element="U$1" pad="J1SER"/>
 <contactref element="U1" pad="26"/>
-<wire x1="33.59" y1="40.21" x2="32.336" y2="40.21" width="0.3048" layer="16"/>
-<via x="23.622" y="37.084" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="19.812" y1="41.402" x2="16.51" y2="44.704" width="0.3048" layer="1"/>
-<wire x1="16.51" y1="44.704" x2="13.716" y2="44.704" width="0.3048" layer="1"/>
-<wire x1="13.716" y1="44.704" x2="13.208" y2="45.212" width="0.3048" layer="1"/>
-<wire x1="15" y1="48.38" x2="13.342" y2="48.38" width="0.3048" layer="16"/>
-<wire x1="13.342" y1="48.38" x2="13.208" y2="48.26" width="0.3048" layer="16"/>
-<via x="13.208" y="48.26" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="13.208" y1="48.26" x2="13.208" y2="45.212" width="0.3048" layer="1"/>
-<wire x1="30.734" y1="38.608" x2="25.146" y2="38.608" width="0.3048" layer="16"/>
-<wire x1="19.812" y1="41.402" x2="19.812" y2="38.354" width="0.3048" layer="1"/>
-<wire x1="19.812" y1="38.354" x2="21.082" y2="37.084" width="0.3048" layer="1"/>
-<wire x1="21.082" y1="37.084" x2="23.622" y2="37.084" width="0.3048" layer="1"/>
-<wire x1="32.336" y1="40.21" x2="30.734" y2="38.608" width="0.3048" layer="16"/>
-<wire x1="25.146" y1="38.608" x2="23.622" y2="37.084" width="0.3048" layer="16"/>
+<wire x1="33.59" y1="40.21" x2="32.336" y2="40.21" width="0.254" layer="16"/>
+<wire x1="32.336" y1="40.21" x2="32.004" y2="39.878" width="0.254" layer="16"/>
+<wire x1="32.004" y1="39.878" x2="32.004" y2="33.02" width="0.254" layer="16"/>
+<wire x1="32.004" y1="33.02" x2="33.528" y2="31.496" width="0.254" layer="16"/>
+<wire x1="33.528" y1="31.496" x2="33.528" y2="30.734" width="0.254" layer="16"/>
+<wire x1="33.528" y1="30.734" x2="32.766" y2="29.972" width="0.254" layer="16"/>
+<wire x1="32.766" y1="29.972" x2="31.75" y2="29.972" width="0.254" layer="16"/>
+<wire x1="15" y1="48.38" x2="15.882" y2="48.38" width="0.254" layer="16"/>
+<wire x1="15.882" y1="48.38" x2="17.018" y2="47.244" width="0.254" layer="16"/>
+<wire x1="17.018" y1="47.244" x2="18.034" y2="47.244" width="0.254" layer="16"/>
+<wire x1="18.034" y1="47.244" x2="18.542" y2="46.736" width="0.254" layer="16"/>
+<wire x1="18.542" y1="46.736" x2="18.542" y2="43.18" width="0.254" layer="16"/>
+<wire x1="18.542" y1="43.18" x2="31.75" y2="29.972" width="0.254" layer="16"/>
 </signal>
 <signal name="J1SCK">
 <contactref element="U$1" pad="J1SCK"/>
 <contactref element="U1" pad="30"/>
-<wire x1="33.59" y1="42.21" x2="27.986" y2="42.21" width="0.3048" layer="16"/>
-<via x="23.622" y="41.148" extent="1-16" drill="0.6" shape="octagon"/>
-<via x="21.59" y="48.26" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="15" y1="50.92" x2="15.12" y2="50.92" width="0.3048" layer="16"/>
-<wire x1="21.59" y1="48.26" x2="21.59" y2="48.768" width="0.3048" layer="16"/>
-<wire x1="21.59" y1="48.768" x2="20.828" y2="49.53" width="0.3048" layer="16"/>
-<wire x1="20.828" y1="49.53" x2="16.39" y2="49.53" width="0.3048" layer="16"/>
-<wire x1="16.39" y1="49.53" x2="15" y2="50.92" width="0.3048" layer="16"/>
-<wire x1="21.59" y1="48.26" x2="23.114" y2="48.26" width="0.3048" layer="1"/>
-<wire x1="23.622" y1="41.148" x2="23.622" y2="47.752" width="0.3048" layer="1"/>
-<wire x1="23.622" y1="47.752" x2="23.114" y2="48.26" width="0.3048" layer="1"/>
-<wire x1="23.622" y1="41.148" x2="23.622" y2="40.894" width="0.3048" layer="16"/>
-<wire x1="23.622" y1="40.894" x2="24.384" y2="40.132" width="0.3048" layer="16"/>
-<wire x1="24.384" y1="40.132" x2="26.416" y2="40.132" width="0.3048" layer="16"/>
-<wire x1="26.416" y1="40.132" x2="26.924" y2="40.64" width="0.3048" layer="16"/>
-<wire x1="26.924" y1="40.64" x2="26.924" y2="41.148" width="0.3048" layer="16"/>
-<wire x1="26.924" y1="41.148" x2="27.986" y2="42.21" width="0.3048" layer="16"/>
+<wire x1="33.59" y1="42.21" x2="21.29" y2="42.21" width="0.254" layer="16"/>
+<wire x1="21.29" y1="42.21" x2="19.304" y2="44.196" width="0.254" layer="16"/>
+<wire x1="19.304" y1="44.196" x2="19.304" y2="48.514" width="0.254" layer="16"/>
+<wire x1="19.304" y1="48.514" x2="18.288" y2="49.53" width="0.254" layer="16"/>
+<wire x1="18.288" y1="49.53" x2="17.018" y2="49.53" width="0.254" layer="16"/>
+<wire x1="17.018" y1="49.53" x2="15.628" y2="50.92" width="0.254" layer="16"/>
+<wire x1="15.628" y1="50.92" x2="15" y2="50.92" width="0.254" layer="16"/>
 </signal>
 <signal name="J1OIA">
 <contactref element="U$1" pad="J1OIA"/>
@@ -1353,84 +1333,74 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <signal name="J1OIB">
 <contactref element="U$1" pad="J1OIB"/>
 <contactref element="U1" pad="25"/>
-<wire x1="33.59" y1="39.71" x2="33.59" y2="39.686" width="0.3048" layer="16"/>
-<via x="25.654" y="37.084" extent="1-16" drill="0.6" shape="octagon"/>
-<via x="21.59" y="53.34" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="30.226" y1="37.084" x2="25.654" y2="37.084" width="0.3048" layer="16"/>
-<wire x1="33.59" y1="39.686" x2="32.828" y2="39.686" width="0.3048" layer="16"/>
-<wire x1="32.828" y1="39.686" x2="30.226" y2="37.084" width="0.3048" layer="16"/>
-<wire x1="21.59" y1="53.34" x2="17.66" y2="53.34" width="0.3048" layer="16"/>
-<wire x1="17.66" y1="53.34" x2="17.54" y2="53.46" width="0.3048" layer="16"/>
-<wire x1="24.892" y1="38.862" x2="23.368" y2="38.862" width="0.3048" layer="1"/>
-<wire x1="23.368" y1="38.862" x2="22.606" y2="39.624" width="0.3048" layer="1"/>
-<wire x1="22.606" y1="39.624" x2="22.606" y2="43.942" width="0.3048" layer="1"/>
-<wire x1="25.654" y1="37.084" x2="25.654" y2="38.1" width="0.3048" layer="1"/>
-<wire x1="25.654" y1="38.1" x2="24.892" y2="38.862" width="0.3048" layer="1"/>
-<wire x1="21.59" y1="53.34" x2="21.336" y2="53.34" width="0.3048" layer="1"/>
-<wire x1="21.336" y1="53.34" x2="20.574" y2="52.578" width="0.3048" layer="1"/>
-<wire x1="20.574" y1="52.578" x2="20.574" y2="45.974" width="0.3048" layer="1"/>
-<wire x1="20.574" y1="45.974" x2="22.606" y2="43.942" width="0.3048" layer="1"/>
+<wire x1="33.59" y1="39.71" x2="32.598" y2="39.71" width="0.254" layer="16"/>
+<wire x1="32.598" y1="39.71" x2="32.512" y2="39.624" width="0.254" layer="16"/>
+<wire x1="32.512" y1="39.624" x2="32.512" y2="33.274" width="0.254" layer="16"/>
+<wire x1="32.512" y1="33.274" x2="34.036" y2="31.75" width="0.254" layer="16"/>
+<wire x1="34.036" y1="31.75" x2="34.036" y2="30.48" width="0.254" layer="16"/>
+<wire x1="34.036" y1="30.48" x2="33.02" y2="29.464" width="0.254" layer="16"/>
+<wire x1="33.02" y1="29.464" x2="30.226" y2="29.464" width="0.254" layer="16"/>
+<wire x1="17.54" y1="53.46" x2="16.63" y2="53.46" width="0.254" layer="16"/>
+<wire x1="16.63" y1="53.46" x2="15.494" y2="52.324" width="0.254" layer="16"/>
+<wire x1="15.494" y1="52.324" x2="14.478" y2="52.324" width="0.254" layer="16"/>
+<wire x1="16.256" y1="46.228" x2="16.256" y2="43.434" width="0.254" layer="16"/>
+<wire x1="16.256" y1="43.434" x2="30.226" y2="29.464" width="0.254" layer="16"/>
+<wire x1="16.256" y1="46.228" x2="15.494" y2="46.99" width="0.254" layer="16"/>
+<wire x1="15.494" y1="46.99" x2="13.97" y2="46.99" width="0.254" layer="16"/>
+<wire x1="13.97" y1="46.99" x2="13.208" y2="47.752" width="0.254" layer="16"/>
+<wire x1="13.208" y1="47.752" x2="13.208" y2="51.054" width="0.254" layer="16"/>
+<wire x1="13.208" y1="51.054" x2="14.478" y2="52.324" width="0.254" layer="16"/>
 </signal>
 <signal name="J1OIC">
 <contactref element="U$1" pad="J1OIC"/>
 <contactref element="U1" pad="31"/>
-<wire x1="33.59" y1="42.71" x2="26.708" y2="42.71" width="0.3048" layer="16"/>
-<via x="25.654" y="41.148" extent="1-16" drill="0.6" shape="octagon"/>
-<via x="21.59" y="50.8" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="25.654" y1="48.768" x2="23.622" y2="50.8" width="0.3048" layer="1"/>
-<wire x1="23.622" y1="50.8" x2="21.59" y2="50.8" width="0.3048" layer="1"/>
-<wire x1="21.59" y1="50.8" x2="17.66" y2="50.8" width="0.3048" layer="16"/>
-<wire x1="17.66" y1="50.8" x2="17.54" y2="50.92" width="0.3048" layer="16"/>
-<wire x1="25.654" y1="41.148" x2="25.654" y2="48.768" width="0.3048" layer="1"/>
-<wire x1="25.654" y1="41.148" x2="25.654" y2="41.656" width="0.3048" layer="16"/>
-<wire x1="25.654" y1="41.656" x2="26.708" y2="42.71" width="0.3048" layer="16"/>
+<wire x1="17.54" y1="50.92" x2="18.422" y2="50.92" width="0.254" layer="16"/>
+<wire x1="18.422" y1="50.92" x2="20.574" y2="48.768" width="0.254" layer="16"/>
+<wire x1="20.574" y1="48.768" x2="20.574" y2="44.196" width="0.254" layer="16"/>
+<wire x1="20.574" y1="44.196" x2="22.06" y2="42.71" width="0.254" layer="16"/>
+<wire x1="22.06" y1="42.71" x2="33.59" y2="42.71" width="0.254" layer="16"/>
 </signal>
 <signal name="J2RCK">
 <contactref element="U$1" pad="J2RCK"/>
 <contactref element="U1" pad="1"/>
-<wire x1="65.426" y1="53.086" x2="65.8" y2="53.46" width="0.3048" layer="16"/>
-<wire x1="65.426" y1="53.086" x2="59.309" y2="53.086" width="0.3048" layer="16"/>
-<wire x1="59.309" y1="53.086" x2="56.896" y2="55.499" width="0.3048" layer="16"/>
-<wire x1="56.896" y1="55.499" x2="46.355" y2="55.499" width="0.3048" layer="16"/>
-<wire x1="46.355" y1="55.499" x2="42.6085" y2="51.7525" width="0.3048" layer="16"/>
-<wire x1="42.19" y1="51.334" x2="42.164" y2="51.308" width="0.3048" layer="16"/>
-<wire x1="42.19" y1="45.21" x2="42.19" y2="51.334" width="0.3048" layer="16"/>
-<wire x1="42.19" y1="51.334" x2="42.6085" y2="51.7525" width="0.3048" layer="16"/>
+<wire x1="42.19" y1="45.21" x2="42.67" y2="45.21" width="0.254" layer="16"/>
+<wire x1="42.67" y1="45.21" x2="42.926" y2="45.466" width="0.254" layer="16"/>
+<wire x1="42.926" y1="45.466" x2="42.926" y2="51.816" width="0.254" layer="16"/>
+<wire x1="42.926" y1="51.816" x2="44.958" y2="53.848" width="0.254" layer="16"/>
+<wire x1="44.958" y1="53.848" x2="53.086" y2="53.848" width="0.254" layer="16"/>
+<wire x1="53.086" y1="53.848" x2="53.474" y2="53.46" width="0.254" layer="16"/>
+<wire x1="53.474" y1="53.46" x2="65.8" y2="53.46" width="0.254" layer="16"/>
 </signal>
 <signal name="J2SCK">
 <contactref element="U$1" pad="J2SCK"/>
 <contactref element="U1" pad="13"/>
 <via x="46.99" y="37.338" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="65.68" y1="50.8" x2="65.8" y2="50.92" width="0.3048" layer="16"/>
+<wire x1="65.426" y1="51.054" x2="65.8" y2="50.92" width="0.3048" layer="16"/>
 <via x="55.88" y="52.07" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="40.7" y1="38.1" x2="40.64" y2="38.16" width="0.3048" layer="16"/>
-<wire x1="40.7" y1="38.1" x2="44.958" y2="38.1" width="0.3048" layer="16"/>
-<wire x1="44.958" y1="38.1" x2="45.72" y2="37.338" width="0.3048" layer="16"/>
-<wire x1="46.99" y1="37.338" x2="45.72" y2="37.338" width="0.3048" layer="16"/>
+<wire x1="40.7" y1="38.1" x2="40.894" y2="38.1" width="0.3048" layer="16"/>
+<wire x1="40.894" y1="38.1" x2="41.656" y2="37.338" width="0.3048" layer="16"/>
+<wire x1="46.99" y1="37.338" x2="41.656" y2="37.338" width="0.3048" layer="16"/>
 <wire x1="49.53" y1="46.736" x2="49.53" y2="38.862" width="0.3048" layer="1"/>
 <wire x1="49.53" y1="38.862" x2="48.006" y2="37.338" width="0.3048" layer="1"/>
 <wire x1="48.006" y1="37.338" x2="46.99" y2="37.338" width="0.3048" layer="1"/>
 <wire x1="55.88" y1="52.07" x2="54.864" y2="52.07" width="0.3048" layer="1"/>
 <wire x1="54.864" y1="52.07" x2="49.53" y2="46.736" width="0.3048" layer="1"/>
-<wire x1="65.68" y1="50.8" x2="57.15" y2="50.8" width="0.3048" layer="16"/>
-<wire x1="57.15" y1="50.8" x2="55.88" y2="52.07" width="0.3048" layer="16"/>
+<wire x1="65.426" y1="51.054" x2="56.896" y2="51.054" width="0.3048" layer="16"/>
+<wire x1="56.896" y1="51.054" x2="55.88" y2="52.07" width="0.3048" layer="16"/>
 </signal>
 <signal name="J2SER">
 <contactref element="U$1" pad="J2SER"/>
 <contactref element="U1" pad="2"/>
 <wire x1="42.19" y1="44.71" x2="43.186" y2="44.71" width="0.3048" layer="16"/>
 <wire x1="43.186" y1="44.71" x2="43.688" y2="45.212" width="0.3048" layer="16"/>
-<wire x1="43.688" y1="45.212" x2="43.688" y2="45.72" width="0.3048" layer="16"/>
-<wire x1="43.688" y1="45.72" x2="42.926" y2="46.482" width="0.3048" layer="16"/>
-<wire x1="42.926" y1="46.482" x2="42.926" y2="50.8" width="0.3048" layer="16"/>
-<wire x1="42.926" y1="50.8" x2="45.212" y2="53.086" width="0.3048" layer="16"/>
+<wire x1="43.688" y1="45.212" x2="43.688" y2="51.562" width="0.3048" layer="16"/>
+<wire x1="43.688" y1="51.562" x2="45.212" y2="53.086" width="0.3048" layer="16"/>
 <wire x1="65.8" y1="48.38" x2="62.872" y2="48.38" width="0.3048" layer="16"/>
-<wire x1="62.872" y1="48.38" x2="61.214" y2="50.038" width="0.3048" layer="16"/>
-<wire x1="61.214" y1="50.038" x2="53.594" y2="50.038" width="0.3048" layer="16"/>
-<wire x1="53.594" y1="50.038" x2="53.086" y2="50.546" width="0.3048" layer="16"/>
-<wire x1="53.086" y1="50.546" x2="53.086" y2="52.578" width="0.3048" layer="16"/>
-<wire x1="53.086" y1="52.578" x2="52.578" y2="53.086" width="0.3048" layer="16"/>
-<wire x1="52.578" y1="53.086" x2="45.212" y2="53.086" width="0.3048" layer="16"/>
+<wire x1="62.872" y1="48.38" x2="60.96" y2="50.292" width="0.3048" layer="16"/>
+<wire x1="60.96" y1="50.292" x2="53.594" y2="50.292" width="0.3048" layer="16"/>
+<wire x1="53.594" y1="50.292" x2="50.8" y2="53.086" width="0.3048" layer="16"/>
+<wire x1="50.8" y1="53.086" x2="45.212" y2="53.086" width="0.3048" layer="16"/>
 </signal>
 <signal name="J2OIA">
 <contactref element="U$1" pad="J2OIA"/>
@@ -1494,44 +1464,61 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <via x="53.34" y="61.214" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="53.34" y1="61.214" x2="22.352" y2="61.214" width="0.3048" layer="1"/>
 <wire x1="22.352" y1="61.214" x2="19.812" y2="58.674" width="0.3048" layer="1"/>
-<wire x1="19.812" y1="58.674" x2="19.812" y2="42.926" width="0.3048" layer="1"/>
-<wire x1="33.59" y1="43.21" x2="22.89" y2="43.21" width="0.3048" layer="16"/>
-<via x="21.59" y="41.148" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="22.89" y1="43.21" x2="21.59" y2="41.91" width="0.3048" layer="16"/>
-<wire x1="21.59" y1="41.91" x2="21.59" y2="41.148" width="0.3048" layer="16"/>
-<wire x1="19.812" y1="42.926" x2="21.59" y2="41.148" width="0.3048" layer="1"/>
 <wire x1="58.674" y1="60.96" x2="53.594" y2="60.96" width="0.4064" layer="16"/>
 <wire x1="53.594" y1="60.96" x2="53.34" y2="61.214" width="0.4064" layer="16"/>
+<wire x1="33.59" y1="43.21" x2="33.56" y2="43.18" width="0.254" layer="16"/>
+<wire x1="33.56" y1="43.18" x2="22.606" y2="43.18" width="0.254" layer="16"/>
+<wire x1="22.606" y1="43.18" x2="21.59" y2="44.196" width="0.254" layer="16"/>
+<wire x1="21.59" y1="44.196" x2="21.59" y2="53.34" width="0.254" layer="16"/>
+<via x="21.59" y="53.34" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="21.59" y1="53.34" x2="19.812" y2="55.118" width="0.254" layer="1"/>
+<wire x1="19.812" y1="55.118" x2="19.812" y2="58.674" width="0.254" layer="1"/>
 </signal>
 <signal name="IR1">
 <contactref element="U1" pad="33"/>
 <contactref element="IC2" pad="VOUT"/>
-<wire x1="81.62" y1="12.812" x2="24.526" y2="12.812" width="0.3048" layer="16"/>
-<wire x1="24.526" y1="12.812" x2="16.002" y2="21.336" width="0.3048" layer="16"/>
-<wire x1="33.59" y1="43.71" x2="21.866" y2="43.71" width="0.3048" layer="16"/>
-<wire x1="16.002" y1="37.846" x2="16.002" y2="21.336" width="0.3048" layer="16"/>
-<wire x1="21.866" y1="43.71" x2="16.002" y2="37.846" width="0.3048" layer="16"/>
+<wire x1="35.814" y1="1.778" x2="67.564" y2="1.778" width="0.254" layer="16"/>
+<wire x1="67.564" y1="1.778" x2="78.598" y2="12.812" width="0.254" layer="16"/>
+<wire x1="78.598" y1="12.812" x2="81.62" y2="12.812" width="0.254" layer="16"/>
+<wire x1="33.59" y1="43.71" x2="24.87" y2="43.71" width="0.254" layer="16"/>
+<wire x1="24.87" y1="43.71" x2="24.638" y2="43.942" width="0.254" layer="16"/>
+<via x="24.638" y="43.942" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="24.638" y1="43.942" x2="18.542" y2="37.846" width="0.254" layer="1"/>
+<wire x1="18.542" y1="37.846" x2="18.542" y2="19.05" width="0.254" layer="1"/>
+<via x="18.542" y="19.05" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="18.542" y1="19.05" x2="35.814" y2="1.778" width="0.254" layer="16"/>
 </signal>
 <signal name="IR2">
 <contactref element="U1" pad="34"/>
 <contactref element="IC3" pad="VOUT"/>
-<wire x1="33.59" y1="44.21" x2="21.35" y2="44.21" width="0.3048" layer="16"/>
-<wire x1="21.35" y1="44.21" x2="18.161" y2="41.021" width="0.3048" layer="16"/>
-<wire x1="18.161" y1="41.021" x2="16.002" y2="38.862" width="0.3048" layer="16"/>
-<wire x1="14.846" y1="2.794" x2="14.846" y2="37.706" width="0.3048" layer="16"/>
-<wire x1="14.846" y1="37.706" x2="16.002" y2="38.862" width="0.3048" layer="16"/>
+<wire x1="3.302" y1="26.162" x2="3.302" y2="18.288" width="0.254" layer="16"/>
+<wire x1="3.302" y1="18.288" x2="5.08" y2="16.51" width="0.254" layer="16"/>
+<wire x1="5.08" y1="16.51" x2="5.842" y2="16.51" width="0.254" layer="16"/>
+<wire x1="5.842" y1="16.51" x2="9.652" y2="12.7" width="0.254" layer="16"/>
+<wire x1="9.652" y1="12.7" x2="13.716" y2="12.7" width="0.254" layer="16"/>
+<wire x1="13.716" y1="12.7" x2="14.846" y2="11.57" width="0.254" layer="16"/>
+<wire x1="14.846" y1="11.57" x2="14.846" y2="2.794" width="0.254" layer="16"/>
+<wire x1="33.59" y1="44.21" x2="26.148" y2="44.21" width="0.254" layer="16"/>
+<wire x1="26.148" y1="44.21" x2="24.638" y2="45.72" width="0.254" layer="16"/>
+<via x="24.638" y="45.72" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="24.638" y1="45.72" x2="18.542" y2="39.624" width="0.254" layer="1"/>
+<via x="18.542" y="39.624" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="18.542" y1="39.624" x2="16.764" y2="39.624" width="0.254" layer="16"/>
+<wire x1="16.764" y1="39.624" x2="3.302" y2="26.162" width="0.254" layer="16"/>
 </signal>
 <signal name="IR3">
 <contactref element="U1" pad="35"/>
 <contactref element="IC4" pad="VOUT"/>
-<wire x1="33.59" y1="44.71" x2="21.088" y2="44.71" width="0.3048" layer="16"/>
-<wire x1="21.088" y1="44.71" x2="18.288" y2="41.91" width="0.3048" layer="16"/>
-<wire x1="18.288" y1="41.91" x2="14.478" y2="41.91" width="0.3048" layer="16"/>
-<wire x1="14.478" y1="41.91" x2="10.922" y2="45.466" width="0.3048" layer="16"/>
-<wire x1="10.922" y1="45.466" x2="10.922" y2="54.356" width="0.3048" layer="16"/>
-<wire x1="10.922" y1="54.356" x2="8.636" y2="56.642" width="0.3048" layer="16"/>
-<wire x1="8.636" y1="56.642" x2="2.424" y2="56.642" width="0.3048" layer="16"/>
-<wire x1="2.424" y1="56.642" x2="2.106" y2="56.324" width="0.3048" layer="16"/>
+<wire x1="2.106" y1="56.324" x2="8.446" y2="56.324" width="0.3048" layer="16"/>
+<wire x1="8.446" y1="56.324" x2="10.922" y2="53.848" width="0.3048" layer="16"/>
+<wire x1="10.922" y1="53.848" x2="10.922" y2="52.578" width="0.3048" layer="16"/>
+<via x="10.922" y="52.578" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="10.922" y1="52.578" x2="11.43" y2="52.07" width="0.3048" layer="1"/>
+<wire x1="11.43" y1="52.07" x2="20.066" y2="52.07" width="0.3048" layer="1"/>
+<wire x1="20.066" y1="52.07" x2="24.638" y2="47.498" width="0.3048" layer="1"/>
+<via x="24.638" y="47.498" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="24.638" y1="47.498" x2="27.426" y2="44.71" width="0.3048" layer="16"/>
+<wire x1="27.426" y1="44.71" x2="33.59" y2="44.71" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$12">
 <contactref element="D3" pad="K"/>
@@ -1548,14 +1535,15 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <signal name="N$14">
 <contactref element="D8" pad="K"/>
 <contactref element="R13" pad="2"/>
-<wire x1="61.98" y1="3.8" x2="61.98" y2="11.1964" width="0.3048" layer="16"/>
-<wire x1="61.98" y1="11.1964" x2="61.376" y2="11.8004" width="0.3048" layer="16"/>
+<wire x1="61.376" y1="35.9304" x2="61.376" y2="4.404" width="0.254" layer="16"/>
+<wire x1="61.376" y1="4.404" x2="61.98" y2="3.8" width="0.254" layer="16"/>
 </signal>
 <signal name="N$15">
 <contactref element="D11" pad="K"/>
 <contactref element="R14" pad="2"/>
-<wire x1="4.78" y1="22.2724" x2="4.78" y2="18.62" width="0.3048" layer="1"/>
-<wire x1="4.78" y1="18.62" x2="5.54" y2="17.86" width="0.3048" layer="1"/>
+<wire x1="5.54" y1="17.86" x2="9.969" y2="22.289" width="0.254" layer="16"/>
+<wire x1="38.1164" y1="22.56" x2="10.24" y2="22.56" width="0.254" layer="16"/>
+<wire x1="10.24" y1="22.56" x2="9.969" y2="22.289" width="0.254" layer="16"/>
 </signal>
 <signal name="IRLED0">
 <contactref element="R9" pad="1"/>
@@ -1563,15 +1551,15 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="80.2" y1="47.1023" x2="72.0237" y2="47.1023" width="0.3048" layer="16"/>
 <wire x1="72.0237" y1="47.1023" x2="70.866" y2="48.26" width="0.3048" layer="16"/>
 <wire x1="70.866" y1="48.26" x2="70.866" y2="56.896" width="0.3048" layer="16"/>
-<wire x1="70.866" y1="56.896" x2="69.85" y2="57.912" width="0.3048" layer="16"/>
-<wire x1="69.85" y1="57.912" x2="60.452" y2="57.912" width="0.3048" layer="16"/>
+<wire x1="70.866" y1="56.896" x2="70.358" y2="57.404" width="0.3048" layer="16"/>
+<wire x1="70.358" y1="57.404" x2="60.96" y2="57.404" width="0.3048" layer="16"/>
 <via x="53.34" y="58.42" extent="1-16" drill="0.6" shape="octagon"/>
 <via x="34.29" y="58.42" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="53.34" y1="58.42" x2="34.29" y2="58.42" width="0.3048" layer="1"/>
 <wire x1="36.14" y1="46.76" x2="36.14" y2="56.57" width="0.3048" layer="16"/>
 <wire x1="36.14" y1="56.57" x2="34.29" y2="58.42" width="0.3048" layer="16"/>
 <wire x1="53.34" y1="58.42" x2="59.944" y2="58.42" width="0.3048" layer="16"/>
-<wire x1="59.944" y1="58.42" x2="60.452" y2="57.912" width="0.3048" layer="16"/>
+<wire x1="59.944" y1="58.42" x2="60.96" y2="57.404" width="0.3048" layer="16"/>
 </signal>
 <signal name="IRLED1">
 <contactref element="R12" pad="1"/>
@@ -1584,14 +1572,14 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <signal name="IRLED2">
 <contactref element="R13" pad="1"/>
 <contactref element="U1" pad="45"/>
-<wire x1="61.376" y1="13.8957" x2="61.376" y2="40.732" width="0.3048" layer="16"/>
+<wire x1="61.376" y1="38.0257" x2="61.376" y2="40.732" width="0.3048" layer="16"/>
 <wire x1="61.376" y1="40.732" x2="60.706" y2="41.402" width="0.3048" layer="16"/>
 <via x="39.878" y="54.61" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="39.14" y1="53.872" x2="39.14" y2="46.76" width="0.3048" layer="16"/>
 <via x="46.99" y="50.292" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="60.706" y1="41.402" x2="60.706" y2="46.99" width="0.3048" layer="16"/>
-<wire x1="60.706" y1="46.99" x2="59.69" y2="48.006" width="0.3048" layer="16"/>
-<wire x1="59.69" y1="48.006" x2="49.276" y2="48.006" width="0.3048" layer="16"/>
+<wire x1="60.706" y1="41.402" x2="60.706" y2="46.736" width="0.3048" layer="16"/>
+<wire x1="60.706" y1="46.736" x2="59.436" y2="48.006" width="0.3048" layer="16"/>
+<wire x1="59.436" y1="48.006" x2="49.276" y2="48.006" width="0.3048" layer="16"/>
 <wire x1="42.672" y1="54.61" x2="46.99" y2="50.292" width="0.3048" layer="1"/>
 <wire x1="49.276" y1="48.006" x2="46.99" y2="50.292" width="0.3048" layer="16"/>
 <wire x1="39.14" y1="53.872" x2="39.878" y2="54.61" width="0.3048" layer="16"/>
@@ -1600,16 +1588,12 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <signal name="IRLED3">
 <contactref element="R14" pad="1"/>
 <contactref element="U1" pad="9"/>
-<wire x1="4.78" y1="24.3677" x2="5.8123" y2="25.4" width="0.3048" layer="1"/>
-<wire x1="5.8123" y1="25.4" x2="24.892" y2="25.4" width="0.3048" layer="1"/>
-<via x="24.892" y="25.4" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="53.848" y1="25.654" x2="53.848" y2="36.322" width="0.3048" layer="16"/>
 <wire x1="53.848" y1="36.322" x2="48.96" y2="41.21" width="0.3048" layer="16"/>
 <wire x1="48.96" y1="41.21" x2="42.19" y2="41.21" width="0.3048" layer="16"/>
-<wire x1="24.892" y1="25.4" x2="24.892" y2="25.146" width="0.3048" layer="16"/>
-<wire x1="24.892" y1="25.146" x2="27.432" y2="22.606" width="0.3048" layer="16"/>
-<wire x1="27.432" y1="22.606" x2="50.8" y2="22.606" width="0.3048" layer="16"/>
 <wire x1="50.8" y1="22.606" x2="53.848" y2="25.654" width="0.3048" layer="16"/>
+<wire x1="50.8" y1="22.606" x2="40.2577" y2="22.606" width="0.254" layer="16"/>
+<wire x1="40.2577" y1="22.606" x2="40.2117" y2="22.56" width="0.254" layer="16"/>
 </signal>
 <signal name="SD_DIN">
 <contactref element="CARD1" pad="2"/>
@@ -1631,14 +1615,12 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <contactref element="U1" pad="27"/>
 <wire x1="33.59" y1="40.71" x2="32.074" y2="40.71" width="0.3048" layer="16"/>
 <via x="32.575" y="31.115" extent="1-16" drill="0.6" shape="octagon"/>
-<wire x1="32.074" y1="40.71" x2="30.734" y2="39.37" width="0.3048" layer="16"/>
-<wire x1="30.734" y1="39.37" x2="23.876" y2="39.37" width="0.3048" layer="16"/>
-<wire x1="22.098" y1="34.036" x2="24.892" y2="31.242" width="0.3048" layer="16"/>
-<wire x1="23.876" y1="39.37" x2="22.098" y2="37.592" width="0.3048" layer="16"/>
-<wire x1="22.098" y1="37.592" x2="22.098" y2="34.036" width="0.3048" layer="16"/>
 <wire x1="32.575" y1="29.492" x2="32.575" y2="31.115" width="0.3048" layer="1"/>
-<wire x1="24.892" y1="31.242" x2="32.448" y2="31.242" width="0.3048" layer="16"/>
 <wire x1="32.448" y1="31.242" x2="32.575" y2="31.115" width="0.3048" layer="16"/>
+<wire x1="32.074" y1="40.71" x2="31.496" y2="40.132" width="0.254" layer="16"/>
+<wire x1="31.496" y1="40.132" x2="31.496" y2="32.004" width="0.254" layer="16"/>
+<wire x1="31.496" y1="32.004" x2="32.385" y2="31.115" width="0.254" layer="16"/>
+<wire x1="32.385" y1="31.115" x2="32.575" y2="31.115" width="0.254" layer="16"/>
 </signal>
 <signal name="SD_CS">
 <contactref element="U1" pad="29"/>
@@ -1658,11 +1640,11 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <contactref element="U1" pad="22"/>
 <via x="37.338" y="31.115" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="36.14" y1="38.16" x2="36.14" y2="37.156" width="0.3048" layer="16"/>
-<wire x1="36.14" y1="37.156" x2="34.29" y2="35.306" width="0.3048" layer="16"/>
-<wire x1="34.29" y1="35.306" x2="34.29" y2="32.258" width="0.3048" layer="16"/>
-<wire x1="34.29" y1="32.258" x2="35.052" y2="31.496" width="0.3048" layer="16"/>
+<wire x1="36.14" y1="37.156" x2="35.56" y2="36.576" width="0.3048" layer="16"/>
+<wire x1="35.56" y1="36.576" x2="35.56" y2="32.004" width="0.3048" layer="16"/>
+<wire x1="35.56" y1="32.004" x2="36.068" y2="31.496" width="0.3048" layer="16"/>
 <wire x1="37.338" y1="30" x2="37.338" y2="31.115" width="0.3048" layer="1"/>
-<wire x1="35.052" y1="31.496" x2="36.957" y2="31.496" width="0.3048" layer="16"/>
+<wire x1="36.068" y1="31.496" x2="36.957" y2="31.496" width="0.3048" layer="16"/>
 <wire x1="36.957" y1="31.496" x2="37.338" y2="31.115" width="0.3048" layer="16"/>
 <wire x1="37.5" y1="29.492" x2="37.564" y2="29.492" width="0.3048" layer="1"/>
 <wire x1="37.564" y1="29.492" x2="37.592" y2="29.464" width="0.3048" layer="1"/>
@@ -1712,9 +1694,9 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <contactref element="IC5" pad="4"/>
 <contactref element="C8" pad="1"/>
 <wire x1="9.91" y1="44.196" x2="9.144" y2="44.196" width="0.254" layer="1"/>
-<wire x1="9.144" y1="44.196" x2="4.572" y2="39.624" width="0.254" layer="1"/>
-<wire x1="4.572" y1="39.624" x2="4.572" y2="34.798" width="0.254" layer="1"/>
-<wire x1="4.572" y1="34.798" x2="6.35" y2="33.02" width="0.254" layer="1"/>
+<wire x1="9.144" y1="44.196" x2="5.08" y2="40.132" width="0.254" layer="1"/>
+<wire x1="5.08" y1="40.132" x2="5.08" y2="34.29" width="0.254" layer="1"/>
+<wire x1="5.08" y1="34.29" x2="6.35" y2="33.02" width="0.254" layer="1"/>
 <wire x1="6.35" y1="33.02" x2="6.9533" y2="33.02" width="0.254" layer="1"/>
 <wire x1="9.91" y1="44.196" x2="10.094" y2="44.38" width="0.3048" layer="1"/>
 </signal>
@@ -1731,36 +1713,37 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="9.398" y1="43.18" x2="8.89" y2="43.18" width="0.254" layer="1"/>
 <wire x1="8.89" y1="43.18" x2="8.194" y2="42.484" width="0.254" layer="1"/>
 <wire x1="8.194" y1="42.484" x2="8.194" y2="41.98" width="0.4064" layer="1"/>
-<wire x1="16.764" y1="39.37" x2="16.764" y2="36.83" width="0.3048" layer="1"/>
-<wire x1="16.764" y1="36.83" x2="16.002" y2="36.068" width="0.3048" layer="1"/>
-<wire x1="10.094" y1="41.98" x2="11.18" y2="40.894" width="0.3048" layer="1"/>
-<wire x1="11.18" y1="40.894" x2="12.446" y2="40.894" width="0.3048" layer="1"/>
-<wire x1="12.446" y1="40.894" x2="13.716" y2="39.624" width="0.3048" layer="1"/>
-<wire x1="13.716" y1="39.624" x2="13.716" y2="36.83" width="0.3048" layer="1"/>
-<wire x1="13.716" y1="36.83" x2="14.478" y2="36.068" width="0.3048" layer="1"/>
-<wire x1="14.478" y1="36.068" x2="16.002" y2="36.068" width="0.3048" layer="1"/>
-<wire x1="11.938" y1="52.938" x2="14.986" y2="55.986" width="0.3048" layer="1"/>
-<wire x1="14.986" y1="55.986" x2="15" y2="56" width="0.3048" layer="1"/>
-<wire x1="16.764" y1="39.37" x2="13.081" y2="43.053" width="0.3048" layer="1"/>
-<wire x1="13.081" y1="43.053" x2="12.573" y2="43.053" width="0.3048" layer="1"/>
-<wire x1="12.573" y1="43.053" x2="11.938" y2="43.688" width="0.3048" layer="1"/>
-<wire x1="11.938" y1="43.688" x2="11.938" y2="52.938" width="0.3048" layer="1"/>
+<wire x1="16.764" y1="39.37" x2="16.764" y2="36.83" width="0.4064" layer="1"/>
+<wire x1="16.764" y1="36.83" x2="16.002" y2="36.068" width="0.4064" layer="1"/>
+<wire x1="10.094" y1="41.98" x2="11.18" y2="40.894" width="0.4064" layer="1"/>
+<wire x1="11.18" y1="40.894" x2="12.446" y2="40.894" width="0.4064" layer="1"/>
+<wire x1="12.446" y1="40.894" x2="13.716" y2="39.624" width="0.4064" layer="1"/>
+<wire x1="13.716" y1="39.624" x2="13.716" y2="36.83" width="0.4064" layer="1"/>
+<wire x1="13.716" y1="36.83" x2="14.478" y2="36.068" width="0.4064" layer="1"/>
+<wire x1="14.478" y1="36.068" x2="16.002" y2="36.068" width="0.4064" layer="1"/>
+<wire x1="16.764" y1="39.37" x2="11.938" y2="44.196" width="0.4064" layer="1"/>
 <contactref element="CON2" pad="4"/>
-<wire x1="53.46" y1="65.18" x2="53.369" y2="65.18" width="0.4064" layer="16"/>
-<wire x1="53.369" y1="65.18" x2="51.943" y2="63.754" width="0.4064" layer="16"/>
-<wire x1="51.943" y1="63.754" x2="51.943" y2="57.15" width="0.4064" layer="16"/>
-<wire x1="60.96" y1="56.134" x2="60.833" y2="56.134" width="0.3048" layer="1"/>
-<wire x1="60.833" y1="56.134" x2="54.737" y2="62.23" width="0.3048" layer="1"/>
-<wire x1="54.737" y1="62.23" x2="19.685" y2="62.23" width="0.3048" layer="1"/>
-<wire x1="19.685" y1="62.23" x2="14.986" y2="57.531" width="0.3048" layer="1"/>
-<wire x1="14.986" y1="56.014" x2="15" y2="56" width="0.3048" layer="1"/>
-<wire x1="14.986" y1="57.531" x2="14.986" y2="55.986" width="0.3048" layer="1"/>
+<wire x1="60.96" y1="56.134" x2="60.833" y2="56.134" width="0.4064" layer="1"/>
+<wire x1="60.833" y1="56.134" x2="54.737" y2="62.23" width="0.4064" layer="1"/>
+<wire x1="54.737" y1="62.23" x2="19.685" y2="62.23" width="0.4064" layer="1"/>
 <via x="60.96" y="56.134" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="51.943" y1="57.15" x2="52.578" y2="56.515" width="0.4064" layer="16"/>
 <wire x1="52.578" y1="56.515" x2="60.579" y2="56.515" width="0.4064" layer="16"/>
 <wire x1="60.579" y1="56.515" x2="60.96" y2="56.134" width="0.4064" layer="16"/>
 <wire x1="65.8" y1="56" x2="61.094" y2="56" width="0.4064" layer="16"/>
 <wire x1="61.094" y1="56" x2="60.96" y2="56.134" width="0.4064" layer="16"/>
+<wire x1="51.943" y1="57.15" x2="51.943" y2="61.341" width="0.4064" layer="16"/>
+<wire x1="51.943" y1="61.341" x2="53.46" y2="62.858" width="0.4064" layer="16"/>
+<wire x1="53.46" y1="62.858" x2="53.46" y2="65.18" width="0.4064" layer="16"/>
+<wire x1="19.685" y1="62.23" x2="18.796" y2="62.23" width="0.254" layer="1"/>
+<wire x1="18.796" y1="62.23" x2="14.986" y2="58.42" width="0.4064" layer="1"/>
+<via x="14.986" y="58.42" extent="1-16" drill="0.6" shape="octagon"/>
+<wire x1="14.986" y1="58.42" x2="14.986" y2="56.014" width="0.254" layer="16"/>
+<wire x1="14.986" y1="56.014" x2="15" y2="56" width="0.254" layer="16"/>
+<wire x1="9.906" y1="53.34" x2="14.986" y2="58.42" width="0.4064" layer="1"/>
+<wire x1="9.906" y1="53.34" x2="9.906" y2="47.752" width="0.4064" layer="1"/>
+<wire x1="9.906" y1="47.752" x2="11.938" y2="45.72" width="0.4064" layer="1"/>
+<wire x1="11.938" y1="45.72" x2="11.938" y2="44.196" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$23">
 <contactref element="U1" pad="20"/>
