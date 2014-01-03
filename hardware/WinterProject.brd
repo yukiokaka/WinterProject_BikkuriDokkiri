@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.0025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.005" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -472,25 +472,25 @@
 <packages>
 <package name="16X16DOTMATRIX_MODULE">
 <pad name="J2OIA" x="53.34" y="0" drill="0.8" shape="square" rot="R180"/>
-<pad name="J2OIB" x="53.34" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J2OIC" x="53.34" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J2OID" x="53.34" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J2OIE" x="53.34" y="-10.16" drill="0.8" rot="R180"/>
-<pad name="J2VCC" x="50.8" y="0" drill="0.8" rot="R180"/>
-<pad name="J2RCK" x="50.8" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J2SCK" x="50.8" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J2SER" x="50.8" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J2GND" x="50.8" y="-10.16" drill="0.8" rot="R180"/>
-<pad name="J1OIA" x="2.54" y="0" drill="0.8" shape="square" rot="R180"/>
-<pad name="J1OIB" x="2.54" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J1OIC" x="2.54" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J1OID" x="2.54" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J1OIE" x="2.54" y="-10.16" drill="0.8" rot="R180"/>
-<pad name="J1VCC" x="0" y="0" drill="0.8" rot="R180"/>
-<pad name="J1RCK" x="0" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J1SCK" x="0" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J1SER" x="0" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J1GND" x="0" y="-10.16" drill="0.8" rot="R180"/>
+<pad name="J2OIB" x="53.34" y="-2.54" drill="1" rot="R180"/>
+<pad name="J2OIC" x="53.34" y="-5.08" drill="1" rot="R180"/>
+<pad name="J2OID" x="53.34" y="-7.62" drill="1" rot="R180"/>
+<pad name="J2OIE" x="53.34" y="-10.16" drill="1" rot="R180"/>
+<pad name="J2VCC" x="50.8" y="0" drill="1" rot="R180"/>
+<pad name="J2RCK" x="50.8" y="-2.54" drill="1" rot="R180"/>
+<pad name="J2SCK" x="50.8" y="-5.08" drill="1" rot="R180"/>
+<pad name="J2SER" x="50.8" y="-7.62" drill="1" rot="R180"/>
+<pad name="J2GND" x="50.8" y="-10.16" drill="1" rot="R180"/>
+<pad name="J1OIA" x="2.54" y="0" drill="1" shape="square" rot="R180"/>
+<pad name="J1OIB" x="2.54" y="-2.54" drill="1" rot="R180"/>
+<pad name="J1OIC" x="2.54" y="-5.08" drill="1" rot="R180"/>
+<pad name="J1OID" x="2.54" y="-7.62" drill="1" rot="R180"/>
+<pad name="J1OIE" x="2.54" y="-10.16" drill="1" rot="R180"/>
+<pad name="J1VCC" x="0" y="0" drill="1" rot="R180"/>
+<pad name="J1RCK" x="0" y="-2.54" drill="1" rot="R180"/>
+<pad name="J1SCK" x="0" y="-5.08" drill="1" rot="R180"/>
+<pad name="J1SER" x="0" y="-7.62" drill="1" rot="R180"/>
+<pad name="J1GND" x="0" y="-10.16" drill="1" rot="R180"/>
 <wire x1="69" y1="14" x2="69" y2="-56" width="0.127" layer="21"/>
 <wire x1="69" y1="-56" x2="-15" y2="-56" width="0.127" layer="21"/>
 <wire x1="-15" y1="-56" x2="-15" y2="14" width="0.127" layer="21"/>
@@ -934,15 +934,6 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="60.198" y1="66.294" x2="60.198" y2="64.192" width="0.3048" layer="16"/>
 <wire x1="60.198" y1="64.192" x2="60.352" y2="64.038" width="0.3048" layer="16"/>
 <wire x1="17.54" y1="45.84" x2="17.54" y2="45.96" width="0.254" layer="16"/>
-<wire x1="17.54" y1="45.96" x2="16.129" y2="47.371" width="0.254" layer="16"/>
-<wire x1="16.129" y1="47.371" x2="14.5415" y2="47.371" width="0.254" layer="16"/>
-<wire x1="14.5415" y1="47.371" x2="13.7795" y2="48.133" width="0.254" layer="16"/>
-<wire x1="13.7795" y1="48.133" x2="13.7795" y2="48.895" width="0.254" layer="16"/>
-<wire x1="13.7795" y1="48.895" x2="14.4145" y2="49.53" width="0.254" layer="16"/>
-<wire x1="14.4145" y1="49.53" x2="15.9385" y2="49.53" width="0.254" layer="16"/>
-<wire x1="15.9385" y1="49.53" x2="16.764" y2="48.7045" width="0.254" layer="16"/>
-<wire x1="16.764" y1="48.7045" x2="17.2155" y2="48.7045" width="0.254" layer="16"/>
-<wire x1="17.2155" y1="48.7045" x2="17.54" y2="48.38" width="0.254" layer="16"/>
 </signal>
 <signal name="VCC">
 <contactref element="R1" pad="2"/>
@@ -1313,20 +1304,21 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="15" y1="48.38" x2="15.882" y2="48.38" width="0.254" layer="16"/>
 <wire x1="15.882" y1="48.38" x2="17.018" y2="47.244" width="0.254" layer="16"/>
 <wire x1="17.018" y1="47.244" x2="18.034" y2="47.244" width="0.254" layer="16"/>
-<wire x1="18.034" y1="47.244" x2="18.542" y2="46.736" width="0.254" layer="16"/>
-<wire x1="18.542" y1="46.736" x2="18.542" y2="43.18" width="0.254" layer="16"/>
-<wire x1="18.542" y1="43.18" x2="31.75" y2="29.972" width="0.254" layer="16"/>
+<wire x1="18.034" y1="47.244" x2="18.923" y2="46.355" width="0.254" layer="16"/>
+<wire x1="18.923" y1="46.355" x2="18.923" y2="42.799" width="0.254" layer="16"/>
+<wire x1="18.923" y1="42.799" x2="31.75" y2="29.972" width="0.254" layer="16"/>
 </signal>
 <signal name="J1SCK">
 <contactref element="U$1" pad="J1SCK"/>
 <contactref element="U1" pad="30"/>
 <wire x1="33.59" y1="42.21" x2="21.29" y2="42.21" width="0.254" layer="16"/>
-<wire x1="21.29" y1="42.21" x2="19.304" y2="44.196" width="0.254" layer="16"/>
-<wire x1="19.304" y1="44.196" x2="19.304" y2="48.514" width="0.254" layer="16"/>
 <wire x1="19.304" y1="48.514" x2="18.288" y2="49.53" width="0.254" layer="16"/>
 <wire x1="18.288" y1="49.53" x2="17.018" y2="49.53" width="0.254" layer="16"/>
 <wire x1="17.018" y1="49.53" x2="15.628" y2="50.92" width="0.254" layer="16"/>
 <wire x1="15.628" y1="50.92" x2="15" y2="50.92" width="0.254" layer="16"/>
+<wire x1="19.304" y1="48.514" x2="19.812" y2="48.006" width="0.3048" layer="16"/>
+<wire x1="19.812" y1="48.006" x2="19.812" y2="43.688" width="0.3048" layer="16"/>
+<wire x1="19.812" y1="43.688" x2="21.29" y2="42.21" width="0.3048" layer="16"/>
 </signal>
 <signal name="J1OIA">
 <contactref element="U$1" pad="J1OIA"/>
@@ -1360,10 +1352,10 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="16.256" y1="43.434" x2="30.226" y2="29.464" width="0.254" layer="16"/>
 <wire x1="13.208" y1="47.752" x2="13.208" y2="51.054" width="0.254" layer="16"/>
 <wire x1="13.208" y1="51.054" x2="14.478" y2="52.324" width="0.254" layer="16"/>
-<wire x1="16.256" y1="43.434" x2="16.256" y2="46.2915" width="0.254" layer="16"/>
-<wire x1="16.256" y1="46.2915" x2="15.6845" y2="46.863" width="0.254" layer="16"/>
-<wire x1="15.6845" y1="46.863" x2="14.097" y2="46.863" width="0.254" layer="16"/>
-<wire x1="14.097" y1="46.863" x2="13.208" y2="47.752" width="0.254" layer="16"/>
+<wire x1="16.256" y1="43.434" x2="16.256" y2="46.482" width="0.254" layer="16"/>
+<wire x1="16.256" y1="46.482" x2="15.748" y2="46.99" width="0.254" layer="16"/>
+<wire x1="15.748" y1="46.99" x2="13.97" y2="46.99" width="0.254" layer="16"/>
+<wire x1="13.97" y1="46.99" x2="13.208" y2="47.752" width="0.254" layer="16"/>
 </signal>
 <signal name="J1OIC">
 <contactref element="U$1" pad="J1OIC"/>

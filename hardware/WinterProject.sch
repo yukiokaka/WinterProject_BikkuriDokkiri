@@ -2771,25 +2771,25 @@ grid 7.5 mm, outline 3.2 x 10.3 mm</description>
 <packages>
 <package name="16X16DOTMATRIX_MODULE">
 <pad name="J2OIA" x="53.34" y="0" drill="0.8" shape="square" rot="R180"/>
-<pad name="J2OIB" x="53.34" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J2OIC" x="53.34" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J2OID" x="53.34" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J2OIE" x="53.34" y="-10.16" drill="0.8" rot="R180"/>
-<pad name="J2VCC" x="50.8" y="0" drill="0.8" rot="R180"/>
-<pad name="J2RCK" x="50.8" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J2SCK" x="50.8" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J2SER" x="50.8" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J2GND" x="50.8" y="-10.16" drill="0.8" rot="R180"/>
-<pad name="J1OIA" x="2.54" y="0" drill="0.8" shape="square" rot="R180"/>
-<pad name="J1OIB" x="2.54" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J1OIC" x="2.54" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J1OID" x="2.54" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J1OIE" x="2.54" y="-10.16" drill="0.8" rot="R180"/>
-<pad name="J1VCC" x="0" y="0" drill="0.8" rot="R180"/>
-<pad name="J1RCK" x="0" y="-2.54" drill="0.8" rot="R180"/>
-<pad name="J1SCK" x="0" y="-5.08" drill="0.8" rot="R180"/>
-<pad name="J1SER" x="0" y="-7.62" drill="0.8" rot="R180"/>
-<pad name="J1GND" x="0" y="-10.16" drill="0.8" rot="R180"/>
+<pad name="J2OIB" x="53.34" y="-2.54" drill="1" rot="R180"/>
+<pad name="J2OIC" x="53.34" y="-5.08" drill="1" rot="R180"/>
+<pad name="J2OID" x="53.34" y="-7.62" drill="1" rot="R180"/>
+<pad name="J2OIE" x="53.34" y="-10.16" drill="1" rot="R180"/>
+<pad name="J2VCC" x="50.8" y="0" drill="1" rot="R180"/>
+<pad name="J2RCK" x="50.8" y="-2.54" drill="1" rot="R180"/>
+<pad name="J2SCK" x="50.8" y="-5.08" drill="1" rot="R180"/>
+<pad name="J2SER" x="50.8" y="-7.62" drill="1" rot="R180"/>
+<pad name="J2GND" x="50.8" y="-10.16" drill="1" rot="R180"/>
+<pad name="J1OIA" x="2.54" y="0" drill="1" shape="square" rot="R180"/>
+<pad name="J1OIB" x="2.54" y="-2.54" drill="1" rot="R180"/>
+<pad name="J1OIC" x="2.54" y="-5.08" drill="1" rot="R180"/>
+<pad name="J1OID" x="2.54" y="-7.62" drill="1" rot="R180"/>
+<pad name="J1OIE" x="2.54" y="-10.16" drill="1" rot="R180"/>
+<pad name="J1VCC" x="0" y="0" drill="1" rot="R180"/>
+<pad name="J1RCK" x="0" y="-2.54" drill="1" rot="R180"/>
+<pad name="J1SCK" x="0" y="-5.08" drill="1" rot="R180"/>
+<pad name="J1SER" x="0" y="-7.62" drill="1" rot="R180"/>
+<pad name="J1GND" x="0" y="-10.16" drill="1" rot="R180"/>
 <wire x1="69" y1="14" x2="69" y2="-56" width="0.127" layer="21"/>
 <wire x1="69" y1="-56" x2="-15" y2="-56" width="0.127" layer="21"/>
 <wire x1="-15" y1="-56" x2="-15" y2="14" width="0.127" layer="21"/>
