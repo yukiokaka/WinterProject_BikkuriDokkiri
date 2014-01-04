@@ -471,7 +471,7 @@
 <library name="16x16DotMatrixModule">
 <packages>
 <package name="16X16DOTMATRIX_MODULE">
-<pad name="J2OIA" x="53.34" y="0" drill="0.8" shape="square" rot="R180"/>
+<pad name="J2OIA" x="53.34" y="0" drill="1" shape="square" rot="R180"/>
 <pad name="J2OIB" x="53.34" y="-2.54" drill="1" rot="R180"/>
 <pad name="J2OIC" x="53.34" y="-5.08" drill="1" rot="R180"/>
 <pad name="J2OID" x="53.34" y="-7.62" drill="1" rot="R180"/>
@@ -1742,8 +1742,7 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <via x="14.986" y="58.42" extent="1-16" drill="0.6" shape="octagon"/>
 <wire x1="14.986" y1="58.42" x2="14.986" y2="56.014" width="0.254" layer="16"/>
 <wire x1="14.986" y1="56.014" x2="15" y2="56" width="0.254" layer="16"/>
-<wire x1="9.652" y1="53.086" x2="14.986" y2="58.42" width="0.4064" layer="1"/>
-<wire x1="9.652" y1="53.086" x2="9.652" y2="48.006" width="0.4064" layer="1"/>
+<wire x1="9.652" y1="55.499" x2="9.652" y2="48.006" width="0.4064" layer="1"/>
 <wire x1="9.652" y1="48.006" x2="11.938" y2="45.72" width="0.4064" layer="1"/>
 <wire x1="11.938" y1="45.72" x2="11.938" y2="44.196" width="0.4064" layer="1"/>
 <wire x1="58.674" y1="55.626" x2="65.426" y2="55.626" width="0.4064" layer="16"/>
@@ -1765,6 +1764,8 @@ Design Rules must be satisfied for Mita Laboratry cutting machine</description>
 <wire x1="10.0965" y1="41.9825" x2="10.094" y2="41.98" width="0.254" layer="1"/>
 <wire x1="8.763" y1="42.9895" x2="9.7155" y2="42.9895" width="0.254" layer="1"/>
 <wire x1="9.7155" y1="42.9895" x2="10.0965" y2="42.6085" width="0.254" layer="1"/>
+<wire x1="9.652" y1="55.499" x2="12.573" y2="58.42" width="0.4064" layer="1"/>
+<wire x1="12.573" y1="58.42" x2="14.986" y2="58.42" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$23">
 <contactref element="U1" pad="20"/>

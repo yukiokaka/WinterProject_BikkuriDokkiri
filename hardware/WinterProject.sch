@@ -2770,7 +2770,7 @@ grid 7.5 mm, outline 3.2 x 10.3 mm</description>
 <library name="16x16DotMatrixModule">
 <packages>
 <package name="16X16DOTMATRIX_MODULE">
-<pad name="J2OIA" x="53.34" y="0" drill="0.8" shape="square" rot="R180"/>
+<pad name="J2OIA" x="53.34" y="0" drill="1" shape="square" rot="R180"/>
 <pad name="J2OIB" x="53.34" y="-2.54" drill="1" rot="R180"/>
 <pad name="J2OIC" x="53.34" y="-5.08" drill="1" rot="R180"/>
 <pad name="J2OID" x="53.34" y="-7.62" drill="1" rot="R180"/>
