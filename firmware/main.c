@@ -4,12 +4,39 @@
 #include "uart.h"
 #include "ina226.h"
 #include "xprintf.h"
-
+#include "diskio.h"
+#include "ff.h"
+#include "rtc.h"
 
 #define _BV(x) (1 << (x))
 #define TIMEOUT  500
 
+FATFS Fatfs;
 
+/*---------------------------------------------------------*/
+/* User Provided Timer Function for FatFs module           */
+/*---------------------------------------------------------*/
+/* This is a real time clock service to be called from     */
+/* FatFs module. Any valid time must be returned even if   */
+/* the system does not support a real time clock.          */
+/* This is not required in read-only configuration.        */
+
+DWORD get_fattime (void)
+{
+	RTC rtc;
+
+
+	/* Get local time */
+	rtc_gettime(&rtc);
+
+	/* Pack date and time into a DWORD variable */
+	return	  ((DWORD)(rtc.year - 1980) << 25)
+			| ((DWORD)rtc.month << 21)
+			| ((DWORD)rtc.mday << 16)
+			| ((DWORD)rtc.hour << 11)
+			| ((DWORD)rtc.min << 5)
+			| ((DWORD)rtc.sec >> 1);
+}
 
 void ioinit(void){
     LPC_IOCON -> PIO0_4 = 0;
@@ -59,9 +86,11 @@ int main (void)
     /* Enable SysTick timer in interval of 1ms */
     SysTick->LOAD = AHB_CLOCK / 1000 - 1;
     SysTick->CTRL = 0x07;
+    disk_initialize(0);
 
     
     while (1) {
+        disk_initialize(0);
     }
     return 0;
 }
@@ -73,7 +102,6 @@ void SysTick_Handler (void)		/* 1kHz Timer ISR */
     SysTick->CTRL;	
 	/* Clear overflow flag (by reading COUNTFLAG)*/ 
     i++;
-    xprintf("test,%d\n",i);
     
 }
 
