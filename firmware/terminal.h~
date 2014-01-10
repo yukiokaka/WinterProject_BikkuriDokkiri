@@ -1,5 +1,0 @@
-#ifndef DEF_TERMINAL
-#define DEF_TERMINAL
-
-void terminal(voidy);
-#endif
