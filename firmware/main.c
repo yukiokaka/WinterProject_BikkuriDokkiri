@@ -11,7 +11,6 @@
 
 #include <string.h>
 #include "LPC1100.h"
-#include "iic.h"
 #include "xprintf.h"
 #include "uart.h"
 #include "diskio.h"
@@ -37,8 +36,6 @@ int main (void)
 	SYST_RVR = F_CPU / 1000 - 1;
 	SYST_CSR = 0x07;
 
-	/* Initialize I2C module */
-    i2c0_init();
  
     /* Initialize UART and attach it to xprintf module for console */
     uart0_init();
