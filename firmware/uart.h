@@ -6,7 +6,6 @@
 
 
 void uart0_init (void);
-int uart0_test (void);
 void uart0_putc (uint8_t);
 uint8_t uart0_getc (void);
 

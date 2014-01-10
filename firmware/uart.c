@@ -87,16 +87,6 @@ void UART_IRQHandler (void)
 
 
 
-int uart0_test (void)
-{
-#if _UART_SIDECHAN
-	if (UartCmd) return 1;
-#endif
-	return RxBuff.ct;
-}
-
-
-
 uint8_t uart0_getc (void)
 {
 	uint8_t d;
