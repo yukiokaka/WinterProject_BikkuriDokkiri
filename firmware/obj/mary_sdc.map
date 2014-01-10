@@ -1,0 +1,715 @@
+Archive member included because of file (symbol)
+
+/usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+                              obj/terminal.o (strchr)
+/usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                              obj/iic.o (__gnu_thumb1_case_uqi)
+/usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uhi.o)
+                              obj/terminal.o (__gnu_thumb1_case_uhi)
+/usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+                              obj/xprintf.o (__aeabi_uidiv)
+/usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+                              obj/rtc.o (__aeabi_idiv)
+/usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_dvmd_tls.o)
+                              /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+
+Allocating common symbols
+Common symbol       size              file
+
+Fatfs               0x234             obj/terminal.o
+xfunc_in            0x4               obj/xprintf.o
+UartCmd             0x1               obj/uart.o
+xfunc_out           0x4               obj/xprintf.o
+Timer               0x4               obj/terminal.o
+Buff                0x1000            obj/terminal.o
+Line                0x40              obj/terminal.o
+
+Discarded input sections
+
+ .data          0x00000000        0x0 obj/main.o
+ .bss           0x00000000        0x0 obj/main.o
+ .data          0x00000000        0x0 obj/uart.o
+ .data          0x00000000        0x0 obj/iic.o
+ .data          0x00000000        0x0 obj/xprintf.o
+ .data          0x00000000        0x0 obj/rtc.o
+ .bss           0x00000000        0x0 obj/rtc.o
+ .data          0x00000000        0x0 obj/terminal.o
+ .bss           0x00000000        0x0 obj/terminal.o
+ .data          0x00000000        0x0 obj/ff.o
+ .text          0x00000000      0xd34 obj/tjpgd.o
+ .data          0x00000000        0x0 obj/tjpgd.o
+ .bss           0x00000000        0x0 obj/tjpgd.o
+ .rodata        0x00000000      0x4c0 obj/tjpgd.o
+ .data          0x00000000        0x0 obj/startup1100.o
+ .bss           0x00000000        0x0 obj/startup1100.o
+ .data          0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+ .bss           0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+ .data          0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .bss           0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .data          0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uhi.o)
+ .bss           0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uhi.o)
+ .data          0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+ .bss           0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_dvmd_tls.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ROM              0x00000000         0x00008000         xr
+RAM              0x10000000         0x00001fe0         w
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD obj/main.o
+LOAD obj/uart.o
+LOAD obj/iic.o
+LOAD obj/xprintf.o
+LOAD obj/rtc.o
+LOAD obj/mmc.o
+LOAD obj/terminal.o
+LOAD obj/ff.o
+LOAD obj/tjpgd.o
+LOAD obj/startup1100.o
+LOAD /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a
+LOAD /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a
+LOAD /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libm.a
+START GROUP
+LOAD /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a
+LOAD /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a
+END GROUP
+                0x00000000                _startof_flash = 0x0
+                0x00008000                _endof_flash = 0x8000
+                0x10000000                _startof_sram = 0x10000000
+                0x10001fe0                _endof_sram = 0x10001fe0
+
+.text           0x00000000     0x37b7
+ *(.VECTOR)
+ .VECTOR        0x00000000       0xc0 obj/startup1100.o
+                0x00000000                vector
+ *(.text .text.*)
+ .text          0x000000c0       0x50 obj/main.o
+                0x000000c0                main
+ .text          0x00000110      0x1cc obj/uart.o
+                0x00000110                UART_IRQHandler
+                0x000001ac                uart0_test
+                0x000001c8                uart0_getc
+                0x00000204                uart0_putc
+                0x00000240                uart0_init
+ .text          0x000002dc      0x25c obj/iic.o
+                0x000002dc                i2c0_init
+                0x00000390                i2c0_start
+                0x000003b4                i2c0_abort
+                0x000003cc                I2C_IRQHandler
+ .text          0x00000538      0x430 obj/xprintf.o
+                0x00000538                xputc
+                0x0000056c                xputs
+                0x00000746                xfputs
+                0x00000768                xprintf
+                0x0000077e                xsprintf
+                0x000007a8                xfprintf
+                0x000007cc                put_dump
+                0x00000858                xgets
+                0x000008a8                xfgets
+                0x000008c0                xatoi
+ .text          0x00000968      0x1b8 obj/rtc.o
+                0x00000968                rtc_gettime
+                0x00000a44                rtc_settime
+ .text          0x00000b20      0x610 obj/mmc.o
+                0x00000da6                disk_initialize
+                0x00000f14                disk_status
+                0x00000f58                disk_read
+                0x00000fe4                disk_write
+                0x00001084                disk_ioctl
+ .text          0x00001130      0x528 obj/terminal.o
+                0x00001160                get_fattime
+                0x00001198                SysTick_Handler
+                0x000011a8                terminal_init
+                0x000011aa                terminal
+ .text          0x00001658     0x1c0c obj/ff.o
+                0x00001cbe                clust2sect
+                0x00001cd8                get_fat
+                0x00001e5a                put_fat
+                0x0000244e                f_mount
+                0x00002474                f_open
+                0x000025ae                f_read
+                0x000026fe                f_write
+                0x000028ae                f_sync
+                0x0000291e                f_close
+                0x0000292e                f_chdrive
+                0x00002944                f_chdir
+                0x00002998                f_getcwd
+                0x00002aac                f_lseek
+                0x00002bd2                f_opendir
+                0x00002c36                f_readdir
+                0x00002c8a                f_stat
+                0x00002cc8                f_getfree
+                0x00002db6                f_truncate
+                0x00002e54                f_unlink
+                0x00002f12                f_mkdir
+                0x000030a8                f_chmod
+                0x00003102                f_utime
+                0x00003160                f_rename
+ .text          0x00003264       0xe4 obj/startup1100.o
+                0x00003264                Reset_Handler
+                0x00003320                PendSV_Handler
+                0x00003320                NMI_Handler
+                0x00003320                Exception_Trap
+                0x00003320                SVC_Handler
+                0x00003320                HardFault_Hander
+                0x00003334                PIO0_11_IRQHandler
+                0x00003334                CT16B0_IRQHandler
+                0x00003334                PIO_3_IRQHandler
+                0x00003334                PIO0_8_IRQHandler
+                0x00003334                CT16B1_IRQHandler
+                0x00003334                PIO0_4_IRQHandler
+                0x00003334                SPI1_IRQHandler
+                0x00003334                PIO_2_IRQHandler
+                0x00003334                PIO0_6_IRQHandler
+                0x00003334                PIO0_5_IRQHandler
+                0x00003334                CT32B1_IRQHandler
+                0x00003334                PIO0_1_IRQHandler
+                0x00003334                ADC_IRQHandler
+                0x00003334                PIO0_3_IRQHandler
+                0x00003334                PIO1_0_IRQHandler
+                0x00003334                BOD_IRQHandler
+                0x00003334                PIO_0_IRQHandler
+                0x00003334                PIO_1_IRQHandler
+                0x00003334                WDT_IRQHandler
+                0x00003334                PIO0_10_IRQHandler
+                0x00003334                PIO0_7_IRQHandler
+                0x00003334                IRQ_Trap
+                0x00003334                CT32B0_IRQHandler
+                0x00003334                PIO0_0_IRQHandler
+                0x00003334                C_CAN_IRQHandler
+                0x00003334                PIO0_2_IRQHandler
+                0x00003334                SPI0_IRQHandler
+                0x00003334                PIO0_9_IRQHandler
+ .text          0x00003348       0xdc /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+                0x00003348                strchr
+ .text          0x00003424       0x14 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                0x00003424                __gnu_thumb1_case_uqi
+ .text          0x00003438       0x14 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uhi.o)
+                0x00003438                __gnu_thumb1_case_uhi
+ .text          0x0000344c       0x9c /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+                0x0000344c                __udivsi3
+                0x0000344c                __aeabi_uidiv
+                0x000034d4                __aeabi_uidivmod
+ .text          0x000034e8       0xc0 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+                0x000034e8                __aeabi_idiv
+                0x000034e8                __divsi3
+                0x00003594                __aeabi_idivmod
+ .text          0x000035a8        0x4 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_dvmd_tls.o)
+                0x000035a8                __aeabi_ldiv0
+                0x000035a8                __aeabi_idiv0
+ *(.gnu.linkonce.t*)
+ *(.gcc_except_table)
+ *(.rodata .rodata.*)
+ .rodata.str1.1
+                0x000035ac       0x1c obj/main.o
+ .rodata.str1.1
+                0x000035c8       0x1a obj/xprintf.o
+ .rodata        0x000035e2       0xd1 obj/terminal.o
+ .rodata.str1.1
+                0x000036b3       0xf5 obj/terminal.o
+                                 0xf9 (size before relaxing)
+ .rodata.str1.1
+                0x000037a8        0xf obj/ff.o
+ *(.gnu.linkonce.r*)
+
+.glue_7         0x000037b8        0x0 load address 0x000037b7
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x000037b8        0x0 load address 0x000037b7
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x000037b8        0x0 load address 0x000037b7
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x000037b8        0x0 load address 0x000037b7
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.ARM.excep
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+                0x000037b8                . = ALIGN (0x4)
+                0x000037b8                _etext = .
+                0x000037b8                _sidata = .
+
+.data           0x10000000        0x4 load address 0x000037b8
+                0x10000000                _sdata = .
+ *(.data .data.*)
+ .data          0x10000000        0x1 obj/mmc.o
+ *(.gnu.linkonce.d*)
+                0x10000004                . = ALIGN (0x4)
+ *fill*         0x10000001        0x3 00
+                0x10000004                _edata = .
+
+.bss            0x10000004     0x13ac load address 0x000037bc
+                0x10000004                _sbss = .
+ *(.bss .bss.*)
+ .bss           0x10000004      0x110 obj/uart.o
+ .bss           0x10000114        0x4 obj/iic.o
+ .bss           0x10000118        0x4 obj/xprintf.o
+ .bss           0x1000011c        0x1 obj/mmc.o
+ *fill*         0x1000011d        0x3 00
+ .bss           0x10000120        0xc obj/ff.o
+ *(.gnu.linkonce.b*)
+ *(COMMON)
+ COMMON         0x1000012c        0x1 obj/uart.o
+                0x1000012c                UartCmd
+ *fill*         0x1000012d        0x3 00
+ COMMON         0x10000130        0x8 obj/xprintf.o
+                0x10000130                xfunc_in
+                0x10000134                xfunc_out
+ COMMON         0x10000138     0x1278 obj/terminal.o
+                0x10000138                Fatfs
+                0x1000036c                Timer
+                0x10000370                Buff
+                0x10001370                Line
+                0x100013b0                . = ALIGN (0x4)
+                0x100013b0                _ebss = .
+
+.stack          0x100013b0        0x0
+ *(.stack)
+ *(.STACK)
+                0x100013b0                . = ALIGN (0x4)
+                0x100013b0                . = ALIGN (0x4)
+                0x100013b0                _end = .
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 obj/main.o
+ .ARM.attributes
+                0x00000033       0x33 obj/uart.o
+ .ARM.attributes
+                0x00000066       0x33 obj/iic.o
+ .ARM.attributes
+                0x00000099       0x33 obj/xprintf.o
+ .ARM.attributes
+                0x000000cc       0x33 obj/rtc.o
+ .ARM.attributes
+                0x000000ff       0x33 obj/mmc.o
+ .ARM.attributes
+                0x00000132       0x33 obj/terminal.o
+ .ARM.attributes
+                0x00000165       0x33 obj/ff.o
+ .ARM.attributes
+                0x00000198       0x33 obj/tjpgd.o
+ .ARM.attributes
+                0x000001cb       0x33 obj/startup1100.o
+ .ARM.attributes
+                0x000001fe       0x2d /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+ .ARM.attributes
+                0x0000022b       0x1f /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .ARM.attributes
+                0x0000024a       0x1f /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uhi.o)
+ .ARM.attributes
+                0x00000269       0x1f /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000288       0x1f /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x000002a7       0x1f /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_dvmd_tls.o)
+
+.comment        0x00000000       0x2a
+ *(.comment)
+ .comment       0x00000000       0x2a obj/main.o
+                                 0x2b (size before relaxing)
+ .comment       0x00000000       0x2b obj/uart.o
+ .comment       0x00000000       0x2b obj/iic.o
+ .comment       0x00000000       0x2b obj/xprintf.o
+ .comment       0x00000000       0x2b obj/rtc.o
+ .comment       0x00000000       0x2b obj/mmc.o
+ .comment       0x00000000       0x2b obj/terminal.o
+ .comment       0x00000000       0x2b obj/ff.o
+ .comment       0x00000000       0x2b obj/tjpgd.o
+ .comment       0x00000000       0x2b obj/startup1100.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x140
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 obj/main.o
+ .debug_aranges
+                0x00000020       0x20 obj/uart.o
+ .debug_aranges
+                0x00000040       0x20 obj/iic.o
+ .debug_aranges
+                0x00000060       0x20 obj/xprintf.o
+ .debug_aranges
+                0x00000080       0x20 obj/rtc.o
+ .debug_aranges
+                0x000000a0       0x20 obj/mmc.o
+ .debug_aranges
+                0x000000c0       0x20 obj/terminal.o
+ .debug_aranges
+                0x000000e0       0x20 obj/ff.o
+ .debug_aranges
+                0x00000100       0x20 obj/tjpgd.o
+ .debug_aranges
+                0x00000120       0x20 obj/startup1100.o
+
+.debug_pubnames
+                0x00000000      0x438
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x1b obj/main.o
+ .debug_pubnames
+                0x0000001b       0x6e obj/uart.o
+ .debug_pubnames
+                0x00000089       0x51 obj/iic.o
+ .debug_pubnames
+                0x000000da       0x9e obj/xprintf.o
+ .debug_pubnames
+                0x00000178       0x32 obj/rtc.o
+ .debug_pubnames
+                0x000001aa       0x62 obj/mmc.o
+ .debug_pubnames
+                0x0000020c       0x7b obj/terminal.o
+ .debug_pubnames
+                0x00000287      0x133 obj/ff.o
+ .debug_pubnames
+                0x000003ba       0x2f obj/tjpgd.o
+ .debug_pubnames
+                0x000003e9       0x4f obj/startup1100.o
+
+.debug_info     0x00000000     0x449b
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000       0xe9 obj/main.o
+ .debug_info    0x000000e9      0x21c obj/uart.o
+ .debug_info    0x00000305      0x266 obj/iic.o
+ .debug_info    0x0000056b      0x530 obj/xprintf.o
+ .debug_info    0x00000a9b      0x2c6 obj/rtc.o
+ .debug_info    0x00000d61      0x521 obj/mmc.o
+ .debug_info    0x00001282      0x6ad obj/terminal.o
+ .debug_info    0x0000192f     0x19e6 obj/ff.o
+ .debug_info    0x00003315      0xfe0 obj/tjpgd.o
+ .debug_info    0x000042f5      0x1a6 obj/startup1100.o
+
+.debug_abbrev   0x00000000      0xebf
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x81 obj/main.o
+ .debug_abbrev  0x00000081      0x135 obj/uart.o
+ .debug_abbrev  0x000001b6      0x12b obj/iic.o
+ .debug_abbrev  0x000002e1      0x1c9 obj/xprintf.o
+ .debug_abbrev  0x000004aa       0xfc obj/rtc.o
+ .debug_abbrev  0x000005a6      0x1a4 obj/mmc.o
+ .debug_abbrev  0x0000074a      0x17c obj/terminal.o
+ .debug_abbrev  0x000008c6      0x24a obj/ff.o
+ .debug_abbrev  0x00000b10      0x2e0 obj/tjpgd.o
+ .debug_abbrev  0x00000df0       0xcf obj/startup1100.o
+
+.debug_line     0x00000000     0x1ac6
+ *(.debug_line)
+ .debug_line    0x00000000       0xcd obj/main.o
+ .debug_line    0x000000cd      0x131 obj/uart.o
+ .debug_line    0x000001fe      0x143 obj/iic.o
+ .debug_line    0x00000341      0x293 obj/xprintf.o
+ .debug_line    0x000005d4      0x120 obj/rtc.o
+ .debug_line    0x000006f4      0x2fd obj/mmc.o
+ .debug_line    0x000009f1      0x1f7 obj/terminal.o
+ .debug_line    0x00000be8      0x90d obj/ff.o
+ .debug_line    0x000014f5      0x4dc obj/tjpgd.o
+ .debug_line    0x000019d1       0xf5 obj/startup1100.o
+
+.debug_frame    0x00000000      0xac8
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x28 obj/main.o
+ .debug_frame   0x00000028       0x8c obj/uart.o
+ .debug_frame   0x000000b4       0x70 obj/iic.o
+ .debug_frame   0x00000124      0x14c obj/xprintf.o
+ .debug_frame   0x00000270       0x50 obj/rtc.o
+ .debug_frame   0x000002c0      0x160 obj/mmc.o
+ .debug_frame   0x00000420       0x88 obj/terminal.o
+ .debug_frame   0x000004a8      0x4b0 obj/ff.o
+ .debug_frame   0x00000958       0xb0 obj/tjpgd.o
+ .debug_frame   0x00000a08       0x50 obj/startup1100.o
+ .debug_frame   0x00000a58       0x30 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+ .debug_frame   0x00000a88       0x20 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000aa8       0x20 /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+
+.debug_str      0x00000000      0xa40
+ *(.debug_str)
+ .debug_str     0x00000000       0xb7 obj/main.o
+                                 0xf5 (size before relaxing)
+ .debug_str     0x000000b7       0x6a obj/uart.o
+                                0x140 (size before relaxing)
+ .debug_str     0x00000121       0x9f obj/iic.o
+                                0x190 (size before relaxing)
+ .debug_str     0x000001c0       0x8c obj/xprintf.o
+                                0x143 (size before relaxing)
+ .debug_str     0x0000024c       0x3d obj/rtc.o
+                                0x189 (size before relaxing)
+ .debug_str     0x00000289      0x100 obj/mmc.o
+                                0x1f8 (size before relaxing)
+ .debug_str     0x00000389      0x255 obj/terminal.o
+                                0x371 (size before relaxing)
+ .debug_str     0x000005de      0x244 obj/ff.o
+                                0x577 (size before relaxing)
+ .debug_str     0x00000822      0x1b5 obj/tjpgd.o
+                                0x27c (size before relaxing)
+ .debug_str     0x000009d7       0x69 obj/startup1100.o
+                                0x13a (size before relaxing)
+
+.debug_loc      0x00000000     0x6482
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x20 obj/main.o
+ .debug_loc     0x00000020      0x1c9 obj/uart.o
+ .debug_loc     0x000001e9      0x1b9 obj/iic.o
+ .debug_loc     0x000003a2      0x995 obj/xprintf.o
+ .debug_loc     0x00000d37       0x95 obj/rtc.o
+ .debug_loc     0x00000dcc      0x87e obj/mmc.o
+ .debug_loc     0x0000164a      0x3cd obj/terminal.o
+ .debug_loc     0x00001a17     0x2b45 obj/ff.o
+ .debug_loc     0x0000455c     0x1eb2 obj/tjpgd.o
+ .debug_loc     0x0000640e       0x74 obj/startup1100.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+OUTPUT(obj/mary_sdc.elf elf32-littlearm)
+
+.debug_pubtypes
+                0x00000000      0x31a
+ .debug_pubtypes
+                0x00000000       0x1f obj/main.o
+ .debug_pubtypes
+                0x0000001f       0x38 obj/uart.o
+ .debug_pubtypes
+                0x00000057       0x44 obj/iic.o
+ .debug_pubtypes
+                0x0000009b       0x3f obj/xprintf.o
+ .debug_pubtypes
+                0x000000da       0x51 obj/rtc.o
+ .debug_pubtypes
+                0x0000012b       0x5c obj/mmc.o
+ .debug_pubtypes
+                0x00000187       0x7b obj/terminal.o
+ .debug_pubtypes
+                0x00000202       0x7f obj/ff.o
+ .debug_pubtypes
+                0x00000281       0x7a obj/tjpgd.o
+ .debug_pubtypes
+                0x000002fb       0x1f obj/startup1100.o
+
+.debug_ranges   0x00000000      0x130
+ .debug_ranges  0x00000000       0x78 obj/ff.o
+ .debug_ranges  0x00000078       0xb8 obj/tjpgd.o
+
+Cross Reference Table
+
+Symbol                                            File
+ADC_IRQHandler                                    obj/startup1100.o
+BOD_IRQHandler                                    obj/startup1100.o
+Buff                                              obj/terminal.o
+CT16B0_IRQHandler                                 obj/startup1100.o
+CT16B1_IRQHandler                                 obj/startup1100.o
+CT32B0_IRQHandler                                 obj/startup1100.o
+CT32B1_IRQHandler                                 obj/startup1100.o
+C_CAN_IRQHandler                                  obj/startup1100.o
+Exception_Trap                                    obj/startup1100.o
+Fatfs                                             obj/terminal.o
+HardFault_Hander                                  obj/startup1100.o
+I2C_IRQHandler                                    obj/iic.o
+IRQ_Trap                                          obj/startup1100.o
+Line                                              obj/terminal.o
+NMI_Handler                                       obj/startup1100.o
+PIO0_0_IRQHandler                                 obj/startup1100.o
+PIO0_10_IRQHandler                                obj/startup1100.o
+PIO0_11_IRQHandler                                obj/startup1100.o
+PIO0_1_IRQHandler                                 obj/startup1100.o
+PIO0_2_IRQHandler                                 obj/startup1100.o
+PIO0_3_IRQHandler                                 obj/startup1100.o
+PIO0_4_IRQHandler                                 obj/startup1100.o
+PIO0_5_IRQHandler                                 obj/startup1100.o
+PIO0_6_IRQHandler                                 obj/startup1100.o
+PIO0_7_IRQHandler                                 obj/startup1100.o
+PIO0_8_IRQHandler                                 obj/startup1100.o
+PIO0_9_IRQHandler                                 obj/startup1100.o
+PIO1_0_IRQHandler                                 obj/startup1100.o
+PIO_0_IRQHandler                                  obj/startup1100.o
+PIO_1_IRQHandler                                  obj/startup1100.o
+PIO_2_IRQHandler                                  obj/startup1100.o
+PIO_3_IRQHandler                                  obj/startup1100.o
+PendSV_Handler                                    obj/startup1100.o
+Reset_Handler                                     obj/startup1100.o
+SPI0_IRQHandler                                   obj/startup1100.o
+SPI1_IRQHandler                                   obj/startup1100.o
+SVC_Handler                                       obj/startup1100.o
+SysTick_Handler                                   obj/terminal.o
+Timer                                             obj/terminal.o
+UART_IRQHandler                                   obj/uart.o
+UartCmd                                           obj/uart.o
+WDT_IRQHandler                                    obj/startup1100.o
+__aeabi_idiv                                      /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+                                                  obj/rtc.o
+__aeabi_idiv0                                     /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_dvmd_tls.o)
+                                                  /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+                                                  /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+__aeabi_idivmod                                   /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+                                                  obj/rtc.o
+__aeabi_ldiv0                                     /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_dvmd_tls.o)
+__aeabi_uidiv                                     /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+                                                  obj/ff.o
+                                                  obj/terminal.o
+                                                  obj/rtc.o
+                                                  obj/xprintf.o
+__aeabi_uidivmod                                  /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+                                                  obj/rtc.o
+                                                  obj/xprintf.o
+__divsi3                                          /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_divsi3.o)
+__gnu_thumb1_case_uhi                             /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uhi.o)
+                                                  obj/tjpgd.o
+                                                  obj/terminal.o
+__gnu_thumb1_case_uqi                             /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                                                  obj/iic.o
+__udivsi3                                         /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/armv6-m/libgcc.a(_udivsi3.o)
+_ebss                                             obj/startup1100.o
+_edata                                            obj/startup1100.o
+_endof_sram                                       obj/startup1100.o
+_sbss                                             obj/startup1100.o
+_sdata                                            obj/startup1100.o
+_sidata                                           obj/startup1100.o
+clust2sect                                        obj/ff.o
+disk_initialize                                   obj/mmc.o
+                                                  obj/ff.o
+                                                  obj/terminal.o
+disk_ioctl                                        obj/mmc.o
+                                                  obj/ff.o
+disk_read                                         obj/mmc.o
+                                                  obj/ff.o
+                                                  obj/terminal.o
+disk_status                                       obj/mmc.o
+                                                  obj/ff.o
+disk_write                                        obj/mmc.o
+                                                  obj/ff.o
+f_chdir                                           obj/ff.o
+                                                  obj/terminal.o
+f_chdrive                                         obj/ff.o
+f_chmod                                           obj/ff.o
+f_close                                           obj/ff.o
+                                                  obj/terminal.o
+f_getcwd                                          obj/ff.o
+                                                  obj/terminal.o
+f_getfree                                         obj/ff.o
+                                                  obj/terminal.o
+f_lseek                                           obj/ff.o
+                                                  obj/terminal.o
+f_mkdir                                           obj/ff.o
+                                                  obj/terminal.o
+f_mount                                           obj/ff.o
+                                                  obj/terminal.o
+f_open                                            obj/ff.o
+                                                  obj/terminal.o
+f_opendir                                         obj/ff.o
+                                                  obj/terminal.o
+f_read                                            obj/ff.o
+                                                  obj/terminal.o
+f_readdir                                         obj/ff.o
+                                                  obj/terminal.o
+f_rename                                          obj/ff.o
+                                                  obj/terminal.o
+f_stat                                            obj/ff.o
+f_sync                                            obj/ff.o
+f_truncate                                        obj/ff.o
+                                                  obj/terminal.o
+f_unlink                                          obj/ff.o
+                                                  obj/terminal.o
+f_utime                                           obj/ff.o
+f_write                                           obj/ff.o
+                                                  obj/terminal.o
+get_fat                                           obj/ff.o
+get_fattime                                       obj/terminal.o
+                                                  obj/ff.o
+i2c0_abort                                        obj/iic.o
+i2c0_init                                         obj/iic.o
+                                                  obj/main.o
+i2c0_start                                        obj/iic.o
+                                                  obj/rtc.o
+jd_decomp                                         obj/tjpgd.o
+jd_prepare                                        obj/tjpgd.o
+main                                              obj/main.o
+                                                  obj/startup1100.o
+put_dump                                          obj/xprintf.o
+                                                  obj/terminal.o
+put_fat                                           obj/ff.o
+rtc_gettime                                       obj/rtc.o
+                                                  obj/terminal.o
+rtc_settime                                       obj/rtc.o
+                                                  obj/terminal.o
+strchr                                            /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/../lib/gcc/arm-none-eabi/4.5.2/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+                                                  obj/terminal.o
+terminal                                          obj/terminal.o
+                                                  obj/main.o
+terminal_init                                     obj/terminal.o
+                                                  obj/main.o
+uart0_getc                                        obj/uart.o
+                                                  obj/main.o
+uart0_init                                        obj/uart.o
+                                                  obj/main.o
+uart0_putc                                        obj/uart.o
+                                                  obj/main.o
+uart0_test                                        obj/uart.o
+vector                                            obj/startup1100.o
+xatoi                                             obj/xprintf.o
+                                                  obj/terminal.o
+xfgets                                            obj/xprintf.o
+xfprintf                                          obj/xprintf.o
+xfputs                                            obj/xprintf.o
+xfunc_in                                          obj/xprintf.o
+                                                  obj/main.o
+xfunc_out                                         obj/xprintf.o
+                                                  obj/main.o
+xgets                                             obj/xprintf.o
+                                                  obj/terminal.o
+xprintf                                           obj/xprintf.o
+                                                  obj/terminal.o
+xputc                                             obj/xprintf.o
+                                                  obj/terminal.o
+xputs                                             obj/xprintf.o
+                                                  obj/main.o
+xsprintf                                          obj/xprintf.o

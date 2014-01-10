@@ -2,7 +2,7 @@
 PROJECT	= mary_sdc
 
 ### Source files and search directories
-CSRC	= main.c uart.c iic.c xprintf.c rtc.c mmc.c terminal.c ff.c tjpgd.c  startup1100.c
+CSRC	= main.c uart.c iic.c xprintf.c rtc.c mmc.c ff.c tjpgd.c  startup1100.c
 ASRC	=
 CSRCARM	=
 ASRCARM	=
