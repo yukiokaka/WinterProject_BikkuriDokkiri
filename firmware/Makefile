@@ -194,3 +194,7 @@ clean:
 # Include the dependency files.
 -include $(shell mkdir $(OBJDIR) 2>/dev/null) $(wildcard $(OBJDIR)/*.d)
 
+.PNOHY:write
+write: $(PROJECT).hex
+	/usr/local/lpc21isp/lpc21isp -control $(PROJECT).hex /dev/ttyUSB0 115200 12000000
+
