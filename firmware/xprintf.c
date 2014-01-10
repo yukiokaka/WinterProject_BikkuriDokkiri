@@ -226,7 +226,7 @@ void put_dump (
 	const void* buff,		/* Pointer to the array to be dumped */
 	unsigned long addr,		/* Heading address value */
 	int len,				/* Number of items to be dumped */
-	int width				/* Size of the items (DW_CHAR, DW_SHORT, DW_LONG) */
+	int width				/* Size of the items (DF_CHAR, DF_SHORT, DF_LONG) */
 )
 {
 	int i;

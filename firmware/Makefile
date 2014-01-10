@@ -1,30 +1,30 @@
 ### Project name (also used for output file name)
-PROJECT	= mary_sdc
+PROJECT	= winter_project
 
-### Source files and search directories
-CSRC	= main.c uart.c xprintf.c rtc.c mmc.c terminal.c ff.c tjpgd.c  startup1100.c
-ASRC	=
+### Source files in ARM or Thumb(-2)
+CSRC	= $(shell find -name "*.c")
+ASRC	= nvol_section.S
+
+### Source files in ARM-only
 CSRCARM	=
 ASRCARM	=
-VPATH   =
 
 ### Optimization level (0, 1, 2, 3, 4 or s)
 OPTIMIZE = s
 
 ### C Standard level (c89, gnu89, c99 or gnu99)
-CSTD = gnu89
+CSTD = gnu99
 
-### Processor type and use Thumb(-2) mode for CSRC/ASRC files (YES or NO)
+### Output file format (ihex, bin or both) and debugger type
+OUTPUT	= ihex
+DEBUG	= dwarf-2
+
+### Processor type and Thumb(-2) mode for CSRC/ASRC files (YES or NO)
 CPU   = cortex-m0
 THUMB = YES
 
 ### Linker script for the target MCU
-LINKSCRIPT = MARY-MB.ld
-
-### Output file type (hex, bin or both) and debugger type
-OUTPUT	= hex
-HEXFMT  = ihex
-DEBUG	= dwarf-2
+LINKSCRIPT = lpc11c24.ld
 
 ### Include dirs, library dirs and definitions
 MATHLIB	= -lm
@@ -35,33 +35,22 @@ DEFS	=
 ADEFS	=
 
 ### Warning contorls
-WARNINGS = all extra
-
-### Object output directory
-OBJDIR = obj
+WARNING	= all extra
 
 
 ### Programs to build porject
-CC      = arm-none-eabi-gcc
-OBJCOPY = arm-none-eabi-objcopy
-OBJDUMP = arm-none-eabi-objdump
-SIZE    = arm-none-eabi-size
-NM      = arm-none-eabi-nm
+TOOLSPREFIX =  /usr/local/CodeSourcery/Sourcery_G++_Lite/bin/arm-none-eabi-
+CC      = $(TOOLSPREFIX)gcc
+OBJCOPY = $(TOOLSPREFIX)objcopy
+OBJDUMP = $(TOOLSPREFIX)objdump
+SIZE    = $(TOOLSPREFIX)size
+NM      = $(TOOLSPREFIX)nm
 
 
-# Define all object files
-COBJ      = $(CSRC:.c=.o) 
-AOBJ      = $(ASRC:.S=.o)
-COBJARM   = $(CSRCARM:.c=.o)
-AOBJARM   = $(ASRCARM:.S=.o)
-COBJ      := $(addprefix $(OBJDIR)/,$(COBJ))
-AOBJ      := $(addprefix $(OBJDIR)/,$(AOBJ))
-COBJARM   := $(addprefix $(OBJDIR)/,$(COBJARM))
-AOBJARM   := $(addprefix $(OBJDIR)/,$(AOBJARM))
-PROJECT   := $(OBJDIR)/$(PROJECT)
 
 
 ### Compiler flags
+
 ifeq ($(THUMB),YES)
 THUMBFLAG = -mthumb
 THUMBIW = -mthumb-interwork
@@ -70,19 +59,22 @@ THUMBFLAG =
 THUMBIW =
 endif
 
-
 # Flags for C files
 CFLAGS += -std=$(CSTD)
 CFLAGS += -g$(DEBUG)
 CFLAGS += -O$(OPTIMIZE)
-CFLAGS += $(addprefix -W,$(WARNINGS))
-CFLAGS += $(addprefix -I,$(INCDIRS))
-CFLAGS += $(addprefix -D,$(DEFS))
-CFLAGS += -Wp,-MM,-MP,-MT,$(OBJDIR)/$(*F).o,-MF,$(OBJDIR)/$(*F).d
+CFLAGS += $(patsubst %,-W%,$(WARNING))
+CFLAGS += $(patsubst %,-I%,$(INCDIRS))
+CFLAGS += $(DEFS)
+CFLAGS += -Icmsis/inc
+CFLAGS += -DAHB_CLOCK=12000000
+# used in flash_nvol.c
+CFLAGS += -DCPU_CLK=12000
+#CFLAGS += -Wp,-M,-MP,-MT,$(*F).o,-MF,.dep/$(*F).d
 
 
 # Assembler flags
-ASFLAGS += $(addprefix -D,$(ADEFS)) -Wa,-g$(DEBUG)
+ASFLAGS += $(ADEFS) -Wa,-g$(DEBUG)
 
 
 # Linker flags
@@ -91,6 +83,16 @@ LDFLAGS += -lc -lgcc
 LDFLAGS += $(patsubst %,-L%,$(LIBDIRS)) $(patsubst %,-l%,$(LIBS))
 LDFLAGS += $(MATHLIB)
 LDFLAGS += -T$(LINKSCRIPT)
+
+
+# Define all object files
+COBJ      = $(CSRC:.c=.o)
+AOBJ      = $(ASRC:.S=.o)
+COBJARM   = $(CSRCARM:.c=.o)
+AOBJARM   = $(ASRCARM:.S=.o)
+
+# Define all listing files
+LST = $(PROJECT).lst $(ASRC:.S=.lst) $(ASRCARM:.S=.lst) $(CSRC:.c=.lst) $(CSRCARM:.c=.lst)
 
 
 # Combine all necessary flags and optional flags.
@@ -102,11 +104,11 @@ ALL_ASFLAGS = -mcpu=$(CPU) $(THUMBIW) -I. -x assembler-with-cpp $(ASFLAGS)
 # Default target.
 all: version build size
 
-ifeq ($(OUTPUT),hex)
+ifeq ($(OUTPUT),ihex)
 build: elf hex lst sym
 hex: $(PROJECT).hex
 else
-ifeq ($(OUTPUT),bin)
+ifeq ($(OUTPUT),binary)
 build: elf bin lst sym
 bin: $(PROJECT).bin
 else
@@ -121,7 +123,7 @@ endif
 endif
 
 elf: $(PROJECT).elf
-lst: $(PROJECT).lst 
+lst: $(PROJECT).lst
 sym: $(PROJECT).sym
 
 
@@ -129,10 +131,10 @@ sym: $(PROJECT).sym
 version :
 	@$(CC) --version
 
-# Create final output file from ELF output file.
+# Create final output file (.hex or .bin) from ELF output file.
 %.hex: %.elf
 	@echo
-	$(OBJCOPY) -O $(HEXFMT) $< $@
+	$(OBJCOPY) -O ihex $< $@
 
 %.bin: %.elf
 	@echo
@@ -155,31 +157,33 @@ size:
 
 
 # Link: create ELF output file from object files.
+.SECONDARY : $(PROJECT).elf
+.PRECIOUS : $(AOBJARM) $(AOBJ) $(COBJARM) $(COBJ)
 %.elf:  $(AOBJARM) $(AOBJ) $(COBJARM) $(COBJ)
 	@echo
 	@echo Linking...
 	$(CC) $(THUMBFLAG) $(ALL_CFLAGS) $(AOBJARM) $(AOBJ) $(COBJARM) $(COBJ) --output $@ $(LDFLAGS)
 
 # Compile: create object files from C source files. ARM or Thumb(-2)
-$(COBJ) : $(OBJDIR)/%.o : %.c
+$(COBJ) : %.o : %.c
 	@echo
 	@echo $< :
 	$(CC) -c $(THUMBFLAG) $(ALL_CFLAGS) $< -o $@
 
 # Compile: create object files from C source files. ARM-only
-$(COBJARM) : $(OBJDIR)/%.o : %.c
+$(COBJARM) : %.o : %.c
 	@echo
 	@echo $< :
-	$(CC) -c $(ALL_CFLAGS) $< -o $@ 
+	$(CC) -c $(ALL_CFLAGS) $< -o $@
 
 # Assemble: create object files from assembler source files. ARM or Thumb(-2)
-$(AOBJ) : $(OBJDIR)/%.o : %.S
+$(AOBJ) : %.o : %.S
 	@echo
 	@echo $< :
 	$(CC) -c $(THUMBFLAG) $(ALL_ASFLAGS) $< -o $@
 
 # Assemble: create object files from assembler source files. ARM-only
-$(AOBJARM) : $(OBJDIR)/%.o : %.S
+$(AOBJARM) : %.o : %.S
 	@echo
 	@echo $< :
 	$(CC) -c $(ALL_ASFLAGS) $< -o $@
@@ -188,13 +192,18 @@ $(AOBJARM) : $(OBJDIR)/%.o : %.S
 # Target: clean project.
 clean:
 	@echo
-	rm -f -r $(OBJDIR) | exit 0
-
-
-# Include the dependency files.
--include $(shell mkdir $(OBJDIR) 2>/dev/null) $(wildcard $(OBJDIR)/*.d)
+	rm -f $(PROJECT).hex $(PROJECT).bin $(PROJECT).elf $(PROJECT).map $(PROJECT).sym
+	rm -f $(COBJ) $(AOBJ) $(COBJARM) $(AOBJARM)
+	rm -f $(LST)
+	rm -rf libcan
+#	rm -f $(CSRC:.c=.s) $(CSRCARM:.c=.s)
+	rm -f -r .dep | exit 0
 
 .PNOHY:write
 write: $(PROJECT).hex
-	/usr/local/lpc21isp/lpc21isp -control $(PROJECT).hex /dev/ttyUSB0 115200 12000000
+# 	/usr/local/lpc21isp/lpc21isp -control $(PROJECT).hex /dev/ttyUSB0 115200 12000000
+	lpc21isp -control $(PROJECT).hex /dev/ttyUSB0 115200 12000000
+
+# Include the dependency files.
+#-include $(shell mkdir .dep 2>/dev/null) $(wildcard .dep/*.d)
 
