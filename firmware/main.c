@@ -144,14 +144,6 @@ int main (void)
 	xprintf("\nTest completed.\n");
 	for (;;) ;
     
-    /* CS_H(); */
-    /* while(1) { */
-    /*     xprintf("test\n"); */
-    /*     CS_L(); */
-    /*     ssp_send(0x32); */
-    /*     CS_H(); */
-    /* } */
-	
     return 0;
 }
 
