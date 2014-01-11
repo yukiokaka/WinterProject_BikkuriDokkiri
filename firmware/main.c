@@ -2,41 +2,36 @@
 #include "flash_nvol.h"
 #include "myinit.h"
 #include "uart.h"
-#include "ina226.h"
 #include "xprintf.h"
 #include "diskio.h"
-#include "ff.h"
+#include "pff.h"
 #include "rtc.h"
-
+#include "spi_lpc.h"
 #define _BV(x) (1 << (x))
 #define TIMEOUT  500
-
-FATFS Fatfs;
-
 /*---------------------------------------------------------*/
 /* User Provided Timer Function for FatFs module           */
 /*---------------------------------------------------------*/
-/* This is a real time clock service to be called from     */
-/* FatFs module. Any valid time must be returned even if   */
-/* the system does not support a real time clock.          */
-/* This is not required in read-only configuration.        */
 
 DWORD get_fattime (void)
 {
-	RTC rtc;
-
-
-	/* Get local time */
-	rtc_gettime(&rtc);
-
-	/* Pack date and time into a DWORD variable */
-	return	  ((DWORD)(rtc.year - 1980) << 25)
-			| ((DWORD)rtc.month << 21)
-			| ((DWORD)rtc.mday << 16)
-			| ((DWORD)rtc.hour << 11)
-			| ((DWORD)rtc.min << 5)
-			| ((DWORD)rtc.sec >> 1);
+	return	  ((DWORD)(2010 - 1980) << 25)	/* Fixed to Jan. 1, 2010 */
+        | ((DWORD)1 << 21)
+        | ((DWORD)1 << 16)
+        | ((DWORD)0 << 11)
+        | ((DWORD)0 << 5)
+        | ((DWORD)0 >> 1);
 }
+
+
+void die (		/* Stop with dying message */
+          FRESULT rc	/* FatFs return value */
+                )
+{
+	xprintf("Failed with rc=%u.\n", rc);
+	for (;;) ;
+}
+
 
 void ioinit(void){
     LPC_IOCON -> PIO0_4 = 0;
@@ -75,7 +70,13 @@ void ioinit(void){
 
 int main (void)
 {
-    int data = 0;
+	FATFS fatfs;			/* File system object */
+	DIR dir;				/* Directory object */
+	FILINFO fno;			/* File information object */
+	WORD bw, br, i;
+	BYTE buff[64];
+
+
     MySystemInit();
     NVOL_Init();
 
@@ -83,15 +84,74 @@ int main (void)
     uart_init(38400);
     xdev_in(uart_getc);
     xdev_out(uart_putc);
-    /* Enable SysTick timer in interval of 1ms */
-    SysTick->LOAD = AHB_CLOCK / 1000 - 1;
-    SysTick->CTRL = 0x07;
-    disk_initialize(0);
 
+    /* Enable SysTick timer in interval of 1ms */
+    SysTick->LOAD = AHB_CLOCK  - 1;
+    SysTick->CTRL = 0x07;
+
+	xprintf("\nMount a volume.\n");
+	FRESULT rc = pf_mount(&fatfs);
+    xprintf("\nMount a volume finish .\n", rc);
+	if (rc) die(rc);
+
+	xprintf("\nOpen a test file (message.txt).\n");
+	rc = pf_open("MESSAGE.TXT");
+	if (rc) die(rc);
+
+	xprintf("\nType the file content.\n");
+	for (;;) {
+		rc = pf_read(buff, sizeof(buff), &br);	/* Read a chunk of file */
+		if (rc || !br) break;			/* Error or end of file */
+		for (i = 0; i < br; i++)		/* Type the data */
+			uart_putc(buff[i]);
+	}
+	if (rc) die(rc);
+
+#if _USE_WRITE
+	xprintf("\nOpen a file to write (write.txt).\n");
+	rc = pf_open("WRITE.TXT");
+	if (rc) die(rc);
+
+	xprintf("\nWrite a text data. (Hello world!)\n");
+	for (;;) {
+		rc = pf_write("Hello world!\r\n", 14, &bw);
+		if (rc || !bw) break;
+	}
+	if (rc) die(rc);
+
+	xprintf("\nTerminate the file write process.\n");
+	rc = pf_write(0, 0, &bw);
+	if (rc) die(rc);
+#endif
+
+#if _USE_DIR
+	xprintf("\nOpen root directory.\n");
+	rc = pf_opendir(&dir, "");
+	if (rc) die(rc);
+
+	xprintf("\nDirectory listing...\n");
+	for (;;) {
+		rc = pf_readdir(&dir, &fno);	/* Read a directory item */
+		if (rc || !fno.fname[0]) break;	/* Error or end of dir */
+		if (fno.fattrib & AM_DIR)
+			xprintf("   <dir>  %s\n", fno.fname);
+		else
+			xprintf("%8lu  %s\n", fno.fsize, fno.fname);
+	}
+	if (rc) die(rc);
+#endif
+
+	xprintf("\nTest completed.\n");
+	for (;;) ;
     
-    while (1) {
-        disk_initialize(0);
-    }
+    /* CS_H(); */
+    /* while(1) { */
+    /*     xprintf("test\n"); */
+    /*     CS_L(); */
+    /*     ssp_send(0x32); */
+    /*     CS_H(); */
+    /* } */
+	
     return 0;
 }
 

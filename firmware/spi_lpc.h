@@ -67,8 +67,18 @@
 #define RDSR_RDY	0x01
 #define RDSR_WEN	0x02
 
+#define	CS_L() LPC_GPIO0 -> DATA &= ~(1<<10)/* Set MMC CS "high" */
+#define CS_H() LPC_GPIO0 -> DATA |= (1<<10);/* Set MMC CS "low" */
+#define	CK_L() LPC_GPIO0 -> DATA &= ~(1<<6)/* Set MMC CS "high" */
+#define CK_H() LPC_GPIO0 -> DATA |= (1<<6);/* Set MMC CS "low" */
+#define	DI_L() LPC_GPIO0 -> DATA &= ~(1<<9)/* Set MMC CS "high" */
+#define DI_H() LPC_GPIO0 -> DATA |= (1<<9);/* Set MMC CS "low" */
+#define DO 	 LPC_GPIO0 -> DATA |= (1<<9);/* Get MMC DO value (high:true, low:false) */
+
+
+
 void ssp_init(void);
-void send_command(int command);
+void ssp_send(int command);
 uint8_t  ssp_communication(uint8_t t_buf);
 void ssp_receive(uint8_t *buf);
 
