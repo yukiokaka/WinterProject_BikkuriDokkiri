@@ -249,7 +249,6 @@ DSTATUS disk_initialize (void)
 			} else {
 				ty = CT_MMC; cmd = CMD1;	/* MMCv3 */
 			}
-              xprintf("test start2\n");
 
 			for (tmr = 1000; tmr; tmr--) {			/* Wait for leaving idle state */
 				if (send_cmd(cmd, 0) == 0) break;
@@ -257,10 +256,8 @@ DSTATUS disk_initialize (void)
 			}
 			if (!tmr || send_cmd(CMD16, 512) != 0)			/* Set R/W block length to 512 */
 				ty = 0;
-            xprintf("test fin2\n");
 
 		}
-        xprintf("test fin3\n");          
 	}
 	CardType = ty;
 	release_spi();
