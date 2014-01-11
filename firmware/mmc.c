@@ -11,15 +11,27 @@
 /
 /-------------------------------------------------------------------------*/
 
-#include "LPC11xx.h"
+#include "LPC1100.h"
 #include "diskio.h"
 
 #define BOARD_TYPE		2	/* 1:MARY-XB, 2:MARY/104-SR */
-#define _BV(x) (1 << (x))
 
 
-#define CS_LOW()	{ LPC_GPIO0 -> DATA &= ~_BV(10); }	/* uSD CS = L */
-#define	CS_HIGH()	{ LPC_GPIO0 -> DATA |= _BV(10); }	/* uSD CS = H */
+/*--------------------------------------------------------------------------
+
+   Module Private Functions
+
+---------------------------------------------------------------------------*/
+
+/* Port Controls  (Platform dependent) */
+
+#if BOARD_TYPE == 1		/* MARY-XB */
+#define CS_LOW()	{ GPIO0MASKED[1<<2] = (0<<2); }	/* uSD CS = L */
+#define	CS_HIGH()	{ GPIO0MASKED[1<<2] = (1<<2); }	/* uSD CS = H */
+#elif BOARD_TYPE == 2	/* MARY/104-SR */
+#define CS_LOW()	{ while (SSP0SR & _BV(2)) SSP0DR; SSP0CR0 = 0x0007; GPIO3MASKED[1<<4] = (0<<4); }	/* Flush FIFO, Set 8-bit mode, uSD CS = L */
+#define	CS_HIGH()	{ GPIO3MASKED[1<<4] = (1<<4); }	/* uSD CS = H */
+#endif
 
 
 /* Definitions for MMC/SDC command */
@@ -49,25 +61,33 @@ static
 BYTE CardType;			/* Card type flags */
 
 
+/*-----------------------------------------------------------------------*/
+/* Power Control  (Platform dependent)                                   */
+/*-----------------------------------------------------------------------*/
 
 
-static void power_on (void)
+static
+void power_on (void)
 {
-    LPC_IOCON -> SWCLK_PIO0_10 = (1<<0)|(1<<0);
-	LPC_GPIO0 -> DIR |= _BV(10);		/* CS# (P0_2) = output */
+#if BOARD_TYPE == 1
+	GPIO0DIR |= _BV(2);		/* CS# (P0_2) = output */
+#elif BOARD_TYPE == 2
+	GPIO3DIR |= _BV(4);		/* CS# (P3_4) = output */
+#endif
 	CS_HIGH();
+
 	/* Initialize SPI0 module and attach it to the I/O pad */
-    LPC_SYSCON -> SYSAHBCLKCTRL |= (0x1<<11);
-	LPC_SYSCON -> PRESETCTRL &= ~_BV(0);	/* Set LPC_SSP0 ->  reset */
-	LPC_SYSCON -> PRESETCTRL |= _BV(0);	/* Release LPC_SSP0 ->  reset */
-    LPC_SYSCON -> SSP0CLKDIV = 1;	 
-	LPC_SSP0 -> CPSR = 0x02;		/* fc=PCLK/2 */
-	LPC_SSP0 -> CR0 = 0x0007;		/* Mode-0, 8-bit */
-	LPC_SSP0 -> CR1 = 0x02;			/* Enable SPI */
-	LPC_IOCON -> SCK_LOC = 0x02;	/* SCK0 location = PIO0_6 */
-	LPC_IOCON -> PIO0_6 = 0x02;	/* SCK0 */
-	LPC_IOCON -> PIO0_9 = 0x01;	/* MOSI0 */
-	LPC_IOCON -> PIO0_8 = 0x11;	/* MISO0/pull-up */
+	__enable_ahbclk(PCSSP0);
+	PRESETCTRL &= ~_BV(0);	/* Set SSP0 reset */
+	PRESETCTRL |= _BV(0);	/* Release SSP0 reset */
+	SSP0CLKDIV = 1;			/* PCLK = sysclk */
+	SSP0CPSR = 0x02;		/* fc=PCLK/2 */
+	SSP0CR0 = 0x0007;		/* Mode-0, 8-bit */
+	SSP0CR1 = 0x02;			/* Enable SPI */
+	IOCON_SCK_LOC = 0x02;	/* SCK0 location = PIO0_6 */
+	IOCON_PIO0_6 = 0x02;	/* SCK0 */
+	IOCON_PIO0_9 = 0x01;	/* MOSI0 */
+	IOCON_PIO0_8 = 0x11;	/* MISO0/pull-up */
 }
 
 
@@ -76,11 +96,12 @@ static void power_on (void)
 /* Transmit/Receive a byte to MMC via SPI  (Platform dependent)          */
 /*-----------------------------------------------------------------------*/
 
-static BYTE xchg_spi (BYTE d)
+static
+BYTE xchg_spi (BYTE d)
 {
-	LPC_SSP0 -> DR = d;		/* Start an SPI transaction */
-	while (!(LPC_SSP0 -> SR & _BV(2))) ;	/* Wait for the end of transaction */
-	return LPC_SSP0 -> DR;	/* Return received byte */
+	SSP0DR = d;		/* Start an SPI transaction */
+	while (!(SSP0SR & _BV(2))) ;	/* Wait for the end of transaction */
+	return SSP0DR;	/* Return received byte */
 }
 
 
@@ -88,7 +109,8 @@ static BYTE xchg_spi (BYTE d)
 /* Wait for card ready                                                   */
 /*-----------------------------------------------------------------------*/
 
-static int wait_ready (void)	/* 1:OK, 0:Timeout */
+static
+int wait_ready (void)	/* 1:OK, 0:Timeout */
 {
 	BYTE d;
 	long tmr = 200000;
@@ -106,7 +128,8 @@ static int wait_ready (void)	/* 1:OK, 0:Timeout */
 /* Deselect the card and release SPI bus                                 */
 /*-----------------------------------------------------------------------*/
 
-static void deselect (void)
+static
+void deselect (void)
 {
 	CS_HIGH();
 	xchg_spi(0xFF);	/* Dummy clock (force DO hi-z for multiple slave SPI) */
@@ -135,7 +158,8 @@ int select (void)	/* 1:Successful, 0:Timeout */
 /* Receive a data packet from MMC (Platform dependent)                   */
 /*-----------------------------------------------------------------------*/
 
-static int rcvr_datablock (
+static
+int rcvr_datablock (
 	BYTE *buff,			/* Data buffer to store received data block */
 	UINT btr			/* Block size (16, 64 or 512) */
 )
@@ -151,30 +175,30 @@ static int rcvr_datablock (
 	} while ((token == 0xFF) && --tmr);
 	if(token != 0xFE) return 0;		/* If not valid data token, retutn with error */
 
-	LPC_SSP0 -> CR0 = 0x000F;				/* Select 16-bit mode */
+	SSP0CR0 = 0x000F;				/* Select 16-bit mode */
 
 	for (n = 0; n < 8; n++)			/* Push 8 frames into pipeline  */
-		LPC_SSP0 -> DR = 0xFFFF;
+		SSP0DR = 0xFFFF;
 	btr -= 16;
 	while (btr) {					/* Receive the data block into buffer */
-		while (!(LPC_SSP0 -> SR & _BV(2))) ;
-		w = LPC_SSP0 -> DR; LPC_SSP0 -> DR = 0xFFFF;
+		while (!(SSP0SR & _BV(2))) ;
+		w = SSP0DR; SSP0DR = 0xFFFF;
 		*buff++ = w >> 8; *buff++ = w;
-		while (!(LPC_SSP0 -> SR & _BV(2))) ;
-		w = LPC_SSP0 -> DR; LPC_SSP0 -> DR = 0xFFFF;
+		while (!(SSP0SR & _BV(2))) ;
+		w = SSP0DR; SSP0DR = 0xFFFF;
 		*buff++ = w >> 8; *buff++ = w;
 		btr -= 4;
 	}
 	for (n = 0; n < 8; n++) {		/* Pop remaining frames from pipeline */
-		while (!(LPC_SSP0 -> SR & _BV(2))) ;
-		w = LPC_SSP0 -> DR;
+		while (!(SSP0SR & _BV(2))) ;
+		w = SSP0DR;
 		*buff++ = w >> 8; *buff++ = w;
 	}
-	LPC_SSP0 -> DR = 0xFFFF;				/* Discard CRC */
-	while (!(LPC_SSP0 -> SR & _BV(2))) ;
-	LPC_SSP0 -> DR;
+	SSP0DR = 0xFFFF;				/* Discard CRC */
+	while (!(SSP0SR & _BV(2))) ;
+	SSP0DR;
 
-	LPC_SSP0 -> CR0 = 0x0007;				/* Select 8-bit mode */
+	SSP0CR0 = 0x0007;				/* Select 8-bit mode */
 
 	return 1;						/* Return with success */
 }
@@ -185,7 +209,8 @@ static int rcvr_datablock (
 /* Send a data packet to MMC (Platform dependent)                        */
 /*-----------------------------------------------------------------------*/
 
-static int xmit_datablock (
+static
+int xmit_datablock (
 	const BYTE *buff,	/* 512 byte data block to be transmitted */
 	BYTE token			/* Data/Stop token */
 )
@@ -200,30 +225,30 @@ static int xmit_datablock (
 	xchg_spi(token);				/* Xmit data token */
 	if (token != 0xFD) {		/* Is data token */
 
-		LPC_SSP0 -> CR0 = 0x000F;				/* Select 16-bit mode */
+		SSP0CR0 = 0x000F;				/* Select 16-bit mode */
 
 		for (wc = 0; wc < 8; wc++) {	/* Push 8 frames into pipeline */
 			w = *buff++; w = (w << 8) | *buff++;
-			LPC_SSP0 -> DR = w;
+			SSP0DR = w;
 		}
 		wc = 512 - 16;
 		do {							/* Transmit data block */
 			w = *buff++; w = (w << 8) | *buff++;
-			while (!(LPC_SSP0 -> SR & _BV(2))) ;
-			LPC_SSP0 -> DR; LPC_SSP0 -> DR = w;
+			while (!(SSP0SR & _BV(2))) ;
+			SSP0DR; SSP0DR = w;
 			w = *buff++; w = (w << 8) | *buff++;
-			while (!(LPC_SSP0 -> SR & _BV(2))) ;
-			LPC_SSP0 -> DR; LPC_SSP0 -> DR = w;
+			while (!(SSP0SR & _BV(2))) ;
+			SSP0DR; SSP0DR = w;
 		} while (wc -= 4);
 		for (wc = 0; wc < 8; wc++) {	/* Pop remaining frames from pipeline */
-			while (!(LPC_SSP0 -> SR & _BV(2))) ;
-			LPC_SSP0 -> DR;
+			while (!(SSP0SR & _BV(2))) ;
+			SSP0DR;
 		}
-		LPC_SSP0 -> DR = 0xFFFF;				/* CRC (dummy) */
-		while (!(LPC_SSP0 -> SR & _BV(2))) ;
-		LPC_SSP0 -> DR;
+		SSP0DR = 0xFFFF;				/* CRC (dummy) */
+		while (!(SSP0SR & _BV(2))) ;
+		SSP0DR;
 
-		LPC_SSP0 -> CR0 = 0x0007;				/* Select 8-bit mode */
+		SSP0CR0 = 0x0007;				/* Select 8-bit mode */
 
 		resp = xchg_spi(0xFF);			/* Reveive data response */
 		if ((resp & 0x1F) != 0x05)		/* If not accepted, return with error */
@@ -239,7 +264,8 @@ static int xmit_datablock (
 /* Send a command packet to MMC                                          */
 /*-----------------------------------------------------------------------*/
 
-static BYTE send_cmd (		/* Returns R1 resp (bit7==1:Send failed) */
+static
+BYTE send_cmd (		/* Returns R1 resp (bit7==1:Send failed) */
 	BYTE cmd,		/* Command index */
 	DWORD arg		/* Argument */
 )
