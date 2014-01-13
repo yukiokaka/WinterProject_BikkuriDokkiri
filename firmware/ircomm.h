@@ -3,7 +3,7 @@
 
 void ircomm_init(void);
 void ircomm_send(char *buf);
-void ircomm_recv(char *buf);
+int ircomm_recv(char *buf);
 
 void CT32B0_IRQHandler(void);
 #endif

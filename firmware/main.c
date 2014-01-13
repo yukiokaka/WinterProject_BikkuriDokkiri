@@ -42,11 +42,11 @@ void ioinit(void){
     LPC_IOCON -> PIO0_8 = 0;
     LPC_IOCON -> PIO0_9 = 0;
     LPC_IOCON -> SWCLK_PIO0_10 = 1;
-    LPC_IOCON -> R_PIO0_11 = 1;
-    LPC_IOCON -> R_PIO1_0 = 1;
-    LPC_IOCON -> R_PIO1_1 = 1;
-    LPC_IOCON -> R_PIO1_2 = 1;
-    LPC_IOCON-> SWDIO_PIO1_3 = (1 << 7) | (1 << 0);
+    LPC_IOCON -> R_PIO0_11 = (1 << 7) | (1 << 0);
+    LPC_IOCON -> R_PIO1_0 = (1 << 7) | (1 << 0);
+    LPC_IOCON -> R_PIO1_1 = (1 << 7) | (1 << 0);
+    LPC_IOCON -> R_PIO1_2 = (1 << 7) | (1 << 0) ;
+    LPC_IOCON-> SWDIO_PIO1_3 = (1 << 7) |(1 << 0) ;
     LPC_IOCON-> PIO1_4 = (1 << 7) | 0;
     LPC_IOCON-> PIO1_5 = 0x0;
     LPC_IOCON-> PIO1_8 = 0x0;
@@ -59,8 +59,8 @@ void ioinit(void){
     LPC_IOCON -> PIO2_10 = 0;
 
  
-    LPC_GPIO0 -> DIR |= ( _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10) | _BV(11));
-    LPC_GPIO0 -> DATA &= ~(( _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10) | _BV(11)));
+    LPC_GPIO0 -> DIR |=  _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10) ;
+    LPC_GPIO0 -> DATA &= ~( _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10));
  
     LPC_GPIO1 -> DIR =  _BV(3) | _BV(4) | _BV(5) | _BV(8);
     LPC_GPIO1 -> DATA = 0;
@@ -96,7 +96,8 @@ int main (void)
     SysTick->CTRL = 0x07;
 
 
-    while(1) {
+    while(1) { 
+        //xprintf("%d\n",ircomm_recv(0));
         ircomm_send(0);
     }
     
