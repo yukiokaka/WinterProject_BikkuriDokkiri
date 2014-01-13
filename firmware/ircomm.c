@@ -6,8 +6,8 @@
 
 volatile int send_state = 0;
 volatile int recv_state = 0;
-volatile int send_data = 124;
-
+volatile unsigned char send_data_ir = 124;
+volatile int send_data = 0;
 volatile int reader_count = 0; 
 volatile char reader_count_start_state = 0;
 volatile unsigned long second_counter = 0;
@@ -32,7 +32,11 @@ void ircomm_init(void)
 
 void ircomm_send(char *buf)
 {
-    send_data++;
+    unsigned char send_data_ir_bar;
+    send_data_ir++;
+    send_data_ir_bar = ~send_data_ir;
+    send_data = (send_data_ir_bar << 8 | send_data_ir);
+    xprintf("%d:%d:%d\n", send_data_ir, send_data_ir_bar, send_data);
     while(reader_count_start_state);
     LPC_GPIO1 -> DATA &= ~_BV(3);
     reader_count = 0;
@@ -46,6 +50,8 @@ int ircomm_recv(char *buf)
      unsigned long t ;
      int ans , i ;
      unsigned long timeout = 0;
+     unsigned char data = 0;
+     unsigned char data_bar = 0;
      ans = 0 ;
      t   = 0 ;
           // リーダ部のチェックを行う
@@ -89,9 +95,16 @@ int ircomm_recv(char *buf)
              if (t >= 1000)  IRbit[i] = (char)0x31 ;	// ON部分が長い
              else            IRbit[i] = (char)0x30 ;	// ON部分が短い
              i++ ;
-             if (i == 8) break ;				// 1byte読込んだら終了
+             if (i == 16) break ;				// 1byte読込んだら終了
           }
-         return(((IRbit[7] == 0x31) << 7) | ((IRbit[6]  == 0x31) << 6) | ((IRbit[5] == 0x31) << 5) | ((IRbit[4]  == 0x31) << 4) | ((IRbit[3] == 0x31) << 3) | ((IRbit[2] == 0x31) << 2) | ((IRbit[1]  == 0x31)<< 1)| ((IRbit[0] == 0x31) << 0)) ;
+
+         data = ((IRbit[7] == 0x31) << 7) | ((IRbit[6]  == 0x31) << 6) | ((IRbit[5] == 0x31) << 5) | ((IRbit[4]  == 0x31) << 4) | ((IRbit[3] == 0x31) << 3) | ((IRbit[2] == 0x31) << 2) | ((IRbit[1]  == 0x31)<< 1)| ((IRbit[0] == 0x31) << 0);
+         data_bar = ((IRbit[15] == 0x31) << 7) | ((IRbit[14]  == 0x31) << 6) | ((IRbit[13] == 0x31) << 5) | ((IRbit[12]  == 0x31) << 4) | ((IRbit[11] == 0x31) << 3) | ((IRbit[10] == 0x31) << 2) | ((IRbit[9]  == 0x31)<< 1)| ((IRbit[8] == 0x31) << 0);
+
+         if(data == 255-data_bar)
+             return data;
+         else
+             return 0;
      }
      return 0;
 }
@@ -151,7 +164,7 @@ void CT32B0_IRQHandler(void)
 
             if(!wait_state) {
                 data_bit_num++;
-                if(data_bit_num == 8)
+                if(data_bit_num == 16)
                     reader_count_start_state = 0;
                 else
                     high_sig = 1;

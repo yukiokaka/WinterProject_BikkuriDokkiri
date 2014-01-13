@@ -97,8 +97,8 @@ int main (void)
 
 
     while(1) { 
-        //xprintf("%d\n",ircomm_recv(0));
-        ircomm_send(0);
+        xprintf("%d\n",ircomm_recv(0));
+        //ircomm_send(0);
     }
     
     /*SD card RW test*/
