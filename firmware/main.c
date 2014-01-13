@@ -9,6 +9,7 @@
 #include "spi_lpc.h"
 #define _BV(x) (1 << (x))
 #define TIMEOUT  500
+
 /*---------------------------------------------------------*/
 /* User Provided Timer Function for FatFs module           */
 /*---------------------------------------------------------*/
@@ -45,7 +46,11 @@ void ioinit(void){
     LPC_IOCON -> R_PIO1_0 = 1;
     LPC_IOCON -> R_PIO1_1 = 1;
     LPC_IOCON -> R_PIO1_2 = 1;
-    LPC_IOCON->SWDIO_PIO1_3 = 0x3;
+    LPC_IOCON-> SWDIO_PIO1_3 = (1 << 7) | (1 << 0);
+    LPC_IOCON-> PIO1_4 = (1 << 7) | 0;
+    LPC_IOCON-> PIO1_5 = 0x0;
+    LPC_IOCON-> PIO1_8 = 0x0;
+    
     LPC_IOCON -> PIO2_2 = 0;
     LPC_IOCON -> PIO2_3 = 0;
     LPC_IOCON -> PIO2_6 = 0;
@@ -57,8 +62,8 @@ void ioinit(void){
     LPC_GPIO0 -> DIR |= ( _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10) | _BV(11));
     LPC_GPIO0 -> DATA &= ~(( _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10) | _BV(11)));
  
-    LPC_GPIO1 -> DIR = ( _BV(0) | _BV(1) | _BV(2));
-    LPC_GPIO1 -> DATA = ( _BV(0) | _BV(1) | _BV(2));
+    LPC_GPIO1 -> DIR =  _BV(3) | _BV(4) | _BV(5) | _BV(8);
+    LPC_GPIO1 -> DATA = 0;
  
 
     LPC_GPIO2 -> DIR |= _BV(2) | _BV(3) |_BV(6)| _BV(7) | _BV(8) | _BV(10);
@@ -84,11 +89,18 @@ int main (void)
     uart_init(38400);
     xdev_in(uart_getc);
     xdev_out(uart_putc);
-
+    ircomm_init();
+    
     /* Enable SysTick timer in interval of 1ms */
     SysTick->LOAD = AHB_CLOCK  - 1;
     SysTick->CTRL = 0x07;
 
+
+    while(1) {
+        ircomm_send(0);
+    }
+    
+    /*SD card RW test*/
 	xprintf("\nMount a volume.\n");
 	FRESULT rc = pf_mount(&fatfs);
     xprintf("\nMount a volume finish .\n", rc);
@@ -142,8 +154,8 @@ int main (void)
 #endif
 
 	xprintf("\nTest completed.\n");
-	for (;;) ;
-    
+	xprintf("start .\n");
+
     return 0;
 }
 
