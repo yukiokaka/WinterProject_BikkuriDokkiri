@@ -1,5 +1,5 @@
 #include "LPC11xx.h"
-
+#include "display.h"
 void matrix_init() {
     LPC_IOCON -> PIO0_7 = 0;
     LPC_IOCON -> PIO1_9 = 0;
@@ -43,7 +43,7 @@ void diplay(int array[]) {
     if (occ == 0) LPC_GPIO2 -> DATA &= ~(_BV(11));  // OCC = 0
     else LPC_GPIO2 -> DATA |= _BV(11);              // OCC = 1
 
-    if (ocd == 0) LPC_GPIO -> DATA &= ~(_BV(7));    // OCD = 0
+    if (ocd == 0) LPC_GPIO0 -> DATA &= ~(_BV(7));    // OCD = 0
     else LPC_GPIO0 -> DATA |= _BV(7);               // OCD = 1
 
     // serial input parallel output
