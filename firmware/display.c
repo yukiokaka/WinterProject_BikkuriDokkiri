@@ -1,5 +1,9 @@
 #include "LPC11xx.h"
 #include "display.h"
+
+#define _BV(x) (1 << (x))
+
+
 void matrix_init() {
     LPC_IOCON -> PIO0_7 = 0;
     LPC_IOCON -> PIO1_9 = 0;
