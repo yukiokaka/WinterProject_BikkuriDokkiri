@@ -91,7 +91,7 @@ int main (void)
 	WORD bw, br, i;
 	BYTE buff[64];
     
-    unsigned data = 0;
+    unsigned int data = 0;
     
     MySystemInit();
     NVOL_Init();
@@ -107,16 +107,21 @@ int main (void)
     SysTick->LOAD = AHB_CLOCK  - 1;
     SysTick->CTRL = 0x07;
     
-    char array[256] = {0xff};
-    int test;
-    for (test = 0; test < 256; test++) {
-         array[test]= 0x0;
-    }
-
     
     while(1) { 
-        display(array);
-        data = ircomm_recv(0);
+        data++;
+        if(data <1000) 
+            display(DotPicture_1);
+        else if(data < 2000) 
+            display(DotPicture_2);
+        else if(data < 4000) 
+            display(DotPicture_3);
+        else if(data < 6000) 
+            display(DotPicture_4);
+        if(data == 8000)
+            data = 0;
+
+        //data = ircomm_recv(0);
         //ping();
     }
     

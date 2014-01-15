@@ -28,13 +28,10 @@ void matrix_init() {
     LPC_GPIO0 -> DIR |= _BV(7);
 }
 
-void display(char array[]) {
+void display(short array[]) {
     const int width = 16;
     const int height = 16;
     static int row = 0;
-    char* data;
-
-    data = &(array[width * row]);
     // decode row into 4-bit binary data, and write it
     int oca = row % 2;
     int ocb = (row / 2) % 2;
@@ -52,17 +49,19 @@ void display(char array[]) {
     if (ocd == 0) LPC_GPIO0 -> DATA &= ~(_BV(7));    // OCD = 0
     else LPC_GPIO0 -> DATA |= _BV(7);               // OCD = 1
 
-    xprintf("%d%d%d%d\n", ocd, occ, ocb, oca);
+
     // serial input parallel output
     LPC_GPIO1 -> DATA &= ~(_BV(11));                // RCK = 0
     int i;
     // order: 7, 6, .., 1, 0, 15, 14, .., 9, 8
     for (i = 0; i < width; i++) {
         char index = (i <= 7) ? 7 - i : 23 - i;
-        xprintf("%d", data[index]);
+
         LPC_GPIO1 -> DATA &= ~(_BV(10));            // SCK = 0
-        if (data[index] == 0) LPC_GPIO2 -> DATA &= ~(_BV(2)); // SER = 0
-        else LPC_GPIO2 -> DATA |= _BV(2);           // SER = 1
+        if (((array[row] >> (15-index)) & 0x01) == 0) 
+            LPC_GPIO2 -> DATA |= _BV(2); // SER = 0
+        else
+            LPC_GPIO2 -> DATA &= ~_BV(2);           // SER = 1
         LPC_GPIO1 -> DATA |= _BV(10);               // SCK = 1
     }
     xprintf("\n");
