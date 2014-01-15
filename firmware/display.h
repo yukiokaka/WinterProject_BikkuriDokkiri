@@ -2,5 +2,5 @@
 #define DISPLAY_H_
 
 void matrix_init();
-void diplay(int array[]);
+void display(char array[]);
 #endif

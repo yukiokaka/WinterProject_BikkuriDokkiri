@@ -1,5 +1,6 @@
 #include "LPC11xx.h"
 #include "display.h"
+#include "xprintf.h"
 
 #define _BV(x) (1 << (x))
 
@@ -22,16 +23,17 @@ void matrix_init() {
     LPC_GPIO1 -> DIR |= (_BV(10) | _BV(11));
     LPC_GPIO1 -> DATA &= ~(_BV(10) | _BV(11));
 
-    LPC_GPIO2 -> DIR |= (_BV(9) | _BV(10) | _BV(11));
+    LPC_GPIO2 -> DIR |= (_BV(2) | _BV(9) | _BV(10) | _BV(11));
     LPC_GPIO2 -> DATA &= ~(_BV(9) | _BV(10) | _BV(11));
-    
+    LPC_GPIO0 -> DIR |= _BV(7);
 }
 
-void diplay(int array[]) {
+void display(char array[]) {
     const int width = 16;
     const int height = 16;
     static int row = 0;
-    int * data;
+    char* data;
+
     data = &(array[width * row]);
     // decode row into 4-bit binary data, and write it
     int oca = row % 2;
@@ -50,17 +52,20 @@ void diplay(int array[]) {
     if (ocd == 0) LPC_GPIO0 -> DATA &= ~(_BV(7));    // OCD = 0
     else LPC_GPIO0 -> DATA |= _BV(7);               // OCD = 1
 
+    xprintf("%d%d%d%d\n", ocd, occ, ocb, oca);
     // serial input parallel output
     LPC_GPIO1 -> DATA &= ~(_BV(11));                // RCK = 0
     int i;
     // order: 7, 6, .., 1, 0, 15, 14, .., 9, 8
     for (i = 0; i < width; i++) {
-        int index = (i <= 7) ? 7 - i : 23 - i;
+        char index = (i <= 7) ? 7 - i : 23 - i;
+        xprintf("%d", data[index]);
         LPC_GPIO1 -> DATA &= ~(_BV(10));            // SCK = 0
         if (data[index] == 0) LPC_GPIO2 -> DATA &= ~(_BV(2)); // SER = 0
         else LPC_GPIO2 -> DATA |= _BV(2);           // SER = 1
         LPC_GPIO1 -> DATA |= _BV(10);               // SCK = 1
     }
+    xprintf("\n");
     LPC_GPIO1 -> DATA |= _BV(11);                   // RCK = 1 (positive edge)
 
     // next row

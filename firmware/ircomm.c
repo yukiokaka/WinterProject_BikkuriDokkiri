@@ -12,7 +12,7 @@ volatile int reader_count = 0;
 volatile char reader_count_start_state = 0;
 volatile unsigned long second_counter = 0;
 
-static unsigned long micros(void) 
+static inline unsigned long micros(void) 
 {
     return second_counter;
 }
@@ -33,10 +33,9 @@ void ircomm_init(void)
 void ircomm_send(char *buf)
 {
     unsigned char send_data_ir_bar;
-    send_data_ir++;
+    send_data_ir = *buf;
     send_data_ir_bar = ~send_data_ir;
     send_data = (send_data_ir_bar << 8 | send_data_ir);
-    xprintf("%d:%d:%d\n", send_data_ir, send_data_ir_bar, send_data);
     while(reader_count_start_state);
     LPC_GPIO1 -> DATA &= ~_BV(3);
     reader_count = 0;
