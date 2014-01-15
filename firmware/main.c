@@ -7,6 +7,7 @@
 #include "pff.h"
 #include "rtc.h"
 #include "spi_lpc.h"
+#include "display.h"
 #define _BV(x) (1 << (x))
 #define TIMEOUT  500
 
@@ -72,6 +73,15 @@ void ioinit(void){
 
 }
 
+volatile char device_num = 1;
+void ping(void)
+{
+    unsigned char data =0xc0;
+    ircomm_send(&data);
+    data =device_num;
+    ircomm_send(&data);
+    
+}
 
 int main (void)
 {
@@ -80,8 +90,9 @@ int main (void)
 	FILINFO fno;			/* File information object */
 	WORD bw, br, i;
 	BYTE buff[64];
-
-
+    
+    unsigned data = 0;
+    
     MySystemInit();
     NVOL_Init();
 
@@ -90,15 +101,23 @@ int main (void)
     xdev_in(uart_getc);
     xdev_out(uart_putc);
     ircomm_init();
+    matrix_init();
     
     /* Enable SysTick timer in interval of 1ms */
     SysTick->LOAD = AHB_CLOCK  - 1;
     SysTick->CTRL = 0x07;
+    
+    char array[256] = {0xff};
+    int test;
+    for (test = 0; test < 256; test++) {
+         array[test]= 0x0;
+    }
 
-
+    
     while(1) { 
-        xprintf("%d\n",ircomm_recv(0));
-        //ircomm_send(0);
+        display(array);
+        data = ircomm_recv(0);
+        //ping();
     }
     
     /*SD card RW test*/
