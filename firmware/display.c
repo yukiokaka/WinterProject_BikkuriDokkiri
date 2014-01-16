@@ -45,6 +45,7 @@ void display(short array[]) {
         else
             LPC_GPIO2 -> DATA &= ~_BV(2);           // SER = 0
         LPC_GPIO1 -> DATA |= _BV(10);               // SCK = 1
+        LPC_GPIO1 -> DATA &= ~(_BV(10));            // SCK = 0
     }
     LPC_GPIO1 -> DATA |= _BV(11);                   // RCK = 1 (positive edge)
 
@@ -66,8 +67,9 @@ void display(short array[]) {
     else LPC_GPIO0 -> DATA |= _BV(7);               // OCD = 1
 
     // next row
+    row++;
     if (row == height) row = 0;
-    else row++;
+
 }
 
 short DotPicture[5][16] = {

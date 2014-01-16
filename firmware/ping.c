@@ -4,16 +4,12 @@
 #include "ircomm.h"
 #define _BV(x) (1 << (x))
 
-volatile unsigned char device_num = 1;
+volatile unsigned char device_num = 0;
 int ping(void)
 {
     static char cnt = 0;   
-    static unsigned char data = 1;
-    device_num++;
-    data =(cnt % 2)?device_num:device_num;
+    static unsigned char data = 0;
  
-    if(device_num == 5) device_num = 0;
-    cnt++;
     
     if(ircomm_send(&data) < 0) {
         return -1;
