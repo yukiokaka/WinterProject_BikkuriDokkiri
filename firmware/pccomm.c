@@ -65,7 +65,7 @@ int pc_state_machine(void)
                 /*--UART 通信モードに突入---*/
                 /*--Timerをすべて停止-------*/
                 Mode = HOST_MODE;
-                disable_timer();
+                //                disable_timer();
                 line_num = 0;
                 mode = SEND_PC_DATA_SIGNAL;
             }
@@ -127,7 +127,7 @@ int pc_state_machine(void)
     /*---UART通信モードを離脱---*/
     /*---Timerをすべて再起動---*/
     
-    enable_timer();
+    //    enable_timer();
     
     return 0;
 }

@@ -52,7 +52,7 @@ void SysTick_Handler (void)
 }
 
 
-int Mode = SLAVE_MODE;
+int Mode = HOST_MODE;
 
 int main (void)
 {
