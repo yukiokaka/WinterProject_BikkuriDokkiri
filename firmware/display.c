@@ -64,7 +64,6 @@ void display(short array[]) {
             LPC_GPIO2 -> DATA &= ~_BV(2);           // SER = 1
         LPC_GPIO1 -> DATA |= _BV(10);               // SCK = 1
     }
-    xprintf("\n");
     LPC_GPIO1 -> DATA |= _BV(11);                   // RCK = 1 (positive edge)
 
     // next row
