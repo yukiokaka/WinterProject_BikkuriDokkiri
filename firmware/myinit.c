@@ -123,3 +123,43 @@ void* const vector[] __attribute__ ((section(".VECTOR"))) =	/* Vector table to b
     trap,//PIO_1_IRQHandler,
     trap //PIO_0_IRQHandler
 };
+
+
+void ioinit(void){
+    LPC_IOCON -> PIO0_4 = 0;
+    LPC_IOCON -> PIO0_5 = 0;
+    LPC_IOCON -> PIO0_6 = 0;
+    LPC_IOCON -> PIO0_7 = 0;
+    LPC_IOCON -> PIO0_8 = 0;
+    LPC_IOCON -> PIO0_9 = 0;
+    LPC_IOCON -> SWCLK_PIO0_10 = 1;
+    LPC_IOCON -> R_PIO0_11 = (1 << 7) | (1 << 0);
+    LPC_IOCON -> R_PIO1_0 = (1 << 7) | (1 << 0);
+    LPC_IOCON -> R_PIO1_1 = (1 << 7) | (1 << 0);
+    LPC_IOCON -> R_PIO1_2 = (1 << 7) | (1 << 0) ;
+    LPC_IOCON-> SWDIO_PIO1_3 = (1 << 7) |(1 << 0) ;
+    LPC_IOCON-> PIO1_4 = (1 << 7) | 0;
+    LPC_IOCON-> PIO1_5 = 0x0;
+    LPC_IOCON-> PIO1_8 = 0x0;
+    
+    LPC_IOCON -> PIO2_2 = 0;
+    LPC_IOCON -> PIO2_3 = 0;
+    LPC_IOCON -> PIO2_6 = 0;
+    LPC_IOCON -> PIO2_7 = 0;
+    LPC_IOCON -> PIO2_8 = 0;
+    LPC_IOCON -> PIO2_10 = 0;
+
+ 
+    LPC_GPIO0 -> DIR |=  _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10) ;
+    LPC_GPIO0 -> DATA &= ~( _BV(4) | _BV(5) | _BV(6) | _BV(7) | _BV(8) | _BV(9) | _BV(10));
+ 
+    LPC_GPIO1 -> DIR =  _BV(3) | _BV(4) | _BV(5) | _BV(8);
+    LPC_GPIO1 -> DATA = 0;
+ 
+
+    LPC_GPIO2 -> DIR |= _BV(2) | _BV(3) |_BV(6)| _BV(7) | _BV(8) | _BV(10);
+    LPC_GPIO2 -> DATA &= ~(_BV(2) | _BV(7) | _BV(8) | _BV(10)); 
+
+
+}
+

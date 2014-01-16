@@ -2,21 +2,13 @@
 #include "xprintf.h"
 #include "ping.h"
 #include "ircomm.h"
+#include "main.h"
+#include "transmit_display_data.h"
+
 #define _BV(x) (1 << (x))
 
-volatile unsigned char device_num = 0;
-int ping(void)
-{
-    static char cnt = 0;   
-    static unsigned char data = 0;
- 
-    
-    if(ircomm_send(&data) < 0) {
-        return -1;
-    }
 
-    
-}
+volatile unsigned char device_num = 1;
 
 void ping_init(void)
 {
@@ -31,10 +23,41 @@ void ping_init(void)
     LPC_TMR16B1->TCR = 1;     
 }
 
+
+int ping(void)
+{
+
+
+    static unsigned char data = 0;
+    data = CMD_PING;
+    
+    while(ircomm_send(&data) < 0);
+    return 0;
+}
+
+int pong(void)
+{
+    int time = 0;
+    static unsigned char data = 0;
+    data = CMD_PONG;
+    
+    while(ircomm_send(&data) < 0) {
+        time++;
+        if(time == 60000) break;
+    }
+    
+    return 0;
+}
+
+
+
 void CT16B1_IRQHandler(void)
 {
-    static int cnt = 0;
-    ping();
-	LPC_TMR16B1->IR =0x8;
-    
+    if(Mode == SLAVE_MODE) {
+        ping();
+     
+    }
+	LPC_TMR16B1->IR =0x8;    
 }
+
+

@@ -30,13 +30,14 @@ void ircomm_init(void)
     LPC_TMR32B0->TCR = 1;
 }
 
-int ircomm_send(char *buf)
+int ircomm_send(unsigned char *buf)
 {
     unsigned char send_data_ir_bar;
-
-    if(reader_count_start_state)
-        return -1;
-    
+    int time = 0;
+    while(reader_count_start_state) {
+        time++;
+        if(time == 10000) break;
+    };    
     send_data_ir = *buf;
     send_data_ir_bar = ~send_data_ir;
     send_data = (send_data_ir_bar << 8 | send_data_ir);
@@ -48,38 +49,39 @@ int ircomm_send(char *buf)
     
 }
 
-int ircomm_recv(char *buf)
+int ircomm_recv(void)
 {
      char IRbit[26] ;			// 受信バッファ
      unsigned long t ;
      int ans , i ;
-     unsigned long timeout = 0;
+     unsigned long timeout = 0, timeout2 = 0;
      unsigned char data = 0;
      unsigned char data_bar = 0;
      ans = 0 ;
      t   = 0 ;
-     // リーダ部のチェックを行う
+     // リーダ部のチェックを行う               
      if(LPC_GPIO1->MASKED_ACCESS[1 << 0] == 0) {
          t = micros() ;                        
          // 現在の時刻(us)を得る
-          while (LPC_GPIO1->MASKED_ACCESS[1 << 0]== 0) ;	
+         while (LPC_GPIO1->MASKED_ACCESS[1 << 0]== 0) ;	
          // 1(ON)になるまで待つ
          t = micros() - t ;	
          // 0(OFF)の部分をはかる
      }
-     
      // リーダ部有りなら処理する(4.5ms以上の0にて判断する)
-     if (t >= 4500) {
+     if (t >= 4000) {
          i = 0 ;
          while(LPC_GPIO1->MASKED_ACCESS[1 << 0] == 1);
          // ここまでがリーダ部(ON部分)読み飛ばす
          // データ部の読み込み
          while (1) {
+             timeout2++;
+             if(timeout2 == 60000) break;
              timeout = 0;
              while(LPC_GPIO1->MASKED_ACCESS[1 << 0] == 0) {
                  timeout++;
                  if(timeout == 1000)
-                  break;              
+                     break;              
              }	          
              // OFF部分は読み飛ばす
              t = micros() ;
@@ -100,7 +102,7 @@ int ircomm_recv(char *buf)
 
          data = ((IRbit[7] == 0x31) << 7) | ((IRbit[6]  == 0x31) << 6) | ((IRbit[5] == 0x31) << 5) | ((IRbit[4]  == 0x31) << 4) | ((IRbit[3] == 0x31) << 3) | ((IRbit[2] == 0x31) << 2) | ((IRbit[1]  == 0x31)<< 1)| ((IRbit[0] == 0x31) << 0);
          data_bar = ((IRbit[15] == 0x31) << 7) | ((IRbit[14]  == 0x31) << 6) | ((IRbit[13] == 0x31) << 5) | ((IRbit[12]  == 0x31) << 4) | ((IRbit[11] == 0x31) << 3) | ((IRbit[10] == 0x31) << 2) | ((IRbit[9]  == 0x31)<< 1)| ((IRbit[8] == 0x31) << 0);
-
+       
          if(data == 255-data_bar)
              return data;
          else
@@ -116,6 +118,10 @@ void CT32B0_IRQHandler(void)
     static char RZ_state = 0, wait_state = 0, high_sig = 0;
     second_counter += 26;
     reader_count++;
+    
+    if(second_counter == 1000*1000*1000*1000)
+        second_counter = 0;
+    
     if(reader_count_start_state == 1) {
             if(RZ_state % 2) {
                 LPC_GPIO1 -> DATA &= ~_BV(3);

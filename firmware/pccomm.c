@@ -3,7 +3,10 @@
 #include "uart.h"
 #include "ping.h"
 #include "display_timer.h"
+#include "timer_controller.h"
 #include "xprintf.h"
+#include "main.h"
+#include "transmit_display_data.h"
 
 #define RECV_PC_SEND_SIGNAL 0
 #define SEND_PC_DATA_SIGNAL 1
@@ -11,19 +14,19 @@
 
 volatile short line_data[16] = {
     0b0000000000000000,
-    0b0000000001100000,
-    0b0000000001100000,
-    0b0000000011100000,
-    0b0000000111100000,
-    0b0000000111100000,
-    0b0000001101100000,
-    0b0000011001100000,
-    0b0000011001100000,
-    0b0000110001100000,
-    0b0001111111111000,
-    0b0001111111111000,
-    0b0000000001100000,
-    0b0000000001100000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
+    0b0000000000000000,
     0b0000000000000000,
     0b0000000000000000
 };
@@ -43,21 +46,26 @@ inline void wait_p(void)
 int pc_state_machine(void) 
 {
     static int mode = RECV_PC_SEND_SIGNAL;
-
+    
     unsigned char num = 0;
     unsigned char line_num = 0;
-
+    
     unsigned char recv_data;
     unsigned char line_data0 = 0;
     unsigned char line_data1 = 0;
     int i;
     volatile short line_data_buf[16];
+    
     if(mode == RECV_PC_SEND_SIGNAL) {
         if(((LPC_UART->LSR & LSR_RDR) == LSR_RDR)) {
             recv_data = LPC_UART -> RBR;
             
             if(recv_data == 'S') {
                 xprintf("R");
+                /*--UART 通信モードに突入---*/
+                /*--Timerをすべて停止-------*/
+                Mode = HOST_MODE;
+                disable_timer();
                 line_num = 0;
                 mode = SEND_PC_DATA_SIGNAL;
             }
@@ -115,6 +123,11 @@ int pc_state_machine(void)
         
         mode = RECV_PC_SEND_SIGNAL;
     }
+
+    /*---UART通信モードを離脱---*/
+    /*---Timerをすべて再起動---*/
+    
+    enable_timer();
     
     return 0;
 }
