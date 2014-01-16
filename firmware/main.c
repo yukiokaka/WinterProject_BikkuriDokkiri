@@ -10,6 +10,7 @@
 #include "display_timer.h"
 #include "ircomm.h"
 #include "ping.h"
+#include "pccomm.h"
 #define _BV(x) (1 << (x))
 #define TIMEOUT  500
 
@@ -102,27 +103,27 @@ int main (void)
     unsigned long data = 0;
     
     while(1) { 
-        
-        //        data = ircomm_recv(0);
+        pc_state_machine();
+        //data = ircomm_recv(0);
         //if(data) {
-        xprintf("%d %d\n", data, device_num);
-            switch(device_num) {
-            case 1:
-                display_data = DotPicture_1;
-                break;
-            case 2:
-                display_data = DotPicture_2;
-                break;
-            case 3:
-                display_data = DotPicture_3;
-                break;
-            case 4:
-                display_data = DotPicture_4;
-                break;
-            default:
-                display_data = DotPicture_1;
+        /* xprintf("%d %d\n", data, device_num); */
+        /*     switch(device_num) { */
+        /*     case 1: */
+        /*         display_data = DotPicture_1; */
+        /*         break; */
+        /*     case 2: */
+        /*         display_data = DotPicture_2; */
+        /*         break; */
+        /*     case 3: */
+        /*         display_data = DotPicture_3; */
+        /*         break; */
+        /*     case 4: */
+        /*         display_data = DotPicture_4; */
+        /*         break; */
+        /*     default: */
+        /*         display_data = DotPicture_1; */
                 
-            }
+        /*     } */
             // }
         /* data++; */
         /* if(data % 1000) */
