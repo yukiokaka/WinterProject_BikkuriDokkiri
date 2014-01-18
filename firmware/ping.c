@@ -47,6 +47,7 @@ int pong(void)
 int ping_enable = 0;
 int pong_enable = 0;
 int send_data_flg = 0;
+
 void CT16B1_IRQHandler(void)
 {
     if(ping_enable) {

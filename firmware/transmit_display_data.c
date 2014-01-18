@@ -57,7 +57,6 @@ void recv_display_data(int(*gpio_func)(void))
         }
         next_ping = 1;
         display_data = (short *)line_data;
-
         
     }
     

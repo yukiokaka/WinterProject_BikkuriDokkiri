@@ -53,7 +53,7 @@ void SysTick_Handler (void)
 }
 
 
-int Mode = HOST_MODE;
+int Mode = SLAVE_MODE;
 
 int main (void)
 {
@@ -80,6 +80,7 @@ int main (void)
             ping_enable = 1;
         }
         else if(Mode == SLAVE_MODE) {
+            
             if(!next_ping) {
                 data3 = ircomm_recv(IR3);
                 if(data3 == CMD_PING) {
@@ -87,6 +88,7 @@ int main (void)
                 }
             }
             else {
+                IRLED_NUM = 2;
                 ping_enable = 1;
             }
         }
