@@ -31,7 +31,8 @@ void send_display_data(void)
 
 }
 
-
+char next_ping = 0;
+ 
 void recv_display_data(int(*gpio_func)(void)) 
 {
     
@@ -54,6 +55,7 @@ void recv_display_data(int(*gpio_func)(void))
         for(row = 0; row < 16; row++) {
             line_data[row] = display_test_buf[row];
         }
+        next_ping = 1;
         display_data = (short *)line_data;
 
         

@@ -44,16 +44,14 @@ int pong(void)
     return 0;
 }
 
-int ping_enable = 1;
+int ping_enable = 0;
 int pong_enable = 0;
 int send_data_flg = 0;
 void CT16B1_IRQHandler(void)
 {
-    if(Mode == HOST_MODE) {
-        if(ping_enable) {
-            ping();
-            send_display_data();
-        }
+    if(ping_enable) {
+        ping();
+        send_display_data();
     }
 	LPC_TMR16B1->IR =0x8;    
 }

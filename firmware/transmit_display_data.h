@@ -1,5 +1,6 @@
 #ifndef TRANS_DISPLAY_DATA_H_
 #define TRANS_DISPLAY_DATA_H_
+extern char next_ping;
 
 void send_display_data(void);
 void recv_display_data(int(*gpio_func)(void));

@@ -11,14 +11,71 @@ volatile int send_data = 0;
 volatile int reader_count = 0; 
 volatile char reader_count_start_state = 0;
 volatile unsigned long second_counter = 0;
+int IRLED_NUM = 0;
+
+void (*IRLED_ON[])(void) ={IRLED0_ON, IRLED1_ON, IRLED2_ON, IRLED3_ON };
+void (*IRLED_OFF[])(void) ={IRLED0_OFF, IRLED1_OFF, IRLED2_OFF, IRLED3_OFF };
+
+void IRLED0_ON(void) 
+{
+    LPC_GPIO1 -> DATA |= _BV(3);    
+}
+
+void IRLED0_OFF(void) 
+{
+    LPC_GPIO1 -> DATA &=~_BV(3);    
+}
+
+void IRLED1_ON(void) 
+{
+    LPC_GPIO1 -> DATA |= _BV(4);    
+}
+
+void IRLED1_OFF(void) 
+{
+    LPC_GPIO1 -> DATA &=~_BV(4);    
+}
+
+void IRLED2_ON(void) 
+{
+    LPC_GPIO1 -> DATA |= _BV(5);    
+}
+
+void IRLED2_OFF(void)
+{
+    LPC_GPIO1 -> DATA &=~_BV(5);    
+}
+void IRLED3_ON(void) 
+{
+    LPC_GPIO1 -> DATA |= _BV(8);    
+}
+
+void IRLED3_OFF(void) 
+{
+    LPC_GPIO1 -> DATA &=~_BV(8);    
+}
+
+
+int IR0(void) {
+    return LPC_GPIO0->MASKED_ACCESS[1 << 11];
+}
+
+int IR1(void) {
+    return LPC_GPIO1->MASKED_ACCESS[1 << 0];
+}
+int IR2(void) {
+    return LPC_GPIO1->MASKED_ACCESS[1 << 1];
+}
+int IR3(void) {
+    return LPC_GPIO1->MASKED_ACCESS[1 << 2];
+}
+
 
 static inline unsigned long micros(void) 
 {
     return second_counter;
 }
     
-
-
 void ircomm_init(void)
 {
 	LPC_SYSCON->SYSAHBCLKCTRL |=  (1 << 9);
@@ -49,19 +106,6 @@ int ircomm_send(unsigned char *buf)
     
 }
 
-int IR0(void) {
-    return LPC_GPIO0->MASKED_ACCESS[1 << 11];
-}
-
-int IR1(void) {
-    return LPC_GPIO1->MASKED_ACCESS[1 << 0];
-}
-int IR2(void) {
-    return LPC_GPIO1->MASKED_ACCESS[1 << 1];
-}
-int IR3(void) {
-    return LPC_GPIO1->MASKED_ACCESS[1 << 2];
-}
 
 
 int ircomm_recv(int (*gpio_func)(void))
@@ -132,22 +176,22 @@ void CT32B0_IRQHandler(void)
 
     if(reader_count_start_state == 1) {
             if(RZ_state % 2) {
-                LPC_GPIO1 -> DATA &= ~_BV(3);
+                IRLED_OFF[IRLED_NUM]();
             }
             else {
-                LPC_GPIO1 -> DATA |= _BV(3);
+                IRLED_ON[IRLED_NUM]();
             }
             RZ_state++;
             if(reader_count == 384) {
                 reader_count = 0;
-                LPC_GPIO1 -> DATA &= ~_BV(3);
+                IRLED_OFF[IRLED_NUM]();
                 reader_count_start_state = 2;
             }            
     }  
     
     else if(reader_count == 384) {
         if(reader_count_start_state == 2) {            
-            LPC_GPIO1 -> DATA &= ~_BV(3);
+            IRLED_OFF[IRLED_NUM]();
             reader_count = 0;
             data_bit_num = 0;
             RZ_state = 0;
@@ -158,15 +202,15 @@ void CT32B0_IRQHandler(void)
     if(reader_count_start_state == 3) {
         if(high_sig) {
             if(RZ_state % 2) {
-                LPC_GPIO1 -> DATA &= ~_BV(3);
+                IRLED_OFF[IRLED_NUM]();
             }
             else {
-                LPC_GPIO1 -> DATA |= _BV(3);
+                IRLED_ON[IRLED_NUM]();
             }
             RZ_state++;
         }
         if(reader_count == 21)  {
-            LPC_GPIO1 -> DATA |= _BV(3);
+            IRLED_ON[IRLED_NUM]();
             reader_count = 0;
             if(high_sig) {
                 high_sig = 0;
