@@ -49,7 +49,22 @@ int ircomm_send(unsigned char *buf)
     
 }
 
-int ircomm_recv(void)
+int IR0(void) {
+    return LPC_GPIO0->MASKED_ACCESS[1 << 11];
+}
+
+int IR1(void) {
+    return LPC_GPIO1->MASKED_ACCESS[1 << 0];
+}
+int IR2(void) {
+    return LPC_GPIO1->MASKED_ACCESS[1 << 1];
+}
+int IR3(void) {
+    return LPC_GPIO1->MASKED_ACCESS[1 << 2];
+}
+
+
+int ircomm_recv(int (*gpio_func)(void))
 {
      char IRbit[26] ;			// 受信バッファ
      unsigned long t ;
@@ -60,10 +75,10 @@ int ircomm_recv(void)
      ans = 0 ;
      t   = 0 ;
      // リーダ部のチェックを行う               
-     if(LPC_GPIO1->MASKED_ACCESS[1 << 0] == 0) {
+     if(gpio_func() == 0) {
          t = micros() ;                        
          // 現在の時刻(us)を得る
-         while (LPC_GPIO1->MASKED_ACCESS[1 << 0]== 0) ;	
+         while (gpio_func()== 0) ;	
          // 1(ON)になるまで待つ
          t = micros() - t ;	
          // 0(OFF)の部分をはかる
@@ -71,14 +86,14 @@ int ircomm_recv(void)
      // リーダ部有りなら処理する(4.5ms以上の0にて判断する)
      if (t >= 4500) {
          i = 0 ;
-         while(LPC_GPIO1->MASKED_ACCESS[1 << 0] == 1);
+         while(gpio_func());
          // ここまでがリーダ部(ON部分)読み飛ばす
          // データ部の読み込み
          while (1) {
-             while(LPC_GPIO1->MASKED_ACCESS[1 << 0] == 0);
+             while(gpio_func() == 0);
              // OFF部分は読み飛ばす
              t = micros() ;
-             while(LPC_GPIO1->MASKED_ACCESS[1 << 0] == 1);
+             while(gpio_func() );
              // 0(FF)になるまで待つ
              t = micros() - t ;					
              // 1(ON)部分の長さをはかる

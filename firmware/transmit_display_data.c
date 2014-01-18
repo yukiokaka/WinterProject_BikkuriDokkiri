@@ -29,7 +29,7 @@ void send_display_data(void)
 }
 
 
-void recv_display_data(void) 
+void recv_display_data(int(*gpio_func)(void)) 
 {
     
     int row = 0;
@@ -38,19 +38,20 @@ void recv_display_data(void)
     int i;
     
     for(row = 0; row < 16; row++) {                
-        data0 = ircomm_recv();
-        data1 = ircomm_recv();
-        data2 = ircomm_recv();
-        data3 = ircomm_recv(); 
+        data0 = ircomm_recv(gpio_func);
+        data1 = ircomm_recv(gpio_func);
+        data2 = ircomm_recv(gpio_func);
+        data3 = ircomm_recv(gpio_func); 
         display_test_buf[row] = (data3 << 12 )|  (data2 << 8 )| (data1 << 4 )| data0 ;
     }
-    data4 = ircomm_recv();
+    data4 = ircomm_recv(gpio_func);
 
     if(data4 == 36) {
         for(row = 0; row < 16; row++) {
             line_data[row] = display_test_buf[row];
         }
         display_data = (short *)line_data;
+
         
     }
     

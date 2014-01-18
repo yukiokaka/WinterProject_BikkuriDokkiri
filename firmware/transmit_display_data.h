@@ -2,6 +2,6 @@
 #define TRANS_DISPLAY_DATA_H_
 
 void send_display_data(void);
-void recv_display_data(void);
+void recv_display_data(int(*gpio_func)(void));
 void reset_display_data_from_ircomm(void);
 #endif

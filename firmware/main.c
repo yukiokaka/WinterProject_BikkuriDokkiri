@@ -53,7 +53,7 @@ void SysTick_Handler (void)
 }
 
 
-int Mode = HOST_MODE;
+int Mode = SLAVE_MODE;
 
 int main (void)
 {
@@ -73,17 +73,15 @@ int main (void)
     SysTick->LOAD = AHB_CLOCK /1000 - 1;
     SysTick->CTRL = 0x07;
     
-    int data = 0, data1 = 0, data2 = 0;
+    int data0 = 0, data1 = 0, data2 = 0, data3 = 0;
     while(1) { 
-        data = 0;
-        data1 = 0;
         pc_state_machine(); 
         if(Mode == HOST_MODE) {
         }
         else if(Mode == SLAVE_MODE) {
-            data1 = ircomm_recv();
-            if(data1 == CMD_PING) {
-                recv_display_data();
+            data3 = ircomm_recv(IR3);
+            if(data3 == CMD_PING) {
+                recv_display_data(IR3);                
                 
             }
 
