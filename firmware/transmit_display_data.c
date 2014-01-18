@@ -13,6 +13,9 @@ void send_display_data(void)
     unsigned long cnt= 1000*1000*1000;
     
     display_data = line_data;
+
+    data = 1;
+    ircomm_send(&data);           
     for(row = 0; row < 16; row++) {
         data = line_data[row] & 0x0f;  
         ircomm_send(&data);
@@ -33,10 +36,11 @@ void recv_display_data(int(*gpio_func)(void))
 {
     
     int row = 0;
-    char data0 = 0, data1 = 0, data2 = 0, data3 = 0, data4 = 0 ;
+    char num = 0, data0 = 0, data1 = 0, data2 = 0, data3 = 0, data4 = 0 ;
     static short display_test_buf[16];
     int i;
-    
+
+    num = ircomm_recv(gpio_func);
     for(row = 0; row < 16; row++) {                
         data0 = ircomm_recv(gpio_func);
         data1 = ircomm_recv(gpio_func);
