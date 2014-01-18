@@ -26,8 +26,7 @@ void ping_init(void)
 
 int ping(void)
 {
-
-
+    
     static unsigned char data = 0;
     data = CMD_PING;
     
@@ -40,22 +39,21 @@ int pong(void)
     int time = 0;
     static unsigned char data = 0;
     data = CMD_PONG;
-    
-    while(ircomm_send(&data) < 0) {
-        time++;
-        if(time == 60000) break;
-    }
+    while(ircomm_send(&data) < 0);
     
     return 0;
 }
 
-
-
+int ping_enable = 1;
+int pong_enable = 0;
+int send_data_flg = 0;
 void CT16B1_IRQHandler(void)
 {
-    if(Mode == SLAVE_MODE) {
-        ping();
-     
+    if(Mode == HOST_MODE) {
+        if(ping_enable) {
+            ping();
+            send_display_data();
+        }
     }
 	LPC_TMR16B1->IR =0x8;    
 }

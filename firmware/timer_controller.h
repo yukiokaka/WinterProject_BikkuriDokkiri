@@ -7,7 +7,7 @@
 #include "display_timer.h"
 
 
-void inline enable_timer(void)
+inline void  enable_timer(void)
 {
     enable_ping_timer();
     enable_ircomm_timer();
@@ -15,7 +15,7 @@ void inline enable_timer(void)
 }
 
 
-void inline disable_timer(void)
+inline void disable_timer(void)
 {
     disable_ping_timer();
     disable_ircomm_timer();

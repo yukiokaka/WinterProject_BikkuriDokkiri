@@ -8,6 +8,9 @@
 #define  enable_ping_timer() LPC_TMR16B1 -> TCR = 1
 
 extern volatile unsigned char device_num;
+extern int ping_enable ;
+extern int pong_enable;
+extern int send_data_flg;
 
 
 int ping(void);

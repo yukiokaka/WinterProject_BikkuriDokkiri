@@ -42,9 +42,10 @@ void die(FRESULT rc)
 /*---------------------------------------------------------*/
 
 /* 1kHz Timer ISR */
+static int i = 0;
+
 void SysTick_Handler (void)
 {
-    static int i = 0;
     SysTick->CTRL;	   
 
     i++;
@@ -69,26 +70,21 @@ int main (void)
     ping_init();
 
     /* Enable SysTick timer in interval of 1ms */
-    SysTick->LOAD = AHB_CLOCK  - 1;
+    SysTick->LOAD = AHB_CLOCK /1000 - 1;
     SysTick->CTRL = 0x07;
     
-    unsigned long data = 0;
+    int data = 0, data1 = 0, data2 = 0;
     while(1) { 
         data = 0;
-        enable_timer();
+        data1 = 0;
         pc_state_machine(); 
         if(Mode == HOST_MODE) {
-            data = ircomm_recv();
-            if(data == CMD_PING) {   
-                pong();
-                send_display_data();
-            }
-
         }
         else if(Mode == SLAVE_MODE) {
-            data = ircomm_recv();
-            if(data == CMD_PONG) {
+            data1 = ircomm_recv();
+            if(data1 == CMD_PING) {
                 recv_display_data();
+                
             }
 
         }
