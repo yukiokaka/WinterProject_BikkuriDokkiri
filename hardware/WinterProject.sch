@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3501,22 +3501,12 @@ Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
 <wire x1="96.52" y1="154.94" x2="109.22" y2="154.94" width="0.1524" layer="91"/>
 <label x="104.14" y="154.94" size="1.778" layer="95"/>
 <pinref part="SUPPLY15" gate="GND" pin="GND"/>
-<pinref part="U$1" gate="G$1" pin="OID"/>
-<wire x1="96.52" y1="157.48" x2="109.22" y2="157.48" width="0.1524" layer="91"/>
-<label x="104.14" y="157.48" size="1.778" layer="95"/>
-<wire x1="109.22" y1="154.94" x2="109.22" y2="157.48" width="0.1524" layer="91"/>
-<junction x="109.22" y="154.94"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$2" pin="OIE"/>
 <wire x1="96.52" y1="137.16" x2="109.22" y2="137.16" width="0.1524" layer="91"/>
 <label x="104.14" y="137.16" size="1.778" layer="95"/>
 <pinref part="SUPPLY16" gate="GND" pin="GND"/>
-<pinref part="U$1" gate="G$2" pin="OID"/>
-<wire x1="96.52" y1="139.7" x2="109.22" y2="139.7" width="0.1524" layer="91"/>
-<label x="104.14" y="139.7" size="1.778" layer="95"/>
-<wire x1="109.22" y1="137.16" x2="109.22" y2="139.7" width="0.1524" layer="91"/>
-<junction x="109.22" y="137.16"/>
 </segment>
 <segment>
 <pinref part="CON2" gate="_PWR" pin="GND"/>
@@ -3710,78 +3700,6 @@ Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PIO2_11/SCK0"/>
 <wire x1="33.02" y1="96.52" x2="43.18" y2="96.52" width="0.1524" layer="91"/>
 <label x="38.1" y="96.52" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="J2RCK" class="0">
-<segment>
-<pinref part="U$1" gate="G$2" pin="RCK"/>
-<wire x1="63.5" y1="144.78" x2="50.8" y2="144.78" width="0.1524" layer="91"/>
-<label x="50.8" y="144.78" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="PIO2_6"/>
-<wire x1="33.02" y1="109.22" x2="43.18" y2="109.22" width="0.1524" layer="91"/>
-<label x="38.1" y="109.22" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="J2SCK" class="0">
-<segment>
-<pinref part="U$1" gate="G$2" pin="SCK"/>
-<wire x1="63.5" y1="142.24" x2="50.8" y2="142.24" width="0.1524" layer="91"/>
-<label x="50.8" y="142.24" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="PIO2_1/DSR/SCK1"/>
-<wire x1="33.02" y1="121.92" x2="43.18" y2="121.92" width="0.1524" layer="91"/>
-<label x="38.1" y="121.92" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="J2SER" class="0">
-<segment>
-<pinref part="U$1" gate="G$2" pin="SER"/>
-<wire x1="63.5" y1="139.7" x2="50.8" y2="139.7" width="0.1524" layer="91"/>
-<label x="50.8" y="139.7" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="PIO2_0/DTR/SSEL1"/>
-<wire x1="33.02" y1="124.46" x2="43.18" y2="124.46" width="0.1524" layer="91"/>
-<label x="38.1" y="124.46" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="J2OIA" class="0">
-<segment>
-<pinref part="U$1" gate="G$2" pin="OIA"/>
-<wire x1="96.52" y1="147.32" x2="109.22" y2="147.32" width="0.1524" layer="91"/>
-<label x="104.14" y="147.32" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="PIO2_7"/>
-<wire x1="33.02" y1="106.68" x2="43.18" y2="106.68" width="0.1524" layer="91"/>
-<label x="38.1" y="106.68" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="J2OIB" class="0">
-<segment>
-<pinref part="U$1" gate="G$2" pin="OIB"/>
-<wire x1="96.52" y1="144.78" x2="109.22" y2="144.78" width="0.1524" layer="91"/>
-<label x="104.14" y="144.78" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="PIO2_8"/>
-<wire x1="33.02" y1="104.14" x2="43.18" y2="104.14" width="0.1524" layer="91"/>
-<label x="38.1" y="104.14" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="J2OIC" class="0">
-<segment>
-<pinref part="U$1" gate="G$2" pin="OIC"/>
-<wire x1="96.52" y1="142.24" x2="109.22" y2="142.24" width="0.1524" layer="91"/>
-<label x="104.14" y="142.24" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="PIO1_9/CT16B1_MAT0"/>
-<wire x1="-55.88" y1="66.04" x2="-68.58" y2="66.04" width="0.1524" layer="91"/>
-<label x="-68.58" y="66.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="IR0" class="0">
@@ -4047,6 +3965,18 @@ Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
 <segment>
 <pinref part="CON1" gate="_PWR" pin="VCC"/>
 <pinref part="U$6" gate="G$1" pin="VCCEXT"/>
+</segment>
+</net>
+<net name="J1OID" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="OID"/>
+<wire x1="96.52" y1="157.48" x2="109.22" y2="157.48" width="0.1524" layer="91"/>
+<label x="104.14" y="157.48" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PIO0_7/CTS"/>
+<wire x1="-55.88" y1="106.68" x2="-68.58" y2="106.68" width="0.1524" layer="91"/>
+<label x="-68.58" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
