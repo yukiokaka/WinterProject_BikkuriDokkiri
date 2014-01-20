@@ -5,6 +5,8 @@
 #define  enable_ircomm_timer() LPC_TMR32B0 -> TCR = 1
 
 extern int IRLED_NUM;
+void IRLEDALL_ON();
+void IRLEDALL_OFF();
 void IRLED0_ON();
 void IRLED0_OFF();
 void IRLED1_ON();

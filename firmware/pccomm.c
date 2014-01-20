@@ -69,7 +69,8 @@ int pc_state_machine(void)
                 Mode = HOST_MODE;
                 line_num = 0;
                 mode = SEND_PC_DATA_SIGNAL;
-            }
+                return 1;             
+            }        
         } 
     }
     else if(mode == SEND_PC_DATA_SIGNAL) {
@@ -113,8 +114,10 @@ int pc_state_machine(void)
             
         }
         mode = SEND_PC_FIN_SIGNAL;
+        return 1;
+
     }
-    if(mode == SEND_PC_FIN_SIGNAL) {
+    else if(mode == SEND_PC_FIN_SIGNAL) {
         uart_putc('F');
         for(i = 0; i < 16; i++) { 
             line_data[i] = line_data_buf[i];
@@ -123,6 +126,8 @@ int pc_state_machine(void)
         ping_enable = 1;
         
         mode = RECV_PC_SEND_SIGNAL;
+        return 0;
+
     }
 
     /*---UART通信モードを離脱---*/

@@ -13,8 +13,27 @@ volatile char reader_count_start_state = 0;
 volatile unsigned long second_counter = 0;
 int IRLED_NUM = 0;
 
-void (*IRLED_ON[])(void) ={IRLED0_ON, IRLED1_ON, IRLED2_ON, IRLED3_ON };
-void (*IRLED_OFF[])(void) ={IRLED0_OFF, IRLED1_OFF, IRLED2_OFF, IRLED3_OFF };
+void (*IRLED_ON[])(void) ={IRLED0_ON, IRLED1_ON, IRLED2_ON, IRLED3_ON, IRLEDALL_ON };
+void (*IRLED_OFF[])(void) ={IRLED0_OFF, IRLED1_OFF, IRLED2_OFF, IRLED3_OFF, IRLEDALL_OFF };
+
+void IRLEDALL_ON(void)
+{
+    LPC_GPIO1 -> DATA |= _BV(3);    
+    LPC_GPIO1 -> DATA |= _BV(4);    
+    LPC_GPIO1 -> DATA |= _BV(5);    
+    LPC_GPIO1 -> DATA |= _BV(8);    
+
+}
+
+void IRLEDALL_OFF(void)
+{
+    LPC_GPIO1 -> DATA &= ~_BV(3);    
+    LPC_GPIO1 -> DATA &= ~_BV(4);    
+    LPC_GPIO1 -> DATA &= ~_BV(5);    
+    LPC_GPIO1 -> DATA &= ~_BV(8);    
+
+}
+
 
 void IRLED0_ON(void) 
 {
@@ -152,7 +171,6 @@ int ircomm_recv(int (*gpio_func)(void))
 
          if (data > 128 ) data = data - 128;
 
-         xprintf("%d %d\n", data, data_bar);
          if(data == 255-data_bar)
              return data;
          else

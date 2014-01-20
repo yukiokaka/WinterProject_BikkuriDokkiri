@@ -15,7 +15,7 @@ void ping_init(void)
 	LPC_SYSCON->SYSAHBCLKCTRL |=  (1 << 8);
     
     LPC_TMR16B1->PR = (3*64)-1;        
-    LPC_TMR16B1->MR3 = 62500-1;       
+    LPC_TMR16B1->MR3 = 92500-1;       
     LPC_TMR16B1->MCR &= ~(7UL << 9); 
     LPC_TMR16B1->MCR |=  (3UL << 9); 
     NVIC -> ISER[0] |= (1<<17);

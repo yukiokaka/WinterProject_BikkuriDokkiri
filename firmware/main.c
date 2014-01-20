@@ -74,22 +74,34 @@ int main (void)
     SysTick->CTRL = 0x07;
     
     int data0 = 0, data1 = 0, data2 = 0, data3 = 0;
+    int pc_state = 0;
+    IRLEDALL_ON();
     while(1) { 
-        pc_state_machine(); 
+        pc_state = pc_state_machine();
+
         if(Mode == HOST_MODE) {
-            ping_enable = 1;
+            IRLED_NUM = 0;
+            if(!pc_state) 
+                ping_enable = 1;
+            
         }
         else if(Mode == SLAVE_MODE) {
+            data0 = 0;
+            data1 = 0;
+            data2 = 0;
+            data3 = 0;
             
             if(!next_ping) {
-                data3 = ircomm_recv(IR3);
-                if(data3 == CMD_PING) {
-                    recv_display_data(IR3);                
+                data0 = ircomm_recv(IR0);
+                if(data0 == CMD_PING) {
+                    recv_display_data(IR0);              
                 }
+ 
             }
             else {
-                IRLED_NUM = 2;
-                ping_enable = 1;
+                IRLED_NUM = 3;
+                if(!pc_state) 
+                    ping_enable = 1;
             }
         }
     }
