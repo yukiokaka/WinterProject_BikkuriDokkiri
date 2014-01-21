@@ -32,13 +32,13 @@ void ssp_init(void){
   LPC_SYSCON -> PRESETCTRL &= ~_BV(0);  /* Set SSP0 reset */
   LPC_SYSCON -> PRESETCTRL |= _BV(0);   /* Release SSP0 reset */
   LPC_SYSCON -> SSP0CLKDIV = 1;         /* PCLK = sysclk */
-  LPC_SSP0 -> CPSR = 128;        /* fc=PCLK/2 */
-  LPC_SSP0 -> CR0 = 0x07 | (4<<8);       /* Mode-0, 8-bit */
+  LPC_SSP0 -> CPSR = 2;        /* fc=PCLK/2 */
+  LPC_SSP0 -> CR0 = 0x07 ;       /* Mode-0, 8-bit */
   LPC_SSP0 -> CR1 = 0x02;         /* Enable SPI */
   LPC_IOCON -> SCK_LOC = 0x02;   /* SCK0 location = PIO0_6 */
-  LPC_IOCON -> PIO0_6 = 0x02;    /* SCK0 */
-  LPC_IOCON -> PIO0_9 = 0x01;    /* MOSI0 */
-  LPC_IOCON -> PIO0_8 = 0x11;    /* MISO0/pull-up */
+  LPC_IOCON -> PIO0_6 = 0x02 | (1 << 4);    /* SCK0 */
+  LPC_IOCON -> PIO0_9 = 0x1 | (1 << 4);    /* MOSI0 */
+  LPC_IOCON -> PIO0_8 = 0x1 | (1 << 4);    /* MISO0/pull-up */
   CS_H();
 }
 

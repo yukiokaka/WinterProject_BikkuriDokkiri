@@ -98,11 +98,12 @@ static void power_on (void)
 	LPC_SSP0 -> CR0 = 0x0007;		/* Mode-0, 8-bit */
 	LPC_SSP0 -> CR1 = 0x02;			/* Enable SPI */
 	LPC_IOCON -> SCK_LOC = 0x02;	/* SCK0 location = PIO0_6 */
-	LPC_IOCON -> PIO0_6 = 0x02;	/* SCK0 */
-	LPC_IOCON -> PIO0_9 = 0x01;	/* MOSI0 */
+	LPC_IOCON -> PIO0_6 = 0x12;	/* SCK0 */
+	LPC_IOCON -> PIO0_9 = 0x11;	/* MOSI0 */
 	LPC_IOCON -> PIO0_8 = 0x11;	/* MISO0/pull-up */
     
     ssp_init();
+
 }
 
 
@@ -110,9 +111,9 @@ static void xmit_mmc (BYTE d)
 {
     char dummy;
     uint8_t  r_buf = 0;
-    while ((LPC_SSP0 -> SR & ((1<<1)|(1<<4))) != (1<<1));
-
+    //    while ((LPC_SSP0 -> SR & ((1<<1)|(1<<4))) != (1<<1));
 	LPC_SSP0 -> DR = d;		/* Start an SPI transaction */
+
 	while (!(LPC_SSP0 -> SR & _BV(2))) ;	/* Wait for the end of transaction */
 	dummy = LPC_SSP0 -> DR;	/* Return received byte */
     return ;
@@ -367,6 +368,7 @@ DRESULT disk_writep (
 				if (tmr) res = RES_OK;
 			}
 			release_spi();
+
 		}
 	}
 

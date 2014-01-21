@@ -6,13 +6,52 @@
 #include "timer_controller.h"
 #include "pccomm.h"
 #include "ping.h"
+#include "flash_nvol.h"
+
+#define NVOL_VAR_DEVINDEX 0    
+
+uint8_t get_display(void)
+{
+    /* 初回使用時にflashからロードする。 */
+    static unsigned char devindex_loaded = 0;
+    short data;
+    int i;
+    for(i = 0;i < 16; i++) {
+        /* flashからロード */
+        if(NVOL_GetVariable(NVOL_VAR_DEVINDEX + i, (UNSIGNED8*)&data,2) == FALSE) {
+            /* 読み取り失敗。デフォルト値を使う。 */
+            display_data = DotPicture[1] ;
+        }
+        else {
+            line_data[i] = data;
+            display_data = line_data ;
+        }
+    }
+    
+    return 0;               
+}
+
+int set_display(short *display_data, int size, int row)
+{
+    
+    if(NVOL_SetVariable(NVOL_VAR_DEVINDEX+row, (UNSIGNED8*)display_data, 2) == FALSE) {
+        /* fail */
+        return 0;
+    }
+    /* suceed */
+    return 1;
+}
+
+/*---------------------------------------------------------*/
+
+
 void send_display_data(void)
 {
     int row = 0;
     unsigned char data = 64;
     unsigned long cnt= 1000*1000*1000;
     
-    display_data = line_data;
+    display_data = (short *)line_data;
 
     data = 1;
     ircomm_send(&data);           
@@ -57,6 +96,10 @@ void recv_display_data(int(*gpio_func)(void))
         }
         next_ping = 1;
         display_data = (short *)line_data;
+        for(row = 0; row < 16; row++) {
+            set_display((short *)line_data+row, 2, row);
+        }
+
         
     }
     
