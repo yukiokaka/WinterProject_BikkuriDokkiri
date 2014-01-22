@@ -8,7 +8,7 @@
 #include "ping.h"
 #include "flash_nvol.h"
 
-#define NVOL_VAR_DEVINDEX 0    
+#define NVOL_VAR_DEVINDEX 0
 
 uint8_t get_display(void)
 {
@@ -18,22 +18,22 @@ uint8_t get_display(void)
     int i;
     for(i = 0;i < 16; i++) {
         /* flashからロード */
-        if(NVOL_GetVariable(NVOL_VAR_DEVINDEX + i, (UNSIGNED8*)&data,2) == FALSE) {
+        if(NVOL_GetVariable(NVOL_VAR_DEVINDEX + i, (UNSIGNED8*)&data, 2) == FALSE) {
             /* 読み取り失敗。デフォルト値を使う。 */
-            display_data = DotPicture[1] ;
+            display_data = DotPicture[1];
         }
         else {
             line_data[i] = data;
-            display_data = line_data ;
+            display_data = line_data;
         }
     }
-    
-    return 0;               
+
+    return 0;
 }
 
 int set_display(short *display_data, int size, int row)
 {
-    
+
     if(NVOL_SetVariable(NVOL_VAR_DEVINDEX+row, (UNSIGNED8*)display_data, 2) == FALSE) {
         /* fail */
         return 0;
@@ -49,14 +49,14 @@ void send_display_data(void)
 {
     int row = 0;
     unsigned char data = 64;
-    unsigned long cnt= 1000*1000*1000;
-    
+    unsigned long cnt= 1000 * 1000 * 1000;
+
     display_data = (short *)line_data;
 
     data = 1;
-    ircomm_send(&data);           
+    ircomm_send(&data);
     for(row = 0; row < 16; row++) {
-        data = line_data[row] & 0x0f;  
+        data = line_data[row] & 0x0f;
         ircomm_send(&data);
         data = (line_data[row] >> 4) & 0x0f;
         ircomm_send(&data);
@@ -71,22 +71,22 @@ void send_display_data(void)
 }
 
 char next_ping = 0;
- 
-void recv_display_data(int(*gpio_func)(void)) 
+
+void recv_display_data(int(*gpio_func)(void))
 {
-    
+
     int row = 0;
     char num = 0, data0 = 0, data1 = 0, data2 = 0, data3 = 0, data4 = 0 ;
     static short display_test_buf[16];
     int i;
 
     num = ircomm_recv(gpio_func);
-    for(row = 0; row < 16; row++) {                
+    for(row = 0; row < 16; row++) {
         data0 = ircomm_recv(gpio_func);
         data1 = ircomm_recv(gpio_func);
         data2 = ircomm_recv(gpio_func);
-        data3 = ircomm_recv(gpio_func); 
-        display_test_buf[row] = (data3 << 12 )|  (data2 << 8 )| (data1 << 4 )| data0 ;
+        data3 = ircomm_recv(gpio_func);
+        display_test_buf[row] = (data3 << 12 ) |  (data2 << 8 ) | (data1 << 4 ) | data0;
     }
     data4 = ircomm_recv(gpio_func);
 
@@ -100,9 +100,9 @@ void recv_display_data(int(*gpio_func)(void))
             set_display((short *)line_data+row, 2, row);
         }
 
-        
+
     }
-    
+
 }
 
 void reset_display_data_from_ircomm(void)
@@ -111,5 +111,5 @@ void reset_display_data_from_ircomm(void)
     for(row = 0; row < 16; row++) {
         line_data[row] = 0;
     }
-    
+
 }

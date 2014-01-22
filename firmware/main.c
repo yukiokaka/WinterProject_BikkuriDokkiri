@@ -24,7 +24,7 @@
 
 DWORD get_fattime (void)
 {
-	return	  ((DWORD)(2010 - 1980) << 25)	
+    return	  ((DWORD)(2010 - 1980) << 25)
         | ((DWORD)1 << 21)
         | ((DWORD)1 << 16)
         | ((DWORD)0 << 11)
@@ -36,7 +36,7 @@ DWORD get_fattime (void)
 void die(FRESULT rc)
 {
     xprintf("Failed with rc=%u.\n", rc);
-	for (;;) ;
+    for (;;) ;
 }
 
 
@@ -45,10 +45,10 @@ static int i = 0;
 
 void SysTick_Handler (void)
 {
-    SysTick->CTRL;	   
+    SysTick->CTRL;
 
     i++;
-    
+
 }
 
 
@@ -71,37 +71,37 @@ int main (void)
     /* Enable SysTick timer in interval of 1ms */
     SysTick->LOAD = AHB_CLOCK /1000 - 1;
     SysTick->CTRL = 0x07;
-    
+
     int data0 = 0, data1 = 0, data2 = 0, data3 = 0;
     int pc_state = 0;
 
     get_display();
     IRLEDALL_ON();
-    while(1) { 
+    while(1) {
         pc_state = pc_state_machine();
 
         if(Mode == HOST_MODE) {
             IRLED_NUM = 0;
-            if(!pc_state) 
+            if(!pc_state)
                 ping_enable = 1;
-            
+
         }
         else if(Mode == SLAVE_MODE) {
             data0 = 0;
             data1 = 0;
             data2 = 0;
             data3 = 0;
-            
+
             if(!next_ping) {
-                data0 = ircomm_recv(IR1);
+                data0 = ircomm_recv(IR0);
                 if(data0 == CMD_PING) {
-                    recv_display_data(IR1);              
+                    recv_display_data(IR0);
                 }
- 
+
             }
             else {
-                IRLED_NUM = 1;
-                if(!pc_state) 
+                IRLED_NUM = 3;
+                if(!pc_state)
                     ping_enable = 1;
             }
         }

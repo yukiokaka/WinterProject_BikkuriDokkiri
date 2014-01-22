@@ -40,7 +40,7 @@ void display(short array[]) {
     for (i = 0; i < width; i++) {
         char index = (i <= 7) ? 7 - i : 23 - i;
         LPC_GPIO1 -> DATA &= ~(_BV(10));            // SCK = 0
-        if (((array[row] >> (15-index)) & 0x01) == 0) 
+        if (((array[row] >> (15-index)) & 0x01) == 0)
             LPC_GPIO2 -> DATA |= _BV(2); // SER = 1
         else
             LPC_GPIO2 -> DATA &= ~_BV(2);           // SER = 0

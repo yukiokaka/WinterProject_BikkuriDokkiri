@@ -12,11 +12,11 @@ void display_timer_init(void)
 {
     matrix_init();
     display_data = DotPicture[1];
-	LPC_SYSCON->SYSAHBCLKCTRL |=  (1 << 10);
-    LPC_TMR32B1 -> PR = (3*32)-1;			
-    LPC_TMR32B1 -> MR3 = 10-1;			
-    LPC_TMR32B1 -> MCR &= ~(7 << 9);	
-    LPC_TMR32B1 -> MCR |=  (3 << 9);	
+    LPC_SYSCON->SYSAHBCLKCTRL |=  (1 << 10);
+    LPC_TMR32B1 -> PR = (3*32)-1;
+    LPC_TMR32B1 -> MR3 = 10-1;
+    LPC_TMR32B1 -> MCR &= ~(7 << 9);
+    LPC_TMR32B1 -> MCR |=  (3 << 9);
     NVIC -> ISER[0] |= (1<<19);
     NVIC_SetPriority(19,4);
 
@@ -26,6 +26,6 @@ void display_timer_init(void)
 void CT32B1_IRQHandler(void)
 {
     display(display_data);
-	LPC_TMR32B1->IR =0x8;
-    
+    LPC_TMR32B1->IR =0x8;
+
 }
